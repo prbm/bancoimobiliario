@@ -10,22 +10,18 @@ public class Jogador {
     private int numeroCasa;
     private boolean podeJogar;
     private double saldo;
+    private String cor;
 
     public Jogador() {
         configuracaoInicial();
     }
 
-    public Jogador(String nome){
+    public Jogador(String nome, String cor){
         this.nome = nome;
+        this.cor = cor;
         configuracaoInicial();
     }
-    
-    private void configuracaoInicial(){
-        numeroCasa = 0;
-        saldo = 2000;
-        podeJogar = true;
-    }
-    
+
     public String getNome() {
         return nome;
     }
@@ -33,7 +29,7 @@ public class Jogador {
     public void setNome(String nome) {
         this.nome = nome;
     }
-    
+
     public int getNumeroCasa() {
         return numeroCasa;
     }
@@ -56,6 +52,22 @@ public class Jogador {
 
     public void setSaldo(double saldo) {
         this.saldo = saldo;
+    }
+
+    public String getCor() {
+        return cor;
+    }
+
+    public void setCor(String cor) {
+        this.cor = cor;
+    }
+    
+    
+    
+    private void configuracaoInicial(){
+        numeroCasa = 1;
+        saldo = 2000;
+        podeJogar = true;
     }
 
     public void atualizarSaldo(double valor, String tipoAtualizacao) {

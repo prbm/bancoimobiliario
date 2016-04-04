@@ -7,6 +7,7 @@ package exemplobancoimobiliario;
 
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JLabel;
 
 /**
  *
@@ -21,10 +22,12 @@ public class Tabuleiro extends javax.swing.JFrame {
         initComponents();
         // configura as casas que são usadas no tabuleiro;
         configuraCasasTabuleiro();
+        // definir o array de labels que são as casas do jogo
+        definirArrayLabels();
 
         // pode ser mais útil transformar os jogadores em coleção, veremos mais adiante
-        j1 = new Jogador("Jogador 1");
-        j2 = new Jogador("Jogador 2");
+        j1 = new Jogador("Jogador 1", "Preto");
+        j2 = new Jogador("Jogador 2", "Branco");
 
         // já informa no label qual é o jogador que está jogando
         jlJogadorTurno.setText(j1.getNome());
@@ -57,12 +60,35 @@ public class Tabuleiro extends javax.swing.JFrame {
             else {
                 c = new Casa(false, 100, 10, 10, 100, i);
             }
-
             // adiciona a casa á coleção
             casas.add(c);
         }
 
         System.out.println("Foram configuradas " + casas.size() + " casas");
+    }
+    
+    private void definirArrayLabels(){
+        labels.add(null);
+        labels.add(jlCasa1);
+        labels.add(jlCasa2);
+        labels.add(jlCasa3);
+        labels.add(jlCasa4);
+        labels.add(jlCasa5);
+        labels.add(jlCasa6);
+        labels.add(jlCasa7);
+        labels.add(jlCasa8);
+        labels.add(jlCasa9);
+        labels.add(jlCasa10);
+        labels.add(jlCasa11);
+        labels.add(jlCasa12);
+        labels.add(jlCasa13);
+        labels.add(jlCasa14);
+        labels.add(jlCasa15);
+        labels.add(jlCasa16);
+        labels.add(jlCasa17);
+        labels.add(jlCasa18);
+        labels.add(jlCasa19);
+        labels.add(jlCasa20);
     }
 
     /**
@@ -352,36 +378,56 @@ public class Tabuleiro extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
     private void jbJogarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbJogarActionPerformed
 
+        String imagemCasaOcupada = null;
+        String nroCasa;        
+        JLabel lbl;
+        
+        System.out.println("Avaliar Rodada");
+        
         if (rodada % 2 != 0) {
             jogadorVez = j1;
         } else {
             jogadorVez = j2;
         }
 
+        // atualiza as informações sobre de quem é a vez de jogar
         int casasAndar = dado.rolarDados();
         jlDadoRolado.setText(String.valueOf(casasAndar));
         jlJogadorTurno.setText(jogadorVez.getNome());
         jlSaldo.setText(String.valueOf(jogadorVez.getSaldo()));
         jlJogadorTurno.updateUI();
 
+        // desocupa a casa da qual está saindo
+        casas.get(jogadorVez.getNumeroCasa()).desocuparCasa(jogadorVez);
+        
+        // ajusta os nomes das casas sendo desocupadas
+        nroCasa = String.format("%03d", jogadorVez.getNumeroCasa());
+        String imagemCasa = "/imagens/Casa" + nroCasa + ".png";
+        lbl = labels.get(jogadorVez.getNumeroCasa());
+        lbl.setIcon(new javax.swing.ImageIcon(getClass().getResource(imagemCasa)));
+        
+        // verifica por quantas casas vai andar
         for (int i = 1; i <= casasAndar; i++) {
-//            if (jogadorVez.getNumeroCasa() == 20) {
+            // se chegar ao fim das casas, retorna à casa 1
             if (jogadorVez.getNumeroCasa() >= 20) {
                 jogadorVez.setNumeroCasa(1);
-                ocupado = jogadorVez.getNumeroCasa();
                 break; // se voltou ao início, pode sair do loop
-            } else {
+            } else 
                 jogadorVez.setNumeroCasa(jogadorVez.getNumeroCasa() + 1);
-                ocupado = jogadorVez.getNumeroCasa();
-            }
-
         }
 
+        // identifica a casa que está sendo ocupada
+        ocupado = jogadorVez.getNumeroCasa();
+        
         // mostra as informações da casa ocupada
         Casa c = casas.get(ocupado);
+        c.ocuparCasa(jogadorVez);
+        nroCasa = String.format("%03d", jogadorVez.getNumeroCasa());
+
+        // apresenta as informações da casa
         jTFNumeroCasa.setText(String.valueOf(c.getNumeroCasa()));
         jTFValor.setText(String.valueOf(c.getAluguel()));
         if (c.isPodeComprar()) {
@@ -389,639 +435,30 @@ public class Tabuleiro extends javax.swing.JFrame {
         } else {
             jTFComprarVender.setText("COMPRAR");
         }
-
-        if (jogadorVez == j1) {
-
-            switch (ocupadoBranco) {
-                case 1:
-                    if (preto == 1) {
-                        jlCasa1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa001_Ocupada_Preto.png")));
-                    } else {
-                        jlCasa1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa001.png")));
-                    }
-                    break;
-                case 2:
-                    if (preto == 2) {
-                        jlCasa2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa002_Ocupada_Preto.png")));
-                    } else {
-                        jlCasa2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa002.png")));
-                    }
-                    break;
-                case 3:
-                    if (preto == 3) {
-                        jlCasa3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa003_Ocupada_Preto.png")));
-                    } else {
-                        jlCasa3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa003.png")));
-                    }
-                    break;
-                case 4:
-                    if (preto == 4) {
-                        jlCasa4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa004_Ocupada_Preto.png")));
-                    } else {
-                        jlCasa4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa004.png")));
-                    }
-                    break;
-                case 5:
-                    if (preto == 5) {
-                        jlCasa5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa001_Ocupada_Preto.png")));
-                    } else {
-                        jlCasa5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa001.png")));
-                    }
-                    break;
-                case 6:
-                    if (preto == 6) {
-                        jlCasa6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa002_Ocupada_Preto.png")));
-                    } else {
-                        jlCasa6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa002.png")));
-                    }
-                    break;
-                case 7:
-                    if (preto == 7) {
-                        jlCasa7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa003_Ocupada_Preto.png")));
-                    } else {
-                        jlCasa7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa003.png")));
-                    }
-                    break;
-                case 8:
-                    if (preto == 8) {
-                        jlCasa8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa004_Ocupada_Preto.png")));
-                    } else {
-                        jlCasa8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa004.png")));
-                    }
-                    break;
-                case 9:
-                    if (preto == 9) {
-                        jlCasa9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa001_Ocupada_Preto.png")));
-                    } else {
-                        jlCasa9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa001.png")));
-                    }
-                    break;
-                case 10:
-                    if (preto == 10) {
-                        jlCasa10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa002_Ocupada_Preto.png")));
-                    } else {
-                        jlCasa10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa002.png")));
-                    }
-                    break;
-                case 11:
-                    if (preto == 11) {
-                        jlCasa11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa003_Ocupada_Preto.png")));
-                    } else {
-                        jlCasa11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa003.png")));
-                    }
-                    break;
-                case 12:
-                    if (preto == 12) {
-                        jlCasa12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa004_Ocupada_Preto.png")));
-                    } else {
-                        jlCasa12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa004.png")));
-                    }
-                    break;
-                case 13:
-                    if (preto == 13) {
-                        jlCasa13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa001_Ocupada_Preto.png")));
-                    } else {
-                        jlCasa13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa001.png")));
-                    }
-                    break;
-                case 14:
-                    if (preto == 14) {
-                        jlCasa14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa002_Ocupada_Preto.png")));
-                    } else {
-                        jlCasa14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa002.png")));
-                    }
-                    break;
-                case 15:
-                    if (preto == 15) {
-                        jlCasa15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa003_Ocupada_Preto.png")));
-                    } else {
-                        jlCasa15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa003.png")));
-                    }
-                    break;
-                case 16:
-                    if (preto == 16) {
-                        jlCasa16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa004_Ocupada_Preto.png")));
-                    } else {
-                        jlCasa16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa004.png")));
-                    }
-                    break;
-                case 17:
-                    if (preto == 17) {
-                        jlCasa17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa001_Ocupada_Preto.png")));
-                    } else {
-                        jlCasa17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa001.png")));
-                    }
-                    break;
-                case 18:
-                    if (preto == 18) {
-                        jlCasa18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa002_Ocupada_Preto.png")));
-                    } else {
-                        jlCasa18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa002.png")));
-                    }
-                    break;
-                case 19:
-                    if (preto == 19) {
-                        jlCasa19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa003_Ocupada_Preto.png")));
-                    } else {
-                        jlCasa19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa003.png")));
-                    }
-                    break;
-                case 20:
-                    if (preto == 20) {
-                        jlCasa20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa004_Ocupada_Preto.png")));
-                    } else {
-                        jlCasa20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa004.png")));
-                    }
-                    break;
-
-            }
-            ocupadoBranco = ocupado;
-
-            switch (jogadorVez.getNumeroCasa()) {
-                case 1:
-                    if (preto == 1) {
-                        jlCasa1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa001_Ocupada_Dois.png")));
-                    } else {
-                        jlCasa1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa001_Ocupada_Branco.png")));
-                    }
-                    branco = 1;
-                    break;
-                case 2:
-                    if (preto == 2) {
-                        jlCasa2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa002_Ocupada_Dois.png")));
-                    } else {
-                        jlCasa2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa002_Ocupada_Branco.png")));
-                    }
-                    branco = 2;
-                    break;
-                case 3:
-                    if (preto == 3) {
-                        jlCasa3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa003_Ocupada_Dois.png")));
-                    } else {
-                        jlCasa3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa003_Ocupada_Branco.png")));
-                    }
-                    branco = 3;
-                    break;
-                case 4:
-                    if (preto == 4) {
-                        jlCasa4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa004_Ocupada_Dois.png")));
-                    } else {
-                        jlCasa4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa004_Ocupada_Branco.png")));
-                    }
-                    branco = 4;
-                    break;
-                case 5:
-                    if (preto == 5) {
-                        jlCasa5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa001_Ocupada_Dois.png")));
-                    } else {
-                        jlCasa5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa001_Ocupada_Branco.png")));
-                    }
-                    branco = 5;
-                    break;
-                case 6:
-                    if (preto == 6) {
-                        jlCasa6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa002_Ocupada_Dois.png")));
-                    } else {
-                        jlCasa6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa002_Ocupada_Branco.png")));
-                    }
-                    branco = 6;
-                    break;
-                case 7:
-                    if (preto == 7) {
-                        jlCasa7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa003_Ocupada_Dois.png")));
-                    } else {
-                        jlCasa7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa003_Ocupada_Branco.png")));
-                    }
-                    branco = 7;
-                    break;
-                case 8:
-                    if (preto == 8) {
-                        jlCasa8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa004_Ocupada_Dois.png")));
-                    } else {
-                        jlCasa8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa004_Ocupada_Branco.png")));
-                    }
-                    branco = 8;
-                    break;
-                case 9:
-                    if (preto == 9) {
-                        jlCasa9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa001_Ocupada_Dois.png")));
-                    } else {
-                        jlCasa9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa001_Ocupada_Branco.png")));
-                    }
-                    branco = 9;
-                    break;
-                case 10:
-                    if (preto == 10) {
-                        jlCasa10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa002_Ocupada_Dois.png")));
-                    } else {
-                        jlCasa10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa002_Ocupada_Branco.png")));
-                    }
-                    branco = 10;
-                    break;
-                case 11:
-                    if (preto == 11) {
-                        jlCasa11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa003_Ocupada_Dois.png")));
-                    } else {
-                        jlCasa11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa003_Ocupada_Branco.png")));
-                    }
-                    branco = 11;
-                    break;
-                case 12:
-                    if (preto == 12) {
-                        jlCasa12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa004_Ocupada_Dois.png")));
-                    } else {
-                        jlCasa12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa004_Ocupada_Branco.png")));
-                    }
-                    branco = 12;
-                    break;
-                case 13:
-                    if (preto == 13) {
-                        jlCasa13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa001_Ocupada_Dois.png")));
-                    } else {
-                        jlCasa13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa001_Ocupada_Branco.png")));
-                    }
-                    branco = 13;
-                    break;
-                case 14:
-                    if (preto == 14) {
-                        jlCasa14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa002_Ocupada_Dois.png")));
-                    } else {
-                        jlCasa14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa002_Ocupada_Branco.png")));
-                    }
-                    branco = 14;
-                    break;
-                case 15:
-                    if (preto == 15) {
-                        jlCasa15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa003_Ocupada_Dois.png")));
-                    } else {
-                        jlCasa15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa003_Ocupada_Branco.png")));
-                    }
-                    branco = 15;
-                    break;
-                case 16:
-                    if (preto == 16) {
-                        jlCasa16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa004_Ocupada_Dois.png")));
-                    } else {
-                        jlCasa16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa004_Ocupada_Branco.png")));
-                    }
-                    branco = 16;
-                    break;
-                case 17:
-                    if (preto == 17) {
-                        jlCasa17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa001_Ocupada_Dois.png")));
-                    } else {
-                        jlCasa17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa001_Ocupada_Branco.png")));
-                    }
-                    branco = 17;
-                    break;
-                case 18:
-                    if (preto == 18) {
-                        jlCasa18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa002_Ocupada_Dois.png")));
-                    } else {
-                        jlCasa18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa002_Ocupada_Branco.png")));
-                    }
-                    branco = 18;
-                    break;
-                case 19:
-                    if (preto == 19) {
-                        jlCasa19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa003_Ocupada_Dois.png")));
-                    } else {
-                        jlCasa19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa003_Ocupada_Branco.png")));
-                    }
-                    branco = 19;
-                    break;
-                case 20:
-                    if (preto == 20) {
-                        jlCasa20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa004_Ocupada_Dois.png")));
-                    } else {
-                        jlCasa20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa004_Ocupada_Branco.png")));
-                    }
-                    branco = 20;
-                    break;
-            }
-
-        } else {
-
-            switch (ocupadoPreto) {
-
-                case 1:
-                    if (branco == 1) {
-                        jlCasa1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa001_Ocupada_Branco.png")));
-                    } else {
-                        jlCasa1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa001.png")));
-                    }
-                    break;
-                case 2:
-                    if (branco == 2) {
-                        jlCasa2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa002_Ocupada_Branco.png")));
-                    } else {
-                        jlCasa2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa002.png")));
-                    }
-                    break;
-                case 3:
-                    if (branco == 3) {
-                        jlCasa3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa003_Ocupada_Branco.png")));
-                    } else {
-                        jlCasa3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa003.png")));
-                    }
-                    break;
-                case 4:
-                    if (branco == 4) {
-                        jlCasa4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa004_Ocupada_Branco.png")));
-                    } else {
-                        jlCasa4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa004.png")));
-                    }
-                    break;
-                case 5:
-                    if (branco == 5) {
-                        jlCasa5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa001_Ocupada_Branco.png")));
-                    } else {
-                        jlCasa5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa001.png")));
-                    }
-                    break;
-                case 6:
-                    if (branco == 6) {
-                        jlCasa6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa002_Ocupada_Branco.png")));
-                    } else {
-                        jlCasa6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa002.png")));
-                    }
-                    break;
-                case 7:
-                    if (branco == 7) {
-                        jlCasa7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa003_Ocupada_Branco.png")));
-                    } else {
-                        jlCasa7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa003.png")));
-                    }
-                    break;
-                case 8:
-                    if (branco == 8) {
-                        jlCasa8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa004_Ocupada_Branco.png")));
-                    } else {
-                        jlCasa8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa004.png")));
-                    }
-                    break;
-                case 9:
-                    if (branco == 9) {
-                        jlCasa9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa001_Ocupada_Branco.png")));
-                    } else {
-                        jlCasa9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa001.png")));
-                    }
-                    break;
-                case 10:
-                    if (branco == 10) {
-                        jlCasa10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa002_Ocupada_Branco.png")));
-                    } else {
-                        jlCasa10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa002.png")));
-                    }
-                    break;
-                case 11:
-                    if (branco == 11) {
-                        jlCasa11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa003_Ocupada_Branco.png")));
-                    } else {
-                        jlCasa11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa003.png")));
-                    }
-                    break;
-                case 12:
-                    if (branco == 12) {
-                        jlCasa12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa004_Ocupada_Branco.png")));
-                    } else {
-                        jlCasa12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa004.png")));
-                    }
-                    break;
-                case 13:
-                    if (branco == 13) {
-                        jlCasa13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa001_Ocupada_Branco.png")));
-                    } else {
-                        jlCasa13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa001.png")));
-                    }
-                    break;
-                case 14:
-                    if (branco == 14) {
-                        jlCasa14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa002_Ocupada_Branco.png")));
-                    } else {
-                        jlCasa14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa002.png")));
-                    }
-                    break;
-                case 15:
-                    if (branco == 15) {
-                        jlCasa15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa003_Ocupada_Branco.png")));
-                    } else {
-                        jlCasa15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa003.png")));
-                    }
-                    break;
-                case 16:
-                    if (branco == 16) {
-                        jlCasa16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa004_Ocupada_Branco.png")));
-                    } else {
-                        jlCasa16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa004.png")));
-                    }
-                    break;
-                case 17:
-                    if (branco == 17) {
-                        jlCasa17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa001_Ocupada_Branco.png")));
-                    } else {
-                        jlCasa17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa001.png")));
-                    }
-                    break;
-                case 18:
-                    if (branco == 18) {
-                        jlCasa18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa002_Ocupada_Branco.png")));
-                    } else {
-                        jlCasa18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa002.png")));
-                    }
-                    break;
-                case 19:
-                    if (branco == 19) {
-                        jlCasa19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa003_Ocupada_Branco.png")));
-                    } else {
-                        jlCasa19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa003.png")));
-                    }
-                    break;
-                case 20:
-                    if (branco == 20) {
-                        jlCasa20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa004_Ocupada_Branco.png")));
-                    } else {
-                        jlCasa20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa004.png")));
-                    }
-                    break;
-
-            }
-
-            ocupadoPreto = ocupado;
-            switch (jogadorVez.getNumeroCasa()) {
-                case 1:
-                    if (branco == 1) {
-                        jlCasa1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa001_Ocupada_Dois.png")));
-                    } else {
-                        jlCasa1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa001_Ocupada_Preto.png")));
-                    }
-                    preto = 1;
-                    break;
-                case 2:
-                    if (branco == 2) {
-                        jlCasa2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa002_Ocupada_Dois.png")));
-                    } else {
-                        jlCasa2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa002_Ocupada_Preto.png")));
-                    }
-                    preto = 2;
-                    break;
-                case 3:
-                    if (branco == 3) {
-                        jlCasa3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa003_Ocupada_Dois.png")));
-                    } else {
-                        jlCasa3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa003_Ocupada_Preto.png")));
-                    }
-                    preto = 3;
-                    break;
-                case 4:
-                    if (branco == 4) {
-                        jlCasa4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa004_Ocupada_Dois.png")));
-                    } else {
-                        jlCasa4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa004_Ocupada_Preto.png")));
-                    }
-                    preto = 4;
-                    break;
-                case 5:
-                    if (branco == 5) {
-                        jlCasa5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa001_Ocupada_Dois.png")));
-                    } else {
-                        jlCasa5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa001_Ocupada_Preto.png")));
-                    }
-                    preto = 5;
-                    break;
-                case 6:
-                    if (branco == 6) {
-                        jlCasa6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa002_Ocupada_Dois.png")));
-                    } else {
-                        jlCasa6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa002_Ocupada_Preto.png")));
-                    }
-                    preto = 6;
-                    break;
-                case 7:
-                    if (branco == 7) {
-                        jlCasa7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa003_Ocupada_Dois.png")));
-                    } else {
-                        jlCasa7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa003_Ocupada_Preto.png")));
-                    }
-                    preto = 7;
-                    break;
-                case 8:
-                    if (branco == 8) {
-                        jlCasa8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa004_Ocupada_Dois.png")));
-                    } else {
-                        jlCasa8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa004_Ocupada_Preto.png")));
-                    }
-                    preto = 8;
-                    break;
-                case 9:
-                    if (branco == 9) {
-                        jlCasa9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa001_Ocupada_Dois.png")));
-                    } else {
-                        jlCasa9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa001_Ocupada_Preto.png")));
-                    }
-                    preto = 9;
-                    break;
-                case 10:
-                    if (branco == 10) {
-                        jlCasa10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa002_Ocupada_Dois.png")));
-                    } else {
-                        jlCasa10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa002_Ocupada_Preto.png")));
-                    }
-                    preto = 10;
-                    break;
-                case 11:
-                    if (branco == 11) {
-                        jlCasa11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa003_Ocupada_Dois.png")));
-                    } else {
-                        jlCasa11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa003_Ocupada_Preto.png")));
-                    }
-                    preto = 11;
-                    break;
-                case 12:
-                    if (branco == 12) {
-                        jlCasa12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa004_Ocupada_Dois.png")));
-                    } else {
-                        jlCasa12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa004_Ocupada_Preto.png")));
-                    }
-                    preto = 12;
-                    break;
-                case 13:
-                    if (branco == 13) {
-                        jlCasa13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa001_Ocupada_Dois.png")));
-                    } else {
-                        jlCasa13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa001_Ocupada_Preto.png")));
-                    }
-                    preto = 13;
-                    break;
-                case 14:
-                    if (branco == 14) {
-                        jlCasa14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa002_Ocupada_Dois.png")));
-                    } else {
-                        jlCasa14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa002_Ocupada_Preto.png")));
-                    }
-                    preto = 14;
-                    break;
-                case 15:
-                    if (branco == 15) {
-                        jlCasa15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa003_Ocupada_Dois.png")));
-                    } else {
-                        jlCasa15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa003_Ocupada_Preto.png")));
-                    }
-                    preto = 15;
-                    break;
-                case 16:
-                    if (branco == 16) {
-                        jlCasa16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa004_Ocupada_Dois.png")));
-                    } else {
-                        jlCasa16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa004_Ocupada_Preto.png")));
-                    }
-                    preto = 16;
-                    break;
-                case 17:
-                    if (branco == 17) {
-                        jlCasa17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa001_Ocupada_Dois.png")));
-                    } else {
-                        jlCasa17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa001_Ocupada_Preto.png")));
-                    }
-                    preto = 17;
-                    break;
-                case 18:
-                    if (branco == 18) {
-                        jlCasa18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa002_Ocupada_Dois.png")));
-                    } else {
-                        jlCasa18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa002_Ocupada_Preto.png")));
-                    }
-                    preto = 18;
-                    break;
-                case 19:
-                    if (branco == 19) {
-                        jlCasa19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa003_Ocupada_Dois.png")));
-                    } else {
-                        jlCasa19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa003_Ocupada_Preto.png")));
-                    }
-                    preto = 19;
-                    break;
-                case 20:
-                    if (branco == 20) {
-                        jlCasa20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa004_Ocupada_Dois.png")));
-                    } else {
-                        jlCasa20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa004_Ocupada_Preto.png")));
-                    }
-                    preto = 20;
-                    break;
-            }
-            saldo2 = jogadorVez.getSaldo();
+        
+        // verifica os jogadores que ocupam a casa e formata o nome da imagem a ser exibida
+        if(c.getJogadoresOcupandoCasa().size() > 1){
+            imagemCasaOcupada = "/imagens/Casa" + nroCasa + "_Ocupada_Dois.png";
+        }else{
+            if(c.getJogadoresOcupandoCasa().size() == 1)
+                imagemCasaOcupada = "/imagens/Casa" + nroCasa + "_Ocupada_" + jogadorVez.getCor() + ".png";
         }
+        // informa as configurações
+        System.out.println("Caminho da imagem Ocupado: " + imagemCasaOcupada);
+        System.out.println("Caminho da imagem Casa: " + imagemCasa);
 
+        // atualiza as casas ocupadas
+        lbl = labels.get(c.getNumeroCasa());
+        lbl.setIcon(new javax.swing.ImageIcon(getClass().getResource(imagemCasaOcupada)));
+        
+        // atualiza a rodada
         rodada++;
-
-
     }//GEN-LAST:event_jbJogarActionPerformed
 
     private void jbComprarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbComprarActionPerformed
 //      Jogador jogadorVez = new Jogador();
 
-/*
+        /*
         if (rodada % 2 != 0) {
 //            jlJogadorTurno.setText("Jogador 1");
 //            jlSaldo.setText(String.valueOf(saldo1));
@@ -1033,25 +470,24 @@ public class Tabuleiro extends javax.swing.JFrame {
             jogadorVez = j2;
 //            jlJogadorTurno.updateUI();
         }
-*/
+         */
         // atualiza a interface de usuário com o jogador que está jogando
         jlJogadorTurno.setText(jogadorVez.getNome());
-        
-        
+
         // lê o número da casa em que o jogador se encontra
         int numeroCasa = jogadorVez.getNumeroCasa();
         // lê o valor da compra que a casa possui
         double valorCompra = casas.get(numeroCasa).getCompra();
         // atualiza o saldo do jogador
-        jogadorVez.setSaldo((jogadorVez.getSaldo()-valorCompra));
-        
+        jogadorVez.setSaldo((jogadorVez.getSaldo() - valorCompra));
+
         System.out.println("O saldo do jogador " + jogadorVez.getNome() + " foi atualizado para " + jogadorVez.getSaldo());
-        
+
         // atualiza a interface de usuário com as informações atualizadas
         jlSaldo.setText(String.valueOf(jogadorVez.getSaldo()));
         jlJogadorTurno.updateUI();
-        
-/*        
+
+        /*        
         if (jogadorVez == j1) {
 
 //        casa.setValorCasa(jogadorVez.getNumeroCasa());
@@ -1063,8 +499,8 @@ public class Tabuleiro extends javax.swing.JFrame {
 
             saldo2 = jogadorVez.getSaldo();
         }
-*/        
-        
+         */
+
     }//GEN-LAST:event_jbComprarActionPerformed
 
     private void jbVenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbVenderActionPerformed
@@ -1183,6 +619,8 @@ public class Tabuleiro extends javax.swing.JFrame {
 
     // declaração da relação de todas as casas que existem no tabuleiro
     private List<Casa> casas = new ArrayList<Casa>();
+    // declaração da relação de todos os labels de casa
+    private List<JLabel> labels = new ArrayList<JLabel>();
     // cria uma variável global, para verificar qual é o jogador que está jogando
     private Jogador jogadorVez;
 }
