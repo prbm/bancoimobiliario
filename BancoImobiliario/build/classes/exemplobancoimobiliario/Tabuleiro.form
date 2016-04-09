@@ -24,19 +24,17 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="jlCasa20" min="-2" pref="75" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jlValorDado" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                      <Component id="jlDadoRolado" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Component id="jlCasa19" alignment="0" min="-2" pref="75" max="-2" attributes="0"/>
-                  <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jlJogadorTurno" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="jlCasa20" min="-2" pref="75" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jlValorDado" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="jlCasa19" alignment="0" min="-2" pref="75" max="-2" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="jlCasa1" min="-2" pref="75" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
@@ -45,32 +43,7 @@
                               <Component id="jlCasa3" min="-2" pref="75" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jlCasa4" min="-2" pref="75" max="-2" attributes="0"/>
-                          </Group>
-                          <Component id="jlSaldo" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="jbJogar" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jbComprar" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jbVender" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jlNumeroCasa" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jlComprarVender" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jlValor" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="jTFNumeroCasa" pref="75" max="32767" attributes="0"/>
-                                  <Component id="jTFComprarVender" max="32767" attributes="0"/>
-                                  <Component id="jTFValor" max="32767" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
                               <Component id="jlCasa5" min="-2" pref="75" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
@@ -94,21 +67,47 @@
                                   </Group>
                               </Group>
                           </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="jlCasa18" min="-2" pref="75" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jlCasa17" min="-2" pref="75" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jlCasa16" min="-2" pref="75" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jlCasa15" min="-2" pref="75" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jlCasa14" min="-2" pref="75" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jlDadoRolado" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="jlCasa18" min="-2" pref="75" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jlJogadorTurno" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jlSaldo" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="jbJogar" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jbComprar" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jbVender" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace min="-2" pref="113" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jlNumeroCasa" min="-2" max="-2" attributes="0"/>
+                          <Component id="jlComprarVender" min="-2" max="-2" attributes="0"/>
+                          <Component id="jlValor" min="-2" max="-2" attributes="0"/>
+                      </Group>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jlCasa17" min="-2" pref="75" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jlCasa16" min="-2" pref="75" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jlCasa15" min="-2" pref="75" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jlCasa14" min="-2" pref="75" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="jTFNumeroCasa" pref="75" max="32767" attributes="0"/>
+                          <Component id="jTFComprarVender" max="32767" attributes="0"/>
+                          <Component id="jTFValor" max="32767" attributes="0"/>
+                      </Group>
                   </Group>
               </Group>
-              <EmptySpace pref="18" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -144,39 +143,46 @@
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jlCasa2" alignment="3" min="-2" pref="75" max="-2" attributes="0"/>
-                  <Component id="jlCasa4" alignment="3" min="-2" pref="75" max="-2" attributes="0"/>
-                  <Component id="jlCasa5" alignment="3" min="-2" pref="75" max="-2" attributes="0"/>
-                  <Component id="jlCasa7" alignment="3" min="-2" pref="75" max="-2" attributes="0"/>
-                  <Component id="jlCasa1" alignment="3" min="-2" pref="75" max="-2" attributes="0"/>
-                  <Component id="jlCasa6" alignment="3" min="-2" pref="75" max="-2" attributes="0"/>
-                  <Component id="jlCasa3" alignment="3" min="-2" pref="75" max="-2" attributes="0"/>
-                  <Component id="jlCasa8" alignment="3" min="-2" pref="75" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jlCasa9" alignment="3" min="-2" pref="75" max="-2" attributes="0"/>
-                  <Component id="jlCasa20" alignment="3" min="-2" pref="75" max="-2" attributes="0"/>
-                  <Component id="jlDadoRolado" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jlValorDado" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jlCasa10" alignment="3" min="-2" pref="75" max="-2" attributes="0"/>
-                  <Component id="jlCasa19" alignment="3" min="-2" pref="75" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jlCasa11" alignment="3" min="-2" pref="75" max="-2" attributes="0"/>
-                  <Component id="jlCasa16" alignment="3" min="-2" pref="75" max="-2" attributes="0"/>
-                  <Component id="jlCasa17" alignment="3" min="-2" pref="75" max="-2" attributes="0"/>
-                  <Component id="jlCasa18" alignment="3" min="-2" pref="75" max="-2" attributes="0"/>
-                  <Component id="jlCasa15" alignment="3" min="-2" pref="75" max="-2" attributes="0"/>
-                  <Component id="jlCasa14" alignment="3" min="-2" pref="75" max="-2" attributes="0"/>
-                  <Component id="jlCasa13" alignment="3" min="-2" pref="75" max="-2" attributes="0"/>
-                  <Component id="jlCasa12" alignment="3" min="-2" pref="75" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="-2" pref="140" max="-2" attributes="0"/>
+                      <Component id="jlDadoRolado" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jlCasa2" alignment="3" min="-2" pref="75" max="-2" attributes="0"/>
+                          <Component id="jlCasa4" alignment="3" min="-2" pref="75" max="-2" attributes="0"/>
+                          <Component id="jlCasa5" alignment="3" min="-2" pref="75" max="-2" attributes="0"/>
+                          <Component id="jlCasa7" alignment="3" min="-2" pref="75" max="-2" attributes="0"/>
+                          <Component id="jlCasa1" alignment="3" min="-2" pref="75" max="-2" attributes="0"/>
+                          <Component id="jlCasa6" alignment="3" min="-2" pref="75" max="-2" attributes="0"/>
+                          <Component id="jlCasa3" alignment="3" min="-2" pref="75" max="-2" attributes="0"/>
+                          <Component id="jlCasa8" alignment="3" min="-2" pref="75" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jlCasa9" alignment="3" min="-2" pref="75" max="-2" attributes="0"/>
+                          <Component id="jlCasa20" alignment="3" min="-2" pref="75" max="-2" attributes="0"/>
+                          <Component id="jlValorDado" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jlCasa10" alignment="3" min="-2" pref="75" max="-2" attributes="0"/>
+                          <Component id="jlCasa19" alignment="3" min="-2" pref="75" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jlCasa11" alignment="3" min="-2" pref="75" max="-2" attributes="0"/>
+                          <Component id="jlCasa16" alignment="3" min="-2" pref="75" max="-2" attributes="0"/>
+                          <Component id="jlCasa17" alignment="3" min="-2" pref="75" max="-2" attributes="0"/>
+                          <Component id="jlCasa18" alignment="3" min="-2" pref="75" max="-2" attributes="0"/>
+                          <Component id="jlCasa15" alignment="3" min="-2" pref="75" max="-2" attributes="0"/>
+                          <Component id="jlCasa14" alignment="3" min="-2" pref="75" max="-2" attributes="0"/>
+                          <Component id="jlCasa13" alignment="3" min="-2" pref="75" max="-2" attributes="0"/>
+                          <Component id="jlCasa12" alignment="3" min="-2" pref="75" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
               </Group>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
