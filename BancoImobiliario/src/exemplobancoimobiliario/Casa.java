@@ -101,11 +101,11 @@ public class Casa {
     }
 
     public void ocuparCasa(Jogador j){
-        // verifica se n„o atingiu o limite m·ximo de jogadores
+        // verifica se n√£o atingiu o limite m√°ximo de jogadores
         if(this.jogadoresOcupandoCasa.size()<=2)
-            // se o jogador ainda n„o ocupa a casa
+            // se o jogador ainda n√£o ocupa a casa
             if(!this.jogadoresOcupandoCasa.contains(j))
-                // adiciona o jogador ‡ lista de ocupantes
+                // adiciona o jogador √† lista de ocupantes
                 this.jogadoresOcupandoCasa.add(j);
 
         System.out.println("[OCUPAR] Jogadores Ocupando a casa");
