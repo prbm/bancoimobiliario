@@ -55,8 +55,8 @@ copy Casa002_Ocupada_Branco.png Casa018_Ocupada_Branco.png
 copy Casa002_Ocupada_Dois.png Casa018_Ocupada_Dois.png
 copy Casa002_Ocupada_Preto.png Casa018_Ocupada_Preto.png
 copy Casa003.png Casa019.png
-copy Casa003_Ocupada_Branco.png Casa01_Ocupada_Branco.png
-copy Casa003_Ocupada_Dois.png Casa01_Ocupada_Dois.png
+copy Casa003_Ocupada_Branco.png Casa019_Ocupada_Branco.png
+copy Casa003_Ocupada_Dois.png Casa019_Ocupada_Dois.png
 copy Casa003_Ocupada_Preto.png Casa019_Ocupada_Preto.png
 copy Casa004.png Casa020.png
 copy Casa004_Ocupada_Branco.png Casa020_Ocupada_Branco.png
