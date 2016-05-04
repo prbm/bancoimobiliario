@@ -22,8 +22,9 @@ public class Casa {
     private int numeroCasa;
     private boolean estaOcupada;
     private List<Jogador> jogadoresOcupandoCasa;
+    private String pertence;
 
-    public Casa(boolean podeComprar, double valorCasa, double valorAluguel, double aluguel, double compra, int numeroCasa) {
+    public Casa(boolean podeComprar, double valorCasa, double valorAluguel, double aluguel, double compra, int numeroCasa, String jogador) {
         this.podeComprar = podeComprar;
         this.valorCasa = valorCasa;
         this.valorAluguel = valorAluguel;
@@ -32,9 +33,11 @@ public class Casa {
         this.numeroCasa = numeroCasa;
         this.estaOcupada = false;
         this.jogadoresOcupandoCasa = new ArrayList<Jogador>();
+        this.pertence = jogador;
     }
-
-    public Casa(){}
+ 
+    //Não entendi o que esta parte esta fazendo
+    public Casa(){/* construtor padrão, somente para constar, se precisar, adicionar um código aqui */}
 
     public boolean isPodeComprar() {
         return podeComprar;
@@ -42,6 +45,16 @@ public class Casa {
 
     public void setPodeComprar(boolean podeComprar) {
         this.podeComprar = podeComprar;
+    }
+    
+    //inclui estes dois metodos para verificação de á quem pertence a casa
+    public String getPertence()
+    {
+        return pertence;
+    }
+    
+    public void setPertence(String jogador){
+        this.pertence = jogador;
     }
 
     public double getValorCasa() {

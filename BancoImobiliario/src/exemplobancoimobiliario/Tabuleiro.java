@@ -39,40 +39,43 @@ public class Tabuleiro extends javax.swing.JFrame {
         ocupado = 0;
         ocupadoBranco = 0;
         ocupadoPreto = 0;
-        saldo1 = 2000.00;
-        saldo2 = 2000.00;
         dado = new Dado();
     }
 
     private void configuraCasasTabuleiro() {
-        /*
-         Uma coleção de objetos é uma relação de objetos similares entre si, e isso pode facilitar mexer com eles.
-         A posição inicial de uma coleção é a posição 0, então, se declararmos uma coleção de casas como tendo 20 
-         casas, isso significa que a coleção vai do 0 ao 19. Para facilitar a contagem, prefiro criar a coleção 
-         com 21 posições, para ignorar a posição 0, e contar sempre de 1 a 20
-         */
-        for (int i = 0; i < 21; i++) {
-            Casa c;
-            // se for número ímpar, a casa pode comprar
-            if (i % 2 != 0) {
-                c = new Casa(true, 100, 10, 10, 100, i);
-            } // se for número par, a casa não pode comprar
-            else {
-                c = new Casa(false, 100, 10, 10, 100, i);
-            }
-            // adiciona a casa á coleção
-            casas.add(c);
-        }
+
+        //Coloquei para iniciar casa por casa assim quando chegarem as imagens só vou trocar os valores
+        casas.add(new Casa(false, 0, 0, 0, 0, 0, "b"));
+        casas.add(new Casa(true, 100, 10, 10, 100, 1, "b"));
+        casas.add(new Casa(true, 100, 10, 10, 100, 2, "b"));
+        casas.add(new Casa(true, 100, 10, 10, 100, 3, "b"));
+        casas.add(new Casa(true, 100, 10, 10, 100, 4, "b"));
+        casas.add(new Casa(true, 100, 10, 10, 100, 5, "b"));
+        casas.add(new Casa(true, 100, 10, 10, 100, 6, "b"));
+        casas.add(new Casa(true, 100, 10, 10, 100, 7, "b"));
+        casas.add(new Casa(true, 100, 10, 10, 100, 8, "b"));
+        casas.add(new Casa(true, 100, 10, 10, 100, 9, "b"));
+        casas.add(new Casa(true, 100, 10, 10, 100, 10, "b"));
+        casas.add(new Casa(true, 100, 10, 10, 100, 11, "b"));
+        casas.add(new Casa(true, 100, 10, 10, 100, 12, "b"));
+        casas.add(new Casa(true, 100, 10, 10, 100, 13, "b"));
+        casas.add(new Casa(true, 100, 10, 10, 100, 14, "b"));
+        casas.add(new Casa(true, 100, 10, 10, 100, 15, "b"));
+        casas.add(new Casa(true, 100, 10, 10, 100, 16, "b"));
+        casas.add(new Casa(true, 100, 10, 10, 100, 17, "b"));
+        casas.add(new Casa(true, 100, 10, 10, 100, 18, "b"));
+        casas.add(new Casa(true, 100, 10, 10, 100, 19, "b"));
+        casas.add(new Casa(true, 100, 10, 10, 100, 20, "b"));
 
         System.out.println("Foram configuradas " + casas.size() + " casas");
-        
+
         for (int i = 0; i < 21; i++) {
             Casa c = casas.get(i);
             System.out.println("Casa" + String.format("%03d", i) + "," + c.isPodeComprar() + "," + c.getAluguel());
         }
     }
-    
-    private void definirArrayLabels(){
+
+    private void definirArrayLabels() {
         labels.add(null);
         labels.add(jlCasa1);
         labels.add(jlCasa2);
@@ -140,6 +143,8 @@ public class Tabuleiro extends javax.swing.JFrame {
         jTFValor = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(678, 427));
+        setSize(new java.awt.Dimension(66, 0));
 
         jlJogadorTurno.setText("Vez do Jogador:");
 
@@ -172,6 +177,9 @@ public class Tabuleiro extends javax.swing.JFrame {
 
         jlDadoRolado.setFont(new java.awt.Font("Arial Unicode MS", 0, 18)); // NOI18N
         jlDadoRolado.setForeground(new java.awt.Color(153, 0, 0));
+        jlDadoRolado.setText("999");
+        jlDadoRolado.setMaximumSize(new java.awt.Dimension(100, 100));
+        jlDadoRolado.setMinimumSize(new java.awt.Dimension(100, 100));
 
         jlCasa5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Casa001.png"))); // NOI18N
         jlCasa5.setText("Casa 5");
@@ -252,14 +260,19 @@ public class Tabuleiro extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jlCasa19, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jlCasa18, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jlCasa17, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jlCasa16, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jlCasa15, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jlCasa14, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jlCasa20, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jlValorDado)
-                                .addGap(10, 10, 10))
-                            .addComponent(jlCasa19, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jlCasa1, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -269,36 +282,30 @@ public class Tabuleiro extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jlCasa4, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jlCasa5, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jlCasa5, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jlCasa20, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jlValorDado)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jlDadoRolado, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jlCasa6, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jlCasa7, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jlCasa6, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jlCasa7, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jlCasa9, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jlCasa10, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jlCasa8, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jlCasa13, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jlCasa12, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jlCasa11, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addComponent(jlCasa9, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jlCasa10, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jlCasa8, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jlCasa18, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jlCasa13, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jlCasa17, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jlCasa12, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jlCasa16, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jlCasa15, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jlCasa14, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jlDadoRolado))
+                                .addComponent(jlCasa11, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jlJogadorTurno)
@@ -318,7 +325,8 @@ public class Tabuleiro extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jTFNumeroCasa, javax.swing.GroupLayout.DEFAULT_SIZE, 75, Short.MAX_VALUE)
                             .addComponent(jTFComprarVender)
-                            .addComponent(jTFValor)))))
+                            .addComponent(jTFValor))))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -345,40 +353,36 @@ public class Tabuleiro extends javax.swing.JFrame {
                             .addComponent(jbJogar)
                             .addComponent(jbComprar)
                             .addComponent(jbVender))))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(140, 140, 140)
-                        .addComponent(jlDadoRolado))
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jlCasa2, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jlCasa4, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jlCasa5, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jlCasa7, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jlCasa1, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jlCasa6, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jlCasa3, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jlCasa8, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jlCasa9, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jlCasa20, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jlValorDado))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jlCasa10, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jlCasa19, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jlCasa11, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jlCasa16, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jlCasa17, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jlCasa18, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jlCasa15, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jlCasa14, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jlCasa13, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jlCasa12, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jlCasa2, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jlCasa4, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jlCasa5, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jlCasa7, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jlCasa1, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jlCasa6, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jlCasa3, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jlCasa8, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jlCasa9, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jlCasa20, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jlValorDado)
+                    .addComponent(jlDadoRolado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jlCasa10, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jlCasa19, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jlCasa11, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jlCasa16, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jlCasa17, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jlCasa18, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jlCasa15, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jlCasa14, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jlCasa13, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jlCasa12, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -387,15 +391,16 @@ public class Tabuleiro extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    
+
     private void jbJogarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbJogarActionPerformed
 
         String imagemCasaOcupada = null;
-        String nroCasa;        
+        String nroCasaFutura; // armazena a casa para onde o jogador vai
+        String nroCasaSaindo; // armazena a casa de onde o jogador vems
         JLabel lbl;
-        
+
         System.out.println("Avaliar Rodada");
-        
+
         if (rodada % 2 != 0) {
             jogadorVez = j1;
         } else {
@@ -411,46 +416,55 @@ public class Tabuleiro extends javax.swing.JFrame {
 
         // desocupa a casa da qual está saindo
         casas.get(jogadorVez.getNumeroCasa()).desocuparCasa(jogadorVez);
-        
+
         // ajusta os nomes das casas sendo desocupadas
-        nroCasa = String.format("%03d", jogadorVez.getNumeroCasa());
-        String imagemCasa = "/imagens/Casa" + nroCasa + ".png";
+        nroCasaSaindo = String.format("%03d", jogadorVez.getNumeroCasa());
+        String imagemCasa = null;
         lbl = labels.get(jogadorVez.getNumeroCasa());
+
+        // verifica os jogadores que ficaram na casa e formata o nome da imagem a ser exibida
+        if (casas.get(jogadorVez.getNumeroCasa()).getJogadoresOcupandoCasa().size() > 0) {
+            imagemCasa = "/imagens/Casa" + nroCasaSaindo + "_Ocupada_" + 
+                    casas.get(jogadorVez.getNumeroCasa()).getJogadoresOcupandoCasa().get(0).getCor() + ".png";
+        } else if (casas.get(jogadorVez.getNumeroCasa()).getJogadoresOcupandoCasa().isEmpty()) {
+            imagemCasa = "/imagens/Casa" + nroCasaSaindo + ".png";
+        }
+
         lbl.setIcon(new javax.swing.ImageIcon(getClass().getResource(imagemCasa)));
-        
+
         // verifica por quantas casas vai andar
         for (int i = 1; i <= casasAndar; i++) {
             // se chegar ao fim das casas, retorna à casa 1
             if (jogadorVez.getNumeroCasa() >= 20) {
                 jogadorVez.setNumeroCasa(1);
                 break; // se voltou ao início, pode sair do loop
-            } else 
+            } else {
                 jogadorVez.setNumeroCasa(jogadorVez.getNumeroCasa() + 1);
+            }
         }
 
         // identifica a casa que está sendo ocupada
         ocupado = jogadorVez.getNumeroCasa();
-        
+
         // mostra as informações da casa ocupada
         Casa c = casas.get(ocupado);
         c.ocuparCasa(jogadorVez);
-        nroCasa = String.format("%03d", jogadorVez.getNumeroCasa());
+        nroCasaFutura = String.format("%03d", jogadorVez.getNumeroCasa());
 
         // apresenta as informações da casa
         jTFNumeroCasa.setText(String.valueOf(c.getNumeroCasa()));
         jTFValor.setText(String.valueOf(c.getAluguel()));
         if (c.isPodeComprar()) {
-            jTFComprarVender.setText("VENDER");
-        } else {
             jTFComprarVender.setText("COMPRAR");
+        } else {
+            jTFComprarVender.setText("VENDER");
         }
-        
+
         // verifica os jogadores que ocupam a casa e formata o nome da imagem a ser exibida
-        if(c.getJogadoresOcupandoCasa().size() > 1){
-            imagemCasaOcupada = "/imagens/Casa" + nroCasa + "_Ocupada_Dois.png";
-        }else{
-            if(c.getJogadoresOcupandoCasa().size() == 1)
-                imagemCasaOcupada = "/imagens/Casa" + nroCasa + "_Ocupada_" + jogadorVez.getCor() + ".png";
+        if (c.getJogadoresOcupandoCasa().size() > 1) {
+            imagemCasaOcupada = "/imagens/Casa" + nroCasaFutura + "_Ocupada_Dois.png";
+        } else if (c.getJogadoresOcupandoCasa().size() == 1) {
+            imagemCasaOcupada = "/imagens/Casa" + nroCasaFutura + "_Ocupada_" + jogadorVez.getCor() + ".png";
         }
         // informa as configurações
         System.out.println("Caminho da imagem Ocupado: " + imagemCasaOcupada);
@@ -459,87 +473,72 @@ public class Tabuleiro extends javax.swing.JFrame {
         // atualiza as casas ocupadas
         lbl = labels.get(c.getNumeroCasa());
         lbl.setIcon(new javax.swing.ImageIcon(getClass().getResource(imagemCasaOcupada)));
-        
+
         // atualiza a rodada
         rodada++;
     }//GEN-LAST:event_jbJogarActionPerformed
 
     private void jbComprarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbComprarActionPerformed
-//      Jogador jogadorVez = new Jogador();
 
-        /*
-        if (rodada % 2 != 0) {
-//            jlJogadorTurno.setText("Jogador 1");
-//            jlSaldo.setText(String.valueOf(saldo1));
-            jogadorVez = j1;
-//            jlJogadorTurno.updateUI();
-        } else {
-//            jlJogadorTurno.setText("Jogador 2");
-//            jlSaldo.setText(String.valueOf(saldo2));
-            jogadorVez = j2;
-//            jlJogadorTurno.updateUI();
-        }
-         */
         // atualiza a interface de usuário com o jogador que está jogando
         jlJogadorTurno.setText(jogadorVez.getNome());
 
         // lê o número da casa em que o jogador se encontra
         int numeroCasa = jogadorVez.getNumeroCasa();
         // lê o valor da compra que a casa possui
+
         double valorCompra = casas.get(numeroCasa).getCompra();
         // atualiza o saldo do jogador
-        jogadorVez.setSaldo((jogadorVez.getSaldo() - valorCompra));
 
-        System.out.println("O saldo do jogador " + jogadorVez.getNome() + " foi atualizado para " + jogadorVez.getSaldo());
+        //Verifica se a casa pode ser comprada
+        if (casas.get(numeroCasa).isPodeComprar()) {
+            //Verifica se a casa pertence ao banco 
+            if (casas.get(numeroCasa).getPertence() == "b") {
 
-        // atualiza a interface de usuário com as informações atualizadas
-        jlSaldo.setText(String.valueOf(jogadorVez.getSaldo()));
-        jlJogadorTurno.updateUI();
+                jogadorVez.setSaldo((jogadorVez.getSaldo() - valorCompra));
 
-        /*        
-        if (jogadorVez == j1) {
+                System.out.println("O saldo do jogador " + jogadorVez.getNome() + " foi atualizado para " + jogadorVez.getSaldo());
 
-//        casa.setValorCasa(jogadorVez.getNumeroCasa());
-//	jogadorVez.setSaldo(jogadorVez.getSaldo()-casa.getValorCasa());            
-            saldo1 = jogadorVez.getSaldo();
+                // atualiza a interface de usuário com as informações atualizadas
+                jlSaldo.setText(String.valueOf(jogadorVez.getSaldo()));
+                jlJogadorTurno.updateUI();
+                casas.get(numeroCasa).setPodeComprar(false);
+                casas.get(numeroCasa).setPertence(jogadorVez.getNome());
+            }
         } else {
-//        casa.setValorCasa(jogadorVez.getNumeroCasa());
-//	jogadorVez.setSaldo(jogadorVez.getSaldo()-casa.getValorCasa());
-
-            saldo2 = jogadorVez.getSaldo();
+            System.out.println("Pertence ao outro jogador ");
         }
-         */
 
     }//GEN-LAST:event_jbComprarActionPerformed
 
     private void jbVenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbVenderActionPerformed
-        Jogador jogadorVez = new Jogador();
-//    Casas casa = new Casas();
+        // atualiza a interface de usuário com o jogador que está jogando
+        jlJogadorTurno.setText(jogadorVez.getNome());
 
-        if (rodada % 2 != 0) {
-            jlJogadorTurno.setText("Jogador 1");
-            jlSaldo.setText(String.valueOf(saldo1));
-            jogadorVez = j1;
+        // lê o número da casa em que o jogador se encontra
+        int numeroCasa = jogadorVez.getNumeroCasa();
+        // lê o valor da compra que a casa possui
+        double valorVenda = casas.get(numeroCasa).getCompra();
+        // atualiza o saldo do jogador
+
+        //Verifica se a casa pode ser vendida
+        if (casas.get(numeroCasa).isPodeComprar()) {
+            System.out.println("Não pode vender ");
+        } else if (jogadorVez.getNome() == casas.get(numeroCasa).getPertence()) {
+            jogadorVez.setSaldo((jogadorVez.getSaldo() + valorVenda));
+
+            System.out.println("O saldo do jogador " + jogadorVez.getNome() + " foi atualizado para " + jogadorVez.getSaldo());
+
+            // atualiza a interface de usuário com as informações atualizadas
+            jlSaldo.setText(String.valueOf(jogadorVez.getSaldo()));
             jlJogadorTurno.updateUI();
+            casas.get(numeroCasa).setPodeComprar(true);
+            casas.get(numeroCasa).setPertence("b");
         } else {
-            jlJogadorTurno.setText("Jogador 2");
-            jlSaldo.setText(String.valueOf(saldo2));
-            jogadorVez = j2;
-            jlJogadorTurno.updateUI();
+            System.out.println("Somente o dono pode vender ");
         }
 
-        if (jogadorVez == j1) {
 
-//        casa.setValorCasa(jogadorVez.getNumeroCasa());
-//	jogadorVez.setSaldo(jogadorVez.getSaldo()+casa.getValorCasa());            
-            saldo1 = jogadorVez.getSaldo();
-        } else {
-//        casa.setValorCasa(jogadorVez.getNumeroCasa());
-//	jogadorVez.setSaldo(jogadorVez.getSaldo()+casa.getValorCasa());
-
-            saldo2 = jogadorVez.getSaldo();
-
-        }
     }//GEN-LAST:event_jbVenderActionPerformed
 
     /**
@@ -624,7 +623,6 @@ public class Tabuleiro extends javax.swing.JFrame {
     private Jogador j1, j2;
     private Dado dado;
     private int rodada, branco, preto, ocupado, ocupadoBranco, ocupadoPreto;
-    private double saldo1, saldo2;
 
     // declaração da relação de todas as casas que existem no tabuleiro
     private List<Casa> casas = new ArrayList<Casa>();
