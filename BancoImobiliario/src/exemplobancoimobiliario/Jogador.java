@@ -21,7 +21,7 @@ public class Jogador {
         this.cor = cor;
         configuracaoInicial();
     }
-
+   
     public String getNome() {
         return nome;
     }
@@ -66,7 +66,8 @@ public class Jogador {
     
     private void configuracaoInicial(){
         numeroCasa = 1;
-        saldo = 2000;
+        saldo = 20000; // saldo do jogador no jogo
+        //saldo = 200;
         podeJogar = true;
     }
 

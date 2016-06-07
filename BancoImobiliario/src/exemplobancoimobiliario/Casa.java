@@ -22,9 +22,9 @@ public class Casa {
     private int numeroCasa;
     private boolean estaOcupada;
     private List<Jogador> jogadoresOcupandoCasa;
-    private String pertence;
+    private Jogador pertence;
 
-    public Casa(boolean podeComprar, double valorCasa, double valorAluguel, double aluguel, double compra, int numeroCasa, String jogador) {
+    public Casa(boolean podeComprar, double valorCasa, double valorAluguel, double aluguel, double compra, int numeroCasa, Jogador jogador) {
         this.podeComprar = podeComprar;
         this.valorCasa = valorCasa;
         this.valorAluguel = valorAluguel;
@@ -48,12 +48,12 @@ public class Casa {
     }
     
     //inclui estes dois metodos para verificação de á quem pertence a casa
-    public String getPertence()
+    public Jogador getPertence()
     {
         return pertence;
     }
     
-    public void setPertence(String jogador){
+    public void setPertence(Jogador jogador){
         this.pertence = jogador;
     }
 

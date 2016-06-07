@@ -1,18 +1,24 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+  <NonVisualComponents>
+    <Component class="javax.swing.JSeparator" name="jSeparator3">
+    </Component>
+  </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
+    <Property name="title" type="java.lang.String" value="KING CITY"/>
     <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-      <Dimension value="[678, 427]"/>
+      <Dimension value="[747, 667]"/>
     </Property>
+    <Property name="resizable" type="boolean" value="false"/>
     <Property name="size" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-      <Dimension value="[66, 0]"/>
+      <Dimension value="[60, 0]"/>
     </Property>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
-    <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
+    <SyntheticProperty name="generateCenter" type="boolean" value="true"/>
   </SyntheticProperties>
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
@@ -30,97 +36,116 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jlCasa19" alignment="0" min="-2" pref="75" max="-2" attributes="0"/>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="jlCasa18" min="-2" pref="75" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jlCasa17" min="-2" pref="75" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jlCasa16" min="-2" pref="75" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jlCasa15" min="-2" pref="75" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jlCasa14" min="-2" pref="75" max="-2" attributes="0"/>
-                  </Group>
                   <Group type="102" attributes="0">
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="jlCasa1" min="-2" pref="75" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jlCasa2" min="-2" pref="75" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jlCasa3" min="-2" pref="75" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jlCasa4" min="-2" pref="75" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jlCasa5" min="-2" pref="75" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="jlCasa20" min="-2" pref="75" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jlValorDado" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="jlDadoRolado" min="-2" pref="67" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="jlCasa6" min="-2" pref="75" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jlCasa7" min="-2" pref="75" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jlCasa9" min="-2" pref="75" max="-2" attributes="0"/>
-                                  <Component id="jlCasa10" alignment="0" min="-2" pref="75" max="-2" attributes="0"/>
+                          <Group type="103" alignment="1" groupAlignment="0" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="jlCasa1" min="-2" pref="75" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="jlCasa2" min="-2" pref="75" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="jlCasa3" min="-2" pref="75" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="jlCasa4" min="-2" pref="75" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="jlCasa5" min="-2" pref="75" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="jlCasa20" min="-2" pref="75" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="jlValorDado" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                          <Component id="jlDadoRolado" min="-2" pref="67" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="jlCasa6" min="-2" pref="75" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="jlCasa7" min="-2" pref="75" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
                                   <Component id="jlCasa8" min="-2" pref="75" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="jlCasa10" min="-2" pref="75" max="-2" attributes="0"/>
+                                      <Component id="jlCasa9" min="-2" pref="75" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="jlJogadorTurno" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jlSaldo" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jbJogar" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="236" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="jlNumeroCasa" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jlComprarVender" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jlValor" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="jTFNumeroCasa" pref="75" max="32767" attributes="0"/>
+                                      <Component id="jTFComprarVender" max="32767" attributes="0"/>
+                                      <Component id="jTFValor" max="32767" attributes="0"/>
+                                  </Group>
                               </Group>
                           </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="jlCasa13" min="-2" pref="75" max="-2" attributes="0"/>
+                          <Group type="102" alignment="1" attributes="0">
+                              <Component id="jlCasa19" min="-2" pref="75" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jlCasa12" min="-2" pref="75" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jlCasa11" min="-2" pref="75" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="jlCasa18" min="-2" pref="75" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="jlCasa17" min="-2" pref="75" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="jlCasa16" min="-2" pref="75" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="jlCasa15" min="-2" pref="75" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="jlCasa14" min="-2" pref="75" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="405" pref="405" max="-2" attributes="0"/>
+                                      <Component id="jlCasa13" min="-2" pref="75" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="jlCasa12" min="-2" pref="75" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="jlCasa11" min="-2" pref="75" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
                           </Group>
                       </Group>
                   </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jlJogadorTurno" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jlSaldo" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="jbJogar" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jbComprar" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jbVender" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <EmptySpace min="-2" pref="113" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jlNumeroCasa" min="-2" max="-2" attributes="0"/>
-                          <Component id="jlComprarVender" min="-2" max="-2" attributes="0"/>
-                          <Component id="jlValor" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="jTFNumeroCasa" pref="75" max="32767" attributes="0"/>
-                          <Component id="jTFComprarVender" max="32767" attributes="0"/>
-                          <Component id="jTFValor" max="32767" attributes="0"/>
-                      </Group>
-                  </Group>
+                  <Component id="jSeparator1" alignment="1" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
+          </Group>
+          <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="jSeparator2" max="32767" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+              </Group>
+          </Group>
+          <Group type="103" rootIndex="2" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="jSeparator4" max="32767" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+              </Group>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jlJogadorTurno" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jlNumeroCasa" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -142,48 +167,59 @@
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="jlSaldo" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jbJogar" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jbComprar" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jbVender" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
+                      <Component id="jbJogar" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Component id="jSeparator1" min="-2" pref="6" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jlCasa2" alignment="3" min="-2" pref="75" max="-2" attributes="0"/>
-                  <Component id="jlCasa4" alignment="3" min="-2" pref="75" max="-2" attributes="0"/>
-                  <Component id="jlCasa5" alignment="3" min="-2" pref="75" max="-2" attributes="0"/>
-                  <Component id="jlCasa7" alignment="3" min="-2" pref="75" max="-2" attributes="0"/>
-                  <Component id="jlCasa1" alignment="3" min="-2" pref="75" max="-2" attributes="0"/>
-                  <Component id="jlCasa6" alignment="3" min="-2" pref="75" max="-2" attributes="0"/>
-                  <Component id="jlCasa3" alignment="3" min="-2" pref="75" max="-2" attributes="0"/>
-                  <Component id="jlCasa8" alignment="3" min="-2" pref="75" max="-2" attributes="0"/>
+                  <Component id="jlCasa2" alignment="3" min="-2" pref="150" max="-2" attributes="0"/>
+                  <Component id="jlCasa4" alignment="3" min="-2" pref="150" max="-2" attributes="0"/>
+                  <Component id="jlCasa5" alignment="3" min="-2" pref="150" max="-2" attributes="0"/>
+                  <Component id="jlCasa7" alignment="3" min="-2" pref="150" max="-2" attributes="0"/>
+                  <Component id="jlCasa1" alignment="3" min="-2" pref="150" max="-2" attributes="0"/>
+                  <Component id="jlCasa6" alignment="3" min="-2" pref="150" max="-2" attributes="0"/>
+                  <Component id="jlCasa3" alignment="3" min="-2" pref="150" max="-2" attributes="0"/>
+                  <Component id="jlCasa8" alignment="3" min="-2" pref="150" max="-2" attributes="0"/>
+                  <Component id="jlCasa9" alignment="3" min="-2" pref="150" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jlCasa20" alignment="3" min="-2" pref="150" max="-2" attributes="0"/>
+                      <Component id="jlValorDado" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jlDadoRolado" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Component id="jlCasa10" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jlCasa9" alignment="3" min="-2" pref="75" max="-2" attributes="0"/>
-                  <Component id="jlCasa20" alignment="3" min="-2" pref="75" max="-2" attributes="0"/>
-                  <Component id="jlValorDado" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jlDadoRolado" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jlCasa11" alignment="3" min="-2" pref="150" max="-2" attributes="0"/>
+                  <Component id="jlCasa16" alignment="3" min="-2" pref="150" max="-2" attributes="0"/>
+                  <Component id="jlCasa17" alignment="3" min="-2" pref="150" max="-2" attributes="0"/>
+                  <Component id="jlCasa18" alignment="3" min="-2" pref="150" max="-2" attributes="0"/>
+                  <Component id="jlCasa15" alignment="3" min="-2" pref="150" max="-2" attributes="0"/>
+                  <Component id="jlCasa14" alignment="3" min="-2" pref="150" max="-2" attributes="0"/>
+                  <Component id="jlCasa13" alignment="3" min="-2" pref="150" max="-2" attributes="0"/>
+                  <Component id="jlCasa12" alignment="3" min="-2" pref="150" max="-2" attributes="0"/>
+                  <Component id="jlCasa19" alignment="3" min="-2" pref="150" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jlCasa10" alignment="3" min="-2" pref="75" max="-2" attributes="0"/>
-                  <Component id="jlCasa19" alignment="3" min="-2" pref="75" max="-2" attributes="0"/>
+              <EmptySpace pref="12" max="32767" attributes="0"/>
+          </Group>
+          <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="135" max="-2" attributes="0"/>
+                  <Component id="jSeparator2" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace pref="484" max="32767" attributes="0"/>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jlCasa11" alignment="3" min="-2" pref="75" max="-2" attributes="0"/>
-                  <Component id="jlCasa16" alignment="3" min="-2" pref="75" max="-2" attributes="0"/>
-                  <Component id="jlCasa17" alignment="3" min="-2" pref="75" max="-2" attributes="0"/>
-                  <Component id="jlCasa18" alignment="3" min="-2" pref="75" max="-2" attributes="0"/>
-                  <Component id="jlCasa15" alignment="3" min="-2" pref="75" max="-2" attributes="0"/>
-                  <Component id="jlCasa14" alignment="3" min="-2" pref="75" max="-2" attributes="0"/>
-                  <Component id="jlCasa13" alignment="3" min="-2" pref="75" max="-2" attributes="0"/>
-                  <Component id="jlCasa12" alignment="3" min="-2" pref="75" max="-2" attributes="0"/>
+          </Group>
+          <Group type="103" rootIndex="2" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="jSeparator4" min="-2" pref="10" max="-2" attributes="0"/>
+                  <EmptySpace pref="600" max="32767" attributes="0"/>
               </Group>
-              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -203,18 +239,10 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbJogarActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jbComprar">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Comprar"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbComprarActionPerformed"/>
-      </Events>
-    </Component>
     <Component class="javax.swing.JLabel" name="jlCasa9">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/imagens/Casa001.png"/>
+          <Image iconType="3" name="/imagens/Casa009.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Casa 9"/>
       </Properties>
@@ -230,7 +258,7 @@
     <Component class="javax.swing.JLabel" name="jlCasa11">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/imagens/Casa003.png"/>
+          <Image iconType="3" name="/imagens/Casa011.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Casa 11"/>
       </Properties>
@@ -251,7 +279,7 @@
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="0" green="0" red="99" type="rgb"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="999"/>
+        <Property name="text" type="java.lang.String" value="0"/>
         <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[100, 100]"/>
         </Property>
@@ -266,7 +294,7 @@
     <Component class="javax.swing.JLabel" name="jlCasa5">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/imagens/Casa001.png"/>
+          <Image iconType="3" name="/imagens/Casa005.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Casa 5"/>
       </Properties>
@@ -274,7 +302,7 @@
     <Component class="javax.swing.JLabel" name="jlCasa10">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/imagens/Casa002.png"/>
+          <Image iconType="3" name="/imagens/Casa010.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Casa 10"/>
       </Properties>
@@ -282,7 +310,7 @@
     <Component class="javax.swing.JLabel" name="jlCasa7">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/imagens/Casa003.png"/>
+          <Image iconType="3" name="/imagens/Casa007.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Casa 7"/>
       </Properties>
@@ -290,7 +318,7 @@
     <Component class="javax.swing.JLabel" name="jlCasa20">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/imagens/Casa004.png"/>
+          <Image iconType="3" name="/imagens/Casa020.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Casa 20"/>
       </Properties>
@@ -306,7 +334,7 @@
     <Component class="javax.swing.JLabel" name="jlCasa6">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/imagens/Casa002.png"/>
+          <Image iconType="3" name="/imagens/Casa006.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Casa 6"/>
       </Properties>
@@ -322,7 +350,7 @@
     <Component class="javax.swing.JLabel" name="jlCasa12">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/imagens/Casa004.png"/>
+          <Image iconType="3" name="/imagens/Casa012.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Casa 12"/>
       </Properties>
@@ -330,7 +358,7 @@
     <Component class="javax.swing.JLabel" name="jlCasa13">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/imagens/Casa001.png"/>
+          <Image iconType="3" name="/imagens/Casa013.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Casa 13"/>
       </Properties>
@@ -338,7 +366,7 @@
     <Component class="javax.swing.JLabel" name="jlCasa14">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/imagens/Casa002.png"/>
+          <Image iconType="3" name="/imagens/Casa014.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Casa 14"/>
       </Properties>
@@ -346,7 +374,7 @@
     <Component class="javax.swing.JLabel" name="jlCasa15">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/imagens/Casa003.png"/>
+          <Image iconType="3" name="/imagens/Casa015.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Casa 15"/>
       </Properties>
@@ -354,7 +382,7 @@
     <Component class="javax.swing.JLabel" name="jlCasa16">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/imagens/Casa004.png"/>
+          <Image iconType="3" name="/imagens/Casa016.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Casa 16"/>
       </Properties>
@@ -362,7 +390,7 @@
     <Component class="javax.swing.JLabel" name="jlCasa17">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/imagens/Casa001.png"/>
+          <Image iconType="3" name="/imagens/Casa017.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Casa 17"/>
       </Properties>
@@ -370,7 +398,7 @@
     <Component class="javax.swing.JLabel" name="jlCasa18">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/imagens/Casa002.png"/>
+          <Image iconType="3" name="/imagens/Casa018.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Casa 18"/>
       </Properties>
@@ -378,7 +406,7 @@
     <Component class="javax.swing.JLabel" name="jlCasa19">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/imagens/Casa003.png"/>
+          <Image iconType="3" name="/imagens/Casa019.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Casa 19"/>
       </Properties>
@@ -386,7 +414,7 @@
     <Component class="javax.swing.JLabel" name="jlCasa8">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/imagens/Casa004.png"/>
+          <Image iconType="3" name="/imagens/Casa008.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Casa 8"/>
       </Properties>
@@ -403,17 +431,6 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Saldo:"/>
       </Properties>
-    </Component>
-    <Component class="javax.swing.JButton" name="jbVender">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Vender"/>
-      </Properties>
-      <AccessibilityProperties>
-        <Property name="AccessibleContext.accessibleDescription" type="java.lang.String" value=""/>
-      </AccessibilityProperties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbVenderActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jlNumeroCasa">
       <Properties>
@@ -437,13 +454,19 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jlValor">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Valor:"/>
+        <Property name="text" type="java.lang.String" value="Aluguel:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="jTFValor">
       <Properties>
         <Property name="editable" type="boolean" value="false"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JSeparator" name="jSeparator1">
+    </Component>
+    <Component class="javax.swing.JSeparator" name="jSeparator2">
+    </Component>
+    <Component class="javax.swing.JSeparator" name="jSeparator4">
     </Component>
   </SubComponents>
 </Form>
