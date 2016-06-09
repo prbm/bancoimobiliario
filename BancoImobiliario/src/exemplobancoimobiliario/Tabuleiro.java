@@ -189,7 +189,7 @@ public class Tabuleiro extends javax.swing.JFrame {
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
         jSeparator4 = new javax.swing.JSeparator();
-        jPanel1 = new BackGroundPanel("/imagens/Fundo.png");
+        jPanel1 = new javax.swing.JPanel();
         jlCasa14 = new javax.swing.JLabel();
         jlCasa15 = new javax.swing.JLabel();
         jlCasa16 = new javax.swing.JLabel();
@@ -841,7 +841,7 @@ public class Tabuleiro extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private BackGroundPanel jPanel1;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
@@ -895,4 +895,6 @@ public class Tabuleiro extends javax.swing.JFrame {
         
     // cria uma variável global,para verificar se o jogador esta com sorte ou reves
     private Jogador jogadorVez;
+    
+    //Teste de Commite Thays 09/06 
 }
