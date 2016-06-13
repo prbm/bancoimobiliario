@@ -6,6 +6,7 @@
 package exemplobancoimobiliario;
 
 import java.awt.Component;
+import java.awt.Cursor;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.ImageIcon;
@@ -60,7 +61,8 @@ public class GameBoard extends javax.swing.JFrame {
         jLFundoCasa1.setIcon(new ImageIcon(getClass().getResource("/imagensbir/Casa001.png")));
         jLFundoCasa2.setIcon(new ImageIcon(getClass().getResource("/imagens/Casa002.png")));
         jLFundoCasa3.setIcon(new ImageIcon(getClass().getResource("/imagens/Casa003.png")));
-        jLFundoCasa4.setIcon(new ImageIcon(getClass().getResource("/imagens/Casa004.png")));
+        jLFundoCasa4.setIcon(new ImageIcon(getClass().getResource("/imagens/Casa004.png")));  
+
         // associa as imagens de cada um dos peões dos jogadores
         jLAmarelo.setIcon(new ImageIcon(getClass().getResource("/imagensbir/peaoAmarelo.png")));
         jLAzul.setIcon(new ImageIcon(getClass().getResource("/imagensbir/peaoAzul.png")));
@@ -88,9 +90,9 @@ public class GameBoard extends javax.swing.JFrame {
 
         // determina quem inicializa o jogo
         vezJogador = CorJogador.AMARELO;
-        
+
         // atualiza a tela
-        mostrarDadosJogadorJogando();
+        mostrarQuemEstaJogando();
 
     }
 
@@ -122,7 +124,7 @@ public class GameBoard extends javax.swing.JFrame {
         jLPanels.add(jLP24);
     }
 
-    private void mostrarDadosJogadorJogando() {
+    private void mostrarQuemEstaJogando() {
 
         // define uma variável temporária
         Jogador j = new Jogador();
@@ -220,11 +222,12 @@ public class GameBoard extends javax.swing.JFrame {
 
             // posiciona o ícone na próxima casa
             poePeaoCasa(nroCasa, j.getPeaoJogador());
+
             // atualiza o número da casa onde o jogador se encontra
             j.setNumeroCasa(nroCasa);
             // força pausa de 0,01 segundos
             try {
-                Thread.sleep(10);
+                Thread.sleep(850);
             } catch (InterruptedException ie) {
                 System.out.println("[LOG] movimentarJogador() InterruptedException: " + ie.getMessage());
             }
@@ -233,14 +236,20 @@ public class GameBoard extends javax.swing.JFrame {
 
     private void tiraPeaoCasa(int casa, JLabel peao) {
 
+        // obtém o label onde o jogador está posicionado
         JLayeredPane jLPTmp = jLPanels.get(casa - 1);
 
+        // lê os labels que estão no layer
         Component[] componentes = jLPTmp.getComponentsInLayer(0);
 
+        // verifica se o label do jogador existe no layer
         for (Component c : componentes) {
+            // se existir, remove ele do layer
             if (c.getName().equals(peao.getName())) {
                 jLPTmp.remove(peao);
-                jLPTmp.repaint();
+                // atualiza o desenho do layer
+                jLPTmp.revalidate();
+                jLPTmp.paintComponents(jLPTmp.getGraphics());
                 break;
             }
         }
@@ -248,10 +257,13 @@ public class GameBoard extends javax.swing.JFrame {
 
     private void poePeaoCasa(int casa, JLabel peao) {
 
+        // obtém o label onde o jogador será posicionado
         JLayeredPane jLPTmp = jLPanels.get(casa - 1);
-
+        // adiciona o ícone do jogador ao layer
         jLPTmp.add(peao, 0);
-        jLPTmp.repaint();
+        // atualiza o desenho do layer
+        jLPTmp.revalidate();
+        jLPTmp.paintComponents(jLPTmp.getGraphics());
     }
 
     /**
@@ -684,6 +696,7 @@ public class GameBoard extends javax.swing.JFrame {
 
         jLJogador.setText("jogador:");
 
+        jLCorJogador.setBackground(new java.awt.Color(0, 0, 204));
         jLCorJogador.setText("jLabel1");
         jLCorJogador.setMaximumSize(new java.awt.Dimension(30, 30));
         jLCorJogador.setMinimumSize(new java.awt.Dimension(30, 30));
@@ -871,10 +884,13 @@ public class GameBoard extends javax.swing.JFrame {
                 break;
         }
 
-        mostrarDadosJogadorJogando();
+        setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        mostrarQuemEstaJogando();
         movimentarJogador(d.rolarDados(), j);
         determinaProximoJogador(j);
-        mostrarDadosJogadorJogando();
+        mostrarQuemEstaJogando();
+        setCursor(Cursor.getDefaultCursor());
+        
     }//GEN-LAST:event_jBJogarActionPerformed
 
     /**

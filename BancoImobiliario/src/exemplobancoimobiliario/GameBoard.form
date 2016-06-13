@@ -134,16 +134,16 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="jLP6" pref="0" max="32767" attributes="0"/>
-                      <Component id="jLP3" alignment="0" pref="0" max="32767" attributes="0"/>
-                      <Component id="jLP2" alignment="0" pref="0" max="32767" attributes="0"/>
+                      <Component id="jLP6" pref="120" max="32767" attributes="0"/>
+                      <Component id="jLP3" alignment="0" pref="120" max="32767" attributes="0"/>
+                      <Component id="jLP2" alignment="0" pref="120" max="32767" attributes="0"/>
                       <Component id="jLP1" alignment="0" max="32767" attributes="0"/>
-                      <Component id="jLP4" alignment="1" pref="0" max="32767" attributes="0"/>
-                      <Component id="jLP5" alignment="0" pref="0" max="32767" attributes="0"/>
-                      <Component id="jLP7" alignment="0" pref="0" max="32767" attributes="0"/>
-                      <Component id="jLP8" alignment="0" pref="0" max="32767" attributes="0"/>
-                      <Component id="jLP9" alignment="1" pref="0" max="32767" attributes="0"/>
-                      <Component id="jLP10" alignment="0" pref="0" max="32767" attributes="0"/>
+                      <Component id="jLP4" alignment="1" pref="120" max="32767" attributes="0"/>
+                      <Component id="jLP5" alignment="0" pref="120" max="32767" attributes="0"/>
+                      <Component id="jLP7" alignment="0" pref="120" max="32767" attributes="0"/>
+                      <Component id="jLP8" alignment="0" pref="120" max="32767" attributes="0"/>
+                      <Component id="jLP9" alignment="1" pref="120" max="32767" attributes="0"/>
+                      <Component id="jLP10" alignment="0" pref="120" max="32767" attributes="0"/>
                   </Group>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
@@ -943,6 +943,9 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLCorJogador">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="cc" green="0" red="0" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="jLabel1"/>
             <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[30, 30]"/>
