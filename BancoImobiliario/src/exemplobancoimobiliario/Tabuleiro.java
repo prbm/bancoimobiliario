@@ -30,9 +30,9 @@ public class Tabuleiro extends javax.swing.JFrame {
         initComponents();
         
         // pode ser mais útil transformar os jogadores em coleção, veremos mais adiante
-        j1 = new Jogador("Jogador 1", "Preto");
-        j2 = new Jogador("Jogador 2", "Branco");
-        banco = new Jogador("Banco","");
+        j1 = new Jogador("Jogador 1", CorJogador.PRETO, null);
+        j2 = new Jogador("Jogador 2", CorJogador.BRANCO, null);
+        banco = new Jogador("Banco",CorJogador.BANCO_SEMCOR, null);
         
         // configura as casas que são usadas no tabuleiro;
         configuraCasasTabuleiro();
@@ -895,6 +895,4 @@ public class Tabuleiro extends javax.swing.JFrame {
         
     // cria uma variável global,para verificar se o jogador esta com sorte ou reves
     private Jogador jogadorVez;
-    
-    //Teste de Commite Thays 09/06 
 }

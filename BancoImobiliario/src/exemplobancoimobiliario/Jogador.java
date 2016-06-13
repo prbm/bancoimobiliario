@@ -1,5 +1,7 @@
 package exemplobancoimobiliario;
 
+import javax.swing.JLabel;
+
 /**
  *
  * @author Paulo
@@ -10,15 +12,17 @@ public class Jogador {
     private int numeroCasa;
     private boolean podeJogar;
     private double saldo;
-    private String cor;
+    private CorJogador cor;
+    private JLabel peaoJogador;
 
     public Jogador() {
         configuracaoInicial();
     }
 
-    public Jogador(String nome, String cor){
+    public Jogador(String nome, CorJogador cor, JLabel peaoJogador){
         this.nome = nome;
         this.cor = cor;
+        this.peaoJogador = peaoJogador;
         configuracaoInicial();
     }
    
@@ -54,14 +58,21 @@ public class Jogador {
         this.saldo = saldo;
     }
 
-    public String getCor() {
+    public CorJogador getCor() {
         return cor;
     }
 
-    public void setCor(String cor) {
+    public void setCor(CorJogador cor) {
         this.cor = cor;
     }
-    
+
+    public JLabel getPeaoJogador() {
+        return peaoJogador;
+    }
+
+    public void setPeaoJogador(JLabel peaoJogador) {
+        this.peaoJogador = peaoJogador;
+    }
     
     
     private void configuracaoInicial(){
