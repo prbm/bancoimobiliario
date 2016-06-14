@@ -57,12 +57,58 @@ public class GameBoard extends javax.swing.JFrame {
         jLFundoCasa2.setSize(jLP1.getWidth(), jLP1.getHeight());
         jLFundoCasa3.setSize(jLP1.getWidth(), jLP1.getHeight());
         jLFundoCasa4.setSize(jLP1.getWidth(), jLP1.getHeight());
+        jLFundoCasa5.setSize(jLP1.getWidth(), jLP1.getHeight());
+        jLFundoCasa6.setSize(jLP1.getWidth(), jLP1.getHeight());
+        jLFundoCasa7.setSize(jLP1.getWidth(), jLP1.getHeight());
+        jLFundoCasa8.setSize(jLP1.getWidth(), jLP1.getHeight());
+        jLFundoCasa9.setSize(jLP1.getWidth(), jLP1.getHeight());
+        jLFundoCasa10.setSize(jLP1.getWidth(), jLP1.getHeight());
+
+        jLFundoCasa11.setSize(jLP1.getWidth(), jLP1.getHeight());
+        jLFundoCasa12.setSize(jLP1.getWidth(), jLP1.getHeight());
+        jLFundoCasa13.setSize(jLP1.getWidth(), jLP1.getHeight());
+        jLFundoCasa14.setSize(jLP1.getWidth(), jLP1.getHeight());
+        jLFundoCasa15.setSize(jLP1.getWidth(), jLP1.getHeight());
+        jLFundoCasa16.setSize(jLP1.getWidth(), jLP1.getHeight());
+        jLFundoCasa17.setSize(jLP1.getWidth(), jLP1.getHeight());
+        jLFundoCasa18.setSize(jLP1.getWidth(), jLP1.getHeight());
+        jLFundoCasa19.setSize(jLP1.getWidth(), jLP1.getHeight());
+        jLFundoCasa20.setSize(jLP1.getWidth(), jLP1.getHeight());
+
+        jLFundoCasa21.setSize(jLP1.getWidth(), jLP1.getHeight());
+        jLFundoCasa22.setSize(jLP1.getWidth(), jLP1.getHeight());
+        jLFundoCasa23.setSize(jLP1.getWidth(), jLP1.getHeight());
+        jLFundoCasa24.setSize(jLP1.getWidth(), jLP1.getHeight());
+
+        
         // associa as imagens a cada um dos labels
         jLFundoCasa1.setIcon(new ImageIcon(getClass().getResource("/imagensbir/Casa001.png")));
-        jLFundoCasa2.setIcon(new ImageIcon(getClass().getResource("/imagens/Casa002.png")));
-        jLFundoCasa3.setIcon(new ImageIcon(getClass().getResource("/imagens/Casa003.png")));
-        jLFundoCasa4.setIcon(new ImageIcon(getClass().getResource("/imagens/Casa004.png")));  
+        jLFundoCasa2.setIcon(new ImageIcon(getClass().getResource("/imagensbir/FundoMetal.png")));
+        jLFundoCasa3.setIcon(new ImageIcon(getClass().getResource("/imagensbir/FundoPapel.png")));
+        jLFundoCasa4.setIcon(new ImageIcon(getClass().getResource("/imagensbir/FundoOrganico.png")));  
+        jLFundoCasa5.setIcon(new ImageIcon(getClass().getResource("/imagensbir/FundoPlastico.png")));  
+        jLFundoCasa6.setIcon(new ImageIcon(getClass().getResource("/imagensbir/FundoVidro.png")));  
+        jLFundoCasa7.setIcon(new ImageIcon(getClass().getResource("/imagensbir/FundoMadeira.png")));  
+        jLFundoCasa8.setIcon(new ImageIcon(getClass().getResource("/imagensbir/FundoMetal.png")));  
+        jLFundoCasa9.setIcon(new ImageIcon(getClass().getResource("/imagensbir/FundoPapel.png")));  
+        jLFundoCasa10.setIcon(new ImageIcon(getClass().getResource("/imagensbir/FundoNaoReciclavel.png")));  
 
+        jLFundoCasa11.setIcon(new ImageIcon(getClass().getResource("/imagensbir/FundoOrganico.png")));  
+        jLFundoCasa12.setIcon(new ImageIcon(getClass().getResource("/imagensbir/FundoPlastico.png")));  
+        jLFundoCasa13.setIcon(new ImageIcon(getClass().getResource("/imagensbir/FundoNaoReciclavel.png")));  
+        jLFundoCasa14.setIcon(new ImageIcon(getClass().getResource("/imagensbir/FundoVidro.png")));  
+        jLFundoCasa15.setIcon(new ImageIcon(getClass().getResource("/imagensbir/FundoMadeira.png")));  
+        jLFundoCasa16.setIcon(new ImageIcon(getClass().getResource("/imagensbir/FundoMetal.png")));  
+        jLFundoCasa17.setIcon(new ImageIcon(getClass().getResource("/imagensbir/FundoPapel.png")));  
+        jLFundoCasa18.setIcon(new ImageIcon(getClass().getResource("/imagensbir/FundoOrganico.png")));  
+        jLFundoCasa19.setIcon(new ImageIcon(getClass().getResource("/imagensbir/FundoPlastico.png")));  
+        jLFundoCasa20.setIcon(new ImageIcon(getClass().getResource("/imagensbir/FundoNaoReciclavel.png")));  
+
+        jLFundoCasa21.setIcon(new ImageIcon(getClass().getResource("/imagensbir/FundoVidro.png")));  
+        jLFundoCasa22.setIcon(new ImageIcon(getClass().getResource("/imagensbir/FundoNaoReciclavel.png")));  
+        jLFundoCasa23.setIcon(new ImageIcon(getClass().getResource("/imagensbir/FundoMadeira.png")));  
+        jLFundoCasa24.setIcon(new ImageIcon(getClass().getResource("/imagensbir/FundoMetal.png")));  
+        
         // associa as imagens de cada um dos peões dos jogadores
         jLAmarelo.setIcon(new ImageIcon(getClass().getResource("/imagensbir/peaoAmarelo.png")));
         jLAzul.setIcon(new ImageIcon(getClass().getResource("/imagensbir/peaoAzul.png")));
@@ -78,7 +124,29 @@ public class GameBoard extends javax.swing.JFrame {
         jLP2.add(jLFundoCasa2, 0);
         jLP3.add(jLFundoCasa3, 0);
         jLP4.add(jLFundoCasa4, 0);
+        jLP5.add(jLFundoCasa5, 0);
+        jLP6.add(jLFundoCasa6, 0);
+        jLP7.add(jLFundoCasa7, 0);
+        jLP8.add(jLFundoCasa8, 0);
+        jLP9.add(jLFundoCasa9, 0);
+        jLP10.add(jLFundoCasa10, 0);
 
+        jLP11.add(jLFundoCasa11, 0);
+        jLP12.add(jLFundoCasa12, 0);
+        jLP13.add(jLFundoCasa13, 0);
+        jLP14.add(jLFundoCasa14, 0);
+        jLP15.add(jLFundoCasa15, 0);
+        jLP16.add(jLFundoCasa16, 0);
+        jLP17.add(jLFundoCasa17, 0);
+        jLP18.add(jLFundoCasa18, 0);
+        jLP19.add(jLFundoCasa19, 0);
+        jLP20.add(jLFundoCasa20, 0);
+        
+        jLP21.add(jLFundoCasa21, 0);
+        jLP22.add(jLFundoCasa22, 0);
+        jLP23.add(jLFundoCasa23, 0);
+        jLP24.add(jLFundoCasa24, 0);
+        
         montaListaLayeredPanel();
 
         // relaciona os jogadores que estão jogando
@@ -308,7 +376,7 @@ public class GameBoard extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setAlwaysOnTop(true);
 
-        jPFundoTela.setBackground(new java.awt.Color(255, 102, 102));
+        jPFundoTela.setBackground(new java.awt.Color(0, 153, 204));
 
         jLP1.setBackground(new java.awt.Color(102, 102, 0));
         jLP1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -786,16 +854,16 @@ public class GameBoard extends javax.swing.JFrame {
             .addGroup(jPFundoTelaLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPFundoTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLP6, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(jLP3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(jLP2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(jLP6, javax.swing.GroupLayout.PREFERRED_SIZE, 120, Short.MAX_VALUE)
+                    .addComponent(jLP3, javax.swing.GroupLayout.PREFERRED_SIZE, 120, Short.MAX_VALUE)
+                    .addComponent(jLP2, javax.swing.GroupLayout.PREFERRED_SIZE, 120, Short.MAX_VALUE)
                     .addComponent(jLP1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLP4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(jLP5, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(jLP7, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(jLP8, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(jLP9, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(jLP10, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                    .addComponent(jLP4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 120, Short.MAX_VALUE)
+                    .addComponent(jLP5, javax.swing.GroupLayout.PREFERRED_SIZE, 120, Short.MAX_VALUE)
+                    .addComponent(jLP7, javax.swing.GroupLayout.PREFERRED_SIZE, 120, Short.MAX_VALUE)
+                    .addComponent(jLP8, javax.swing.GroupLayout.PREFERRED_SIZE, 120, Short.MAX_VALUE)
+                    .addComponent(jLP9, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 120, Short.MAX_VALUE)
+                    .addComponent(jLP10, javax.swing.GroupLayout.PREFERRED_SIZE, 120, Short.MAX_VALUE))
                 .addGroup(jPFundoTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPFundoTelaLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -973,6 +1041,29 @@ public class GameBoard extends javax.swing.JFrame {
     private JLabel jLFundoCasa3 = new JLabel();
     private JLabel jLFundoCasa4 = new JLabel();
 
+    private JLabel jLFundoCasa5 = new JLabel();
+    private JLabel jLFundoCasa6 = new JLabel();
+    private JLabel jLFundoCasa7 = new JLabel();
+    private JLabel jLFundoCasa8 = new JLabel();
+    private JLabel jLFundoCasa9 = new JLabel();
+    private JLabel jLFundoCasa10 = new JLabel();
+
+    private JLabel jLFundoCasa11 = new JLabel();
+    private JLabel jLFundoCasa12 = new JLabel();
+    private JLabel jLFundoCasa13 = new JLabel();
+    private JLabel jLFundoCasa14 = new JLabel();
+    private JLabel jLFundoCasa15 = new JLabel();
+    private JLabel jLFundoCasa16 = new JLabel();
+    private JLabel jLFundoCasa17 = new JLabel();
+    private JLabel jLFundoCasa18 = new JLabel();
+    private JLabel jLFundoCasa19 = new JLabel();
+    private JLabel jLFundoCasa20 = new JLabel();
+
+    private JLabel jLFundoCasa21 = new JLabel();
+    private JLabel jLFundoCasa22 = new JLabel();
+    private JLabel jLFundoCasa23 = new JLabel();
+    private JLabel jLFundoCasa24 = new JLabel();
+    
     private final Jogador[] jogadores;
     private final int numeroCasasTabuleiro = 24;
     private List<JLayeredPane> jLPanels;
