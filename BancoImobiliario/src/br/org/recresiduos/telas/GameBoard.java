@@ -8,13 +8,17 @@ package br.org.recresiduos.telas;
 import br.org.recresiduos.uteis.Dado;
 import br.org.recresiduos.constantes.CorJogador;
 import br.org.recresiduos.entidades.Jogador;
+import br.org.recresiduos.entidades.Objetivo;
 import java.awt.Component;
 import java.awt.Cursor;
+import static java.lang.Boolean.FALSE;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -164,6 +168,9 @@ public class GameBoard extends javax.swing.JFrame {
 
         // atualiza a tela
         mostrarQuemEstaJogando();
+        
+        //definir as cartas sorte e reves do jogo
+        definirCartas();
 
     }
 
@@ -336,7 +343,111 @@ public class GameBoard extends javax.swing.JFrame {
         jLPTmp.revalidate();
         jLPTmp.paintComponents(jLPTmp.getGraphics());
     }
+    
+     // configuração das cartas objetivo
+    private void definirCartas(){
 
+        // inicia a relação de cartas objetivo
+        cartas = new ArrayList<Objetivo>();
+        
+        // até aqui, tudo bem
+        cartas.add(new Objetivo("Mesa Vidro",0,0,0,0,0,0,0,0,1));
+        cartas.add(new Objetivo("Cadeira Madeira",0,0,0,0,0,0,0,0,2));
+        cartas.add(new Objetivo("Mesa Madeira",0,0,0,0,0,0,0,0,3));
+        cartas.add(new Objetivo("Mesa Ferro",0,0,0,0,0,0,0,0,4));
+        cartas.add(new Objetivo("Mesa a",0,0,0,0,0,0,0,0,5));
+        cartas.add(new Objetivo("Mesa b ",0,0,0,0,0,0,0,0,6));
+        cartas.add(new Objetivo("Mesa c",0,0,0,0,0,0,0,0,7));
+        cartas.add(new Objetivo("Mesa d",0,0,0,0,0,0,0,0,8));
+        cartas.add(new Objetivo("Mesa e",0,0,0,0,0,0,0,0,9));
+        cartas.add(new Objetivo("Mesa f",0,0,0,0,0,0,0,0,10));   
+        
+        // embaralha as cartas, enquanto a lista original não estiver vazia
+        while(!cartas.isEmpty()){
+            // reinicia o objeto
+            Objetivo ob = null;
+            // se houver mais de uma carta na lista
+            if(cartas.size()>1){
+                // lê o número total de cartas que a lista tem
+                int numeroCartas = cartas.size();
+                // gera aleatoriamente o número da posição da lista original
+                Random rnd = new Random();
+                int posicaoLista = rnd.nextInt(numeroCartas);
+                // identifica o objeto da posição selecionada
+                ob = cartas.get(posicaoLista);
+            }
+            else{
+                // lê o objeto da posição 0
+                ob = cartas.get(0);
+            }
+            // adiciona o objeto selecionado à nova lista
+            cartasTmp.add(ob);
+            // remove o objeto selecionado da lista original
+            cartas.remove(ob);
+        }
+        // copia as cartas embaralhadas para a lista original
+        cartas = cartasTmp;
+               
+        // imprime a lista embaralhada, para conferência
+        for(Objetivo s : cartas){
+            System.out.println("Carta: " + s.getDescr());
+        }           
+    }
+    
+    private void Sortear(Jogador j){
+       
+        while (j.isPodeSortear()){
+        String[] sorteio = {"Sortear"};
+        int y=0;
+        while(y==0){
+            int RCarta = JOptionPane.showOptionDialog(null, "Sorteie um Objetivo",  // mensagem do corpo
+            "Objetivos",              // título
+            JOptionPane.YES_NO_OPTION,     // opções de botão
+            JOptionPane.QUESTION_MESSAGE,  // tipo da mensagem
+            null,                          // ícone da mensagem
+            sorteio,                        // títulos dos botões da tela
+            sorteio[0]);                    // indica o botão default
+
+            if(RCarta == JOptionPane.YES_OPTION){
+                //trás a primeira carta da pilha
+                double valorCarta = cartas.get(0).getValor();
+                
+                //atualizar saldo com a carta
+                j.setSaldo((j.getSaldo() + valorCarta));
+                System.out.println("O saldo do jogador " + j.getNome() + " foi atualizado para " + j.getSaldo());
+                JOptionPane.showMessageDialog(null, "Descrição:" + cartas.get(0).getDescr() + 
+                        "\n"+
+                        "Vidro: " + cartas.get(0).getVidro()+
+                        "\n"+
+                        "Papel: " + cartas.get(0).getPapel()+
+                        "\n"+
+                        "Ferro: " + cartas.get(0).getFerro()+
+                        "\n"+
+                        "Aluminio: " + cartas.get(0).getAluminio()+
+                        "\n"+
+                        "Oleo: " + cartas.get(0).getOleo()+
+                        "\n"+
+                        "Madeira: " + cartas.get(0).getMadeira()+
+                        "\n"+
+                        "Plastico: " + cartas.get(0).getPlastico()+
+                        "\n"+
+                        "Valor: " + cartas.get(0).getValor());
+                
+               //copia o objetivo para cada jogador
+               j.setObjetivo(cartas.get(0));
+               y=1;
+               j.setPodeSortear(FALSE);
+	    }
+	    else{
+		JOptionPane.showMessageDialog(null, "Você deve sortear uma carta");
+		y=0;
+                
+            }
+        }   
+            cartas.add(cartas.get(0));	// copia a primeira carta para o fim da lista 
+            cartas.remove(0);		// remove a primeira carta para a lista
+        }    
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -961,6 +1072,7 @@ public class GameBoard extends javax.swing.JFrame {
         determinaProximoJogador(j);
         mostrarQuemEstaJogando();
         setCursor(Cursor.getDefaultCursor());
+        Sortear(j);
         
     }//GEN-LAST:event_jBJogarActionPerformed
 
@@ -1070,4 +1182,11 @@ public class GameBoard extends javax.swing.JFrame {
     private final Jogador[] jogadores;
     private final int numeroCasasTabuleiro = 24;
     private List<JLayeredPane> jLPanels;
+    
+    private Objetivo carta;
+    // cria uma nova lista para armazenar as cartas sendo embaralhadas
+    private List<Objetivo> cartas = new ArrayList <Objetivo>();
+    
+    //Cria uma lista temporaria para realizar a troca das cartas
+    List<Objetivo> cartasTmp = new ArrayList<Objetivo>();
 }

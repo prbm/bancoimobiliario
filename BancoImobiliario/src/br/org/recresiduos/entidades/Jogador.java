@@ -82,6 +82,14 @@ public class Jogador {
       this.objetivo = objetivo;  
     }
 
+    public MaterialColetado getMaterialColetado() {
+        return materialColetado;
+    }
+
+    public void setMaterialColetado(MaterialColetado materialColetado) {
+        this.materialColetado = materialColetado;
+    }
+
     
     public Objetivo getObjetivo (){
         return objetivo;
