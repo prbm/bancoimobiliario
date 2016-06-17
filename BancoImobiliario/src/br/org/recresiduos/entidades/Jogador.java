@@ -1,6 +1,7 @@
 package br.org.recresiduos.entidades;
 
 import br.org.recresiduos.constantes.CorJogador;
+import br.org.recresiduos.constantes.TipodeMateriais;
 import static java.lang.Boolean.TRUE;
 import java.util.List;
 
@@ -18,7 +19,9 @@ public class Jogador {
     private double saldo;
     private CorJogador cor;
     private JLabel peaoJogador;
-
+    private Objetivo objetivo;
+    private MaterialColetado materialColetado;
+    
     public Jogador() {
         configuracaoInicial();
     }
@@ -82,6 +85,10 @@ public class Jogador {
       this.objetivo = objetivo;  
     }
 
+    public Objetivo getObjetivo (){
+        return objetivo;
+    }
+
     public MaterialColetado getMaterialColetado() {
         return materialColetado;
     }
@@ -90,9 +97,31 @@ public class Jogador {
         this.materialColetado = materialColetado;
     }
 
-    
-    public Objetivo getObjetivo (){
-        return objetivo;
+    public void setMaterialColetado(double quantidade, TipodeMateriais tm) {
+        //verifica o tipo de material, para saber onde jogar a quantidade
+        switch(tm){
+            case MADEIRA:
+                this.materialColetado.setMadeira(quantidade);
+                break;
+            case FERRO:
+                this.materialColetado.setFerro(quantidade);
+                break;
+            case ALUMINIO:
+                this.materialColetado.setAluminio(quantidade);
+                break;
+            case OLEO:
+                this.materialColetado.setOleo(quantidade);
+                break;
+            case PLASTICO:
+                this.materialColetado.setPlastico(quantidade);
+                break;
+            case VIDRO:
+                this.materialColetado.setVidro(quantidade);
+                break;
+            case PAPEL:
+                this.materialColetado.setPapel(quantidade);
+                break;
+        }
     }
     
     private void configuracaoInicial(){
@@ -111,6 +140,5 @@ public class Jogador {
             this.saldo = 0.0;
         }
     }
-    private Objetivo objetivo;
-    private MaterialColetado materialColetado;
+
 }

@@ -227,6 +227,7 @@ public class Tabuleiro extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("KING CITY");
+        setPreferredSize(new java.awt.Dimension(747, 667));
         setResizable(false);
         setSize(new java.awt.Dimension(60, 0));
 

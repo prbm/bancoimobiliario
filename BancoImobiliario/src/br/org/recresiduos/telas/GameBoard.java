@@ -87,35 +87,34 @@ public class GameBoard extends javax.swing.JFrame {
         jLFundoCasa23.setSize(jLP1.getWidth(), jLP1.getHeight());
         jLFundoCasa24.setSize(jLP1.getWidth(), jLP1.getHeight());
 
-        
         // associa as imagens a cada um dos labels
         jLFundoCasa1.setIcon(new ImageIcon(getClass().getResource("/imagensbir/Casa001.png")));
         jLFundoCasa2.setIcon(new ImageIcon(getClass().getResource("/imagensbir/FundoMetal.png")));
         jLFundoCasa3.setIcon(new ImageIcon(getClass().getResource("/imagensbir/FundoPapel.png")));
-        jLFundoCasa4.setIcon(new ImageIcon(getClass().getResource("/imagensbir/FundoOrganico.png")));  
-        jLFundoCasa5.setIcon(new ImageIcon(getClass().getResource("/imagensbir/FundoPlastico.png")));  
-        jLFundoCasa6.setIcon(new ImageIcon(getClass().getResource("/imagensbir/FundoVidro.png")));  
-        jLFundoCasa7.setIcon(new ImageIcon(getClass().getResource("/imagensbir/FundoMadeira.png")));  
-        jLFundoCasa8.setIcon(new ImageIcon(getClass().getResource("/imagensbir/FundoMetal.png")));  
-        jLFundoCasa9.setIcon(new ImageIcon(getClass().getResource("/imagensbir/FundoPapel.png")));  
-        jLFundoCasa10.setIcon(new ImageIcon(getClass().getResource("/imagensbir/FundoNaoReciclavel.png")));  
+        jLFundoCasa4.setIcon(new ImageIcon(getClass().getResource("/imagensbir/FundoOrganico.png")));
+        jLFundoCasa5.setIcon(new ImageIcon(getClass().getResource("/imagensbir/FundoPlastico.png")));
+        jLFundoCasa6.setIcon(new ImageIcon(getClass().getResource("/imagensbir/FundoVidro.png")));
+        jLFundoCasa7.setIcon(new ImageIcon(getClass().getResource("/imagensbir/FundoMadeira.png")));
+        jLFundoCasa8.setIcon(new ImageIcon(getClass().getResource("/imagensbir/FundoMetal.png")));
+        jLFundoCasa9.setIcon(new ImageIcon(getClass().getResource("/imagensbir/FundoPapel.png")));
+        jLFundoCasa10.setIcon(new ImageIcon(getClass().getResource("/imagensbir/FundoNaoReciclavel.png")));
 
-        jLFundoCasa11.setIcon(new ImageIcon(getClass().getResource("/imagensbir/FundoOrganico.png")));  
-        jLFundoCasa12.setIcon(new ImageIcon(getClass().getResource("/imagensbir/FundoPlastico.png")));  
-        jLFundoCasa13.setIcon(new ImageIcon(getClass().getResource("/imagensbir/FundoNaoReciclavel.png")));  
-        jLFundoCasa14.setIcon(new ImageIcon(getClass().getResource("/imagensbir/FundoVidro.png")));  
-        jLFundoCasa15.setIcon(new ImageIcon(getClass().getResource("/imagensbir/FundoMadeira.png")));  
-        jLFundoCasa16.setIcon(new ImageIcon(getClass().getResource("/imagensbir/FundoMetal.png")));  
-        jLFundoCasa17.setIcon(new ImageIcon(getClass().getResource("/imagensbir/FundoPapel.png")));  
-        jLFundoCasa18.setIcon(new ImageIcon(getClass().getResource("/imagensbir/FundoOrganico.png")));  
-        jLFundoCasa19.setIcon(new ImageIcon(getClass().getResource("/imagensbir/FundoPlastico.png")));  
-        jLFundoCasa20.setIcon(new ImageIcon(getClass().getResource("/imagensbir/FundoNaoReciclavel.png")));  
+        jLFundoCasa11.setIcon(new ImageIcon(getClass().getResource("/imagensbir/FundoOrganico.png")));
+        jLFundoCasa12.setIcon(new ImageIcon(getClass().getResource("/imagensbir/FundoPlastico.png")));
+        jLFundoCasa13.setIcon(new ImageIcon(getClass().getResource("/imagensbir/FundoNaoReciclavel.png")));
+        jLFundoCasa14.setIcon(new ImageIcon(getClass().getResource("/imagensbir/FundoVidro.png")));
+        jLFundoCasa15.setIcon(new ImageIcon(getClass().getResource("/imagensbir/FundoMadeira.png")));
+        jLFundoCasa16.setIcon(new ImageIcon(getClass().getResource("/imagensbir/FundoMetal.png")));
+        jLFundoCasa17.setIcon(new ImageIcon(getClass().getResource("/imagensbir/FundoPapel.png")));
+        jLFundoCasa18.setIcon(new ImageIcon(getClass().getResource("/imagensbir/FundoOrganico.png")));
+        jLFundoCasa19.setIcon(new ImageIcon(getClass().getResource("/imagensbir/FundoPlastico.png")));
+        jLFundoCasa20.setIcon(new ImageIcon(getClass().getResource("/imagensbir/FundoNaoReciclavel.png")));
 
-        jLFundoCasa21.setIcon(new ImageIcon(getClass().getResource("/imagensbir/FundoVidro.png")));  
-        jLFundoCasa22.setIcon(new ImageIcon(getClass().getResource("/imagensbir/FundoNaoReciclavel.png")));  
-        jLFundoCasa23.setIcon(new ImageIcon(getClass().getResource("/imagensbir/FundoMadeira.png")));  
-        jLFundoCasa24.setIcon(new ImageIcon(getClass().getResource("/imagensbir/FundoMetal.png")));  
-        
+        jLFundoCasa21.setIcon(new ImageIcon(getClass().getResource("/imagensbir/FundoVidro.png")));
+        jLFundoCasa22.setIcon(new ImageIcon(getClass().getResource("/imagensbir/FundoNaoReciclavel.png")));
+        jLFundoCasa23.setIcon(new ImageIcon(getClass().getResource("/imagensbir/FundoMadeira.png")));
+        jLFundoCasa24.setIcon(new ImageIcon(getClass().getResource("/imagensbir/FundoMetal.png")));
+
         // associa as imagens de cada um dos peões dos jogadores
         jLAmarelo.setIcon(new ImageIcon(getClass().getResource("/imagensbir/peaoAmarelo.png")));
         jLAzul.setIcon(new ImageIcon(getClass().getResource("/imagensbir/peaoAzul.png")));
@@ -148,12 +147,12 @@ public class GameBoard extends javax.swing.JFrame {
         jLP18.add(jLFundoCasa18, 0);
         jLP19.add(jLFundoCasa19, 0);
         jLP20.add(jLFundoCasa20, 0);
-        
+
         jLP21.add(jLFundoCasa21, 0);
         jLP22.add(jLFundoCasa22, 0);
         jLP23.add(jLFundoCasa23, 0);
         jLP24.add(jLFundoCasa24, 0);
-        
+
         montaListaLayeredPanel();
 
         // relaciona os jogadores que estão jogando
@@ -168,7 +167,7 @@ public class GameBoard extends javax.swing.JFrame {
 
         // atualiza a tela
         mostrarQuemEstaJogando();
-        
+
         //definir as cartas sorte e reves do jogo
         definirCartas();
 
@@ -343,31 +342,31 @@ public class GameBoard extends javax.swing.JFrame {
         jLPTmp.revalidate();
         jLPTmp.paintComponents(jLPTmp.getGraphics());
     }
-    
-     // configuração das cartas objetivo
-    private void definirCartas(){
+
+    // configuração das cartas objetivo
+    private void definirCartas() {
 
         // inicia a relação de cartas objetivo
         cartas = new ArrayList<Objetivo>();
-        
+
         // até aqui, tudo bem
-        cartas.add(new Objetivo("Mesa Vidro",0,0,0,0,0,0,0,0,1));
-        cartas.add(new Objetivo("Cadeira Madeira",0,0,0,0,0,0,0,0,2));
-        cartas.add(new Objetivo("Mesa Madeira",0,0,0,0,0,0,0,0,3));
-        cartas.add(new Objetivo("Mesa Ferro",0,0,0,0,0,0,0,0,4));
-        cartas.add(new Objetivo("Mesa a",0,0,0,0,0,0,0,0,5));
-        cartas.add(new Objetivo("Mesa b ",0,0,0,0,0,0,0,0,6));
-        cartas.add(new Objetivo("Mesa c",0,0,0,0,0,0,0,0,7));
-        cartas.add(new Objetivo("Mesa d",0,0,0,0,0,0,0,0,8));
-        cartas.add(new Objetivo("Mesa e",0,0,0,0,0,0,0,0,9));
-        cartas.add(new Objetivo("Mesa f",0,0,0,0,0,0,0,0,10));   
-        
+        cartas.add(new Objetivo("Mesa Vidro", 0, 0, 0, 0, 0, 0, 0, 0, 1));
+        cartas.add(new Objetivo("Cadeira Madeira", 0, 0, 0, 0, 0, 0, 0, 0, 2));
+        cartas.add(new Objetivo("Mesa Madeira", 0, 0, 0, 0, 0, 0, 0, 0, 3));
+        cartas.add(new Objetivo("Mesa Ferro", 0, 0, 0, 0, 0, 0, 0, 0, 4));
+        cartas.add(new Objetivo("Mesa a", 0, 0, 0, 0, 0, 0, 0, 0, 5));
+        cartas.add(new Objetivo("Mesa b ", 0, 0, 0, 0, 0, 0, 0, 0, 6));
+        cartas.add(new Objetivo("Mesa c", 0, 0, 0, 0, 0, 0, 0, 0, 7));
+        cartas.add(new Objetivo("Mesa d", 0, 0, 0, 0, 0, 0, 0, 0, 8));
+        cartas.add(new Objetivo("Mesa e", 0, 0, 0, 0, 0, 0, 0, 0, 9));
+        cartas.add(new Objetivo("Mesa f", 0, 0, 0, 0, 0, 0, 0, 0, 10));
+
         // embaralha as cartas, enquanto a lista original não estiver vazia
-        while(!cartas.isEmpty()){
+        while (!cartas.isEmpty()) {
             // reinicia o objeto
             Objetivo ob = null;
             // se houver mais de uma carta na lista
-            if(cartas.size()>1){
+            if (cartas.size() > 1) {
                 // lê o número total de cartas que a lista tem
                 int numeroCartas = cartas.size();
                 // gera aleatoriamente o número da posição da lista original
@@ -375,8 +374,7 @@ public class GameBoard extends javax.swing.JFrame {
                 int posicaoLista = rnd.nextInt(numeroCartas);
                 // identifica o objeto da posição selecionada
                 ob = cartas.get(posicaoLista);
-            }
-            else{
+            } else {
                 // lê o objeto da posição 0
                 ob = cartas.get(0);
             }
@@ -387,67 +385,67 @@ public class GameBoard extends javax.swing.JFrame {
         }
         // copia as cartas embaralhadas para a lista original
         cartas = cartasTmp;
-               
-        // imprime a lista embaralhada, para conferência
-        for(Objetivo s : cartas){
-            System.out.println("Carta: " + s.getDescr());
-        }           
-    }
-    
-    private void Sortear(Jogador j){
-       
-        while (j.isPodeSortear()){
-        String[] sorteio = {"Sortear"};
-        int y=0;
-        while(y==0){
-            int RCarta = JOptionPane.showOptionDialog(null, "Sorteie um Objetivo",  // mensagem do corpo
-            "Objetivos",              // título
-            JOptionPane.YES_NO_OPTION,     // opções de botão
-            JOptionPane.QUESTION_MESSAGE,  // tipo da mensagem
-            null,                          // ícone da mensagem
-            sorteio,                        // títulos dos botões da tela
-            sorteio[0]);                    // indica o botão default
 
-            if(RCarta == JOptionPane.YES_OPTION){
-                //trás a primeira carta da pilha
-                double valorCarta = cartas.get(0).getValor();
-                
-                //atualizar saldo com a carta
-                j.setSaldo((j.getSaldo() + valorCarta));
-                System.out.println("O saldo do jogador " + j.getNome() + " foi atualizado para " + j.getSaldo());
-                JOptionPane.showMessageDialog(null, "Descrição:" + cartas.get(0).getDescr() + 
-                        "\n"+
-                        "Vidro: " + cartas.get(0).getVidro()+
-                        "\n"+
-                        "Papel: " + cartas.get(0).getPapel()+
-                        "\n"+
-                        "Ferro: " + cartas.get(0).getFerro()+
-                        "\n"+
-                        "Aluminio: " + cartas.get(0).getAluminio()+
-                        "\n"+
-                        "Oleo: " + cartas.get(0).getOleo()+
-                        "\n"+
-                        "Madeira: " + cartas.get(0).getMadeira()+
-                        "\n"+
-                        "Plastico: " + cartas.get(0).getPlastico()+
-                        "\n"+
-                        "Valor: " + cartas.get(0).getValor());
-                
-               //copia o objetivo para cada jogador
-               j.setObjetivo(cartas.get(0));
-               y=1;
-               j.setPodeSortear(FALSE);
-	    }
-	    else{
-		JOptionPane.showMessageDialog(null, "Você deve sortear uma carta");
-		y=0;
-                
+        // imprime a lista embaralhada, para conferência
+        for (Objetivo s : cartas) {
+            System.out.println("Carta: " + s.getDescr());
+        }
+    }
+
+    private void sortear(Jogador j) {
+
+        while (j.isPodeSortear()) {
+            String[] sorteio = {"Sortear"};
+            int y = 0;
+            while (y == 0) {
+                int RCarta = JOptionPane.showOptionDialog(null, "Sorteie um Objetivo", // mensagem do corpo
+                        "Objetivos", // título
+                        JOptionPane.YES_NO_OPTION, // opções de botão
+                        JOptionPane.QUESTION_MESSAGE, // tipo da mensagem
+                        null, // ícone da mensagem
+                        sorteio, // títulos dos botões da tela
+                        sorteio[0]);                    // indica o botão default
+
+                if (RCarta == JOptionPane.YES_OPTION) {
+                    //trás a primeira carta da pilha
+                    double valorCarta = cartas.get(0).getValor();
+
+                    //atualizar saldo com a carta
+                    j.setSaldo((j.getSaldo() + valorCarta));
+                    System.out.println("O saldo do jogador " + j.getNome() + " foi atualizado para " + j.getSaldo());
+                    JOptionPane.showMessageDialog(null, "Descrição:" + cartas.get(0).getDescr()
+                            + "\n"
+                            + "Vidro: " + cartas.get(0).getVidro()
+                            + "\n"
+                            + "Papel: " + cartas.get(0).getPapel()
+                            + "\n"
+                            + "Ferro: " + cartas.get(0).getFerro()
+                            + "\n"
+                            + "Aluminio: " + cartas.get(0).getAluminio()
+                            + "\n"
+                            + "Oleo: " + cartas.get(0).getOleo()
+                            + "\n"
+                            + "Madeira: " + cartas.get(0).getMadeira()
+                            + "\n"
+                            + "Plastico: " + cartas.get(0).getPlastico()
+                            + "\n"
+                            + "Valor: " + cartas.get(0).getValor());
+
+                    //copia o objetivo para cada jogador
+                    j.setObjetivo(cartas.get(0));
+                    y = 1;
+                    j.setPodeSortear(FALSE);
+                } else {
+                    JOptionPane.showMessageDialog(null, "Você deve sortear uma carta");
+                    y = 0;
+
+                }
             }
-        }   
             cartas.add(cartas.get(0));	// copia a primeira carta para o fim da lista 
             cartas.remove(0);		// remove a primeira carta para a lista
-        }    
+        }
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -892,8 +890,9 @@ public class GameBoard extends javax.swing.JFrame {
         jLNomeJogador.setText("Nome Jogador:");
         jLNomeJogador.setToolTipText("");
 
+        jBJogar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagensbir/Dice001.png"))); // NOI18N
         jBJogar.setMnemonic('J');
-        jBJogar.setText("Jogar");
+        jBJogar.setPreferredSize(new java.awt.Dimension(75, 75));
         jBJogar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBJogarActionPerformed(evt);
@@ -959,7 +958,7 @@ public class GameBoard extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLP14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(jPFundoTelaLayout.createSequentialGroup()
-                                .addComponent(jBJogar)
+                                .addComponent(jBJogar, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(0, 0, Short.MAX_VALUE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPFundoTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -997,8 +996,8 @@ public class GameBoard extends javax.swing.JFrame {
                                     .addComponent(jLJogador)
                                     .addComponent(jLCorJogador, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLNomeJogador))
-                                .addGap(30, 30, 30)
-                                .addComponent(jBJogar))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jBJogar, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPFundoTelaLayout.createSequentialGroup()
                                 .addGap(5, 5, 5)
                                 .addComponent(jLP24, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -1073,18 +1072,42 @@ public class GameBoard extends javax.swing.JFrame {
 
         setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
         mostrarQuemEstaJogando();
-        movimentarJogador(d.rolarDados(), j);
+
+        // animar dado
+        ImageIcon[] dice = new ImageIcon[7];
+        for (int i = 1; i < 7; i++) {
+            String path = "/imagensbir/Dice00" + i + ".png";
+            dice[i] = new ImageIcon(getClass().getResource(path));
+        }
+
+        Random rnd = new Random();
+        for (int i = 0; i < 20; i++) {
+            jBJogar.setIcon(dice[(rnd.nextInt(5) + 1)]);
+            jBJogar.update(jBJogar.getGraphics());
+            try {
+                Thread.sleep(100);
+            } catch (InterruptedException ie) {
+                System.out.println(ie.getMessage());
+            }
+        }
+        // fim da animação
+
+        d.rolarDados();
+        jBJogar.setIcon(dice[d.getNumFace()]);
+        jBJogar.update(jBJogar.getGraphics());
+
+        movimentarJogador(d.getNumFace(), j);
         determinaProximoJogador(j);
         mostrarQuemEstaJogando();
         setCursor(Cursor.getDefaultCursor());
-		Sortear(j);
+//        sortear(j);
     }//GEN-LAST:event_jBJogarActionPerformed
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
 
         int res = JOptionPane.showConfirmDialog(this, "Esta operação fará com que o jogo termine, você realmente quer fazer isso?", "Vai Sair?", JOptionPane.YES_NO_OPTION);
-        
-        switch(res){
+
+        switch (res) {
             case JOptionPane.OK_OPTION:
                 this.dispose();
                 break;
@@ -1195,15 +1218,15 @@ public class GameBoard extends javax.swing.JFrame {
     private JLabel jLFundoCasa22 = new JLabel();
     private JLabel jLFundoCasa23 = new JLabel();
     private JLabel jLFundoCasa24 = new JLabel();
-    
+
     private final Jogador[] jogadores;
     private final int numeroCasasTabuleiro = 24;
     private List<JLayeredPane> jLPanels;
-    
+
     private Objetivo carta;
     // cria uma nova lista para armazenar as cartas sendo embaralhadas
-    private List<Objetivo> cartas = new ArrayList <Objetivo>();
-    
+    private List<Objetivo> cartas = new ArrayList<Objetivo>();
+
     //Cria uma lista temporaria para realizar a troca das cartas
     List<Objetivo> cartasTmp = new ArrayList<Objetivo>();
 }
