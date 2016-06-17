@@ -487,8 +487,13 @@ public class GameBoard extends javax.swing.JFrame {
         jLNomeJogador = new javax.swing.JLabel();
         jBJogar = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setAlwaysOnTop(true);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         jPFundoTela.setBackground(new java.awt.Color(0, 153, 204));
 
@@ -1072,9 +1077,21 @@ public class GameBoard extends javax.swing.JFrame {
         determinaProximoJogador(j);
         mostrarQuemEstaJogando();
         setCursor(Cursor.getDefaultCursor());
-        Sortear(j);
-        
+		Sortear(j);
     }//GEN-LAST:event_jBJogarActionPerformed
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+
+        int res = JOptionPane.showConfirmDialog(this, "Esta operação fará com que o jogo termine, você realmente quer fazer isso?", "Vai Sair?", JOptionPane.YES_NO_OPTION);
+        
+        switch(res){
+            case JOptionPane.OK_OPTION:
+                this.dispose();
+                break;
+            case JOptionPane.NO_OPTION:
+                return;
+        }
+    }//GEN-LAST:event_formWindowClosing
 
     /**
      * @param args the command line arguments
