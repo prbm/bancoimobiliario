@@ -2,9 +2,6 @@ package br.org.recresiduos.entidades;
 
 import br.org.recresiduos.constantes.CorJogador;
 import br.org.recresiduos.constantes.TipodeMateriais;
-import static java.lang.Boolean.TRUE;
-import java.util.List;
-
 import javax.swing.JLabel;
 
 /**

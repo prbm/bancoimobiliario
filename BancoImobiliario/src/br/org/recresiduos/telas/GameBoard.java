@@ -29,9 +29,12 @@ public class GameBoard extends javax.swing.JFrame {
     /**
      * Creates new form GameBoard
      */
-    public GameBoard() {
+    public GameBoard(Jogador[] j) {
         // inicializa os componentes básicos de tela
         initComponents();
+
+        // copia os jogadores que foram criados na tela anterior
+        this.jogadores = j;
 
         // cria os labels que vão receber as figuras dos jogadores
         jLAzul = new JLabel();
@@ -155,15 +158,37 @@ public class GameBoard extends javax.swing.JFrame {
 
         montaListaLayeredPanel();
 
-        // relaciona os jogadores que estão jogando
-        jogadores = new Jogador[4];
-        jogadores[0] = new Jogador("Manfred Von Richtofen", CorJogador.AMARELO, jLAmarelo);
-        jogadores[1] = new Jogador("Rene Fonck", CorJogador.AZUL, jLAzul);
-        jogadores[2] = new Jogador("William Bishop", CorJogador.BRANCO, jLBranco);
-        jogadores[3] = new Jogador("Ernst Udet", CorJogador.PRETO, jLPreto);
+        // ajusta a configuração dos jogadores que estão jogando
+//        jogadores = new Jogador[4];
+        for (int i = 0; i < 4; i++) {
+            if (jogadores[i] != null) {
+                switch (jogadores[i].getCor()) {
+                    case AMARELO:
+                        jogadores[i].setPeaoJogador(jLAmarelo);
+                        break;
+                    case AZUL:
+                        jogadores[i].setPeaoJogador(jLAzul);
+                        break;
+                    case BRANCO:
+                        jogadores[i].setPeaoJogador(jLBranco);
+                        break;
+                    case PRETO:
+                        jogadores[i].setPeaoJogador(jLPreto);
+                        break;
+                }
+            }
+        }
 
         // determina quem inicializa o jogo
-        vezJogador = CorJogador.AMARELO;
+        if (jogadores[0] != null) {
+            vezJogador = CorJogador.AMARELO;
+        } else if (jogadores[1] != null) {
+            vezJogador = CorJogador.AZUL;
+        } else if (jogadores[2] != null) {
+            vezJogador = CorJogador.BRANCO;
+        } else if (jogadores[3] != null) {
+            vezJogador = CorJogador.PRETO;
+        }
 
         // atualiza a tela
         mostrarQuemEstaJogando();
@@ -1146,7 +1171,8 @@ public class GameBoard extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new GameBoard().setVisible(true);
+                Jogador[] jog = new Jogador[4];
+                new GameBoard(jog).setVisible(true);
             }
         });
     }
@@ -1219,6 +1245,7 @@ public class GameBoard extends javax.swing.JFrame {
     private JLabel jLFundoCasa23 = new JLabel();
     private JLabel jLFundoCasa24 = new JLabel();
 
+    // cria um array de tamanho fixo para os jogadores
     private final Jogador[] jogadores;
     private final int numeroCasasTabuleiro = 24;
     private List<JLayeredPane> jLPanels;

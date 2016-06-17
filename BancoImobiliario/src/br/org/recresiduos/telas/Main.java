@@ -1,4 +1,7 @@
 package br.org.recresiduos.telas;
+import java.awt.Component;
+import java.awt.Container;
+import javax.swing.AbstractButton;
 import javax.swing.JOptionPane;
 /**
  *
@@ -7,6 +10,12 @@ import javax.swing.JOptionPane;
 public class Main {
     
     public static void main(String args[]){
+        
+        CriaJogadores cJ = new CriaJogadores();
+        //removerBarraTituloTela(cJ);
+        cJ.setVisible(true);
+        
+        /*
         
         // exibe a tela de Splash
         Splash splash = new Splash(7500);
@@ -24,5 +33,18 @@ public class Main {
         // ativa o tabuleiro
         Tabuleiro tab = new Tabuleiro();
         tab.setVisible(true);
+        */
+    }
+
+    private static void removerBarraTituloTela(Component componenteTela){
+        if(componenteTela instanceof AbstractButton){
+            componenteTela.getParent().remove(componenteTela);
+        }
+        if(componenteTela instanceof Container){
+            Component[] comps = ((Container)componenteTela).getComponents();
+            for(int x = 0, y = comps.length; x < y ; x++)
+                removerBarraTituloTela(comps[x]);
+        }
+
     }
 }
