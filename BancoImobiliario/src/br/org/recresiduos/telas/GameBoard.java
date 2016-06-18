@@ -528,32 +528,45 @@ public class GameBoard extends javax.swing.JFrame {
         "Material: "+ casas.get(numeroCasa).getMaterial());
 
          // verifica o material da casa que o jogador se encontra
-                
         switch (casas.get(numeroCasa).getMaterial()) {
 
         case NENHUM:
             System.out.println("Nada a recolher!");
             break;
         case METAL:
+            System.out.println("jogador " + j.getNome() + " quantidade metal: " + j.getMaterialColetado().getQtdeMetal());
             j.setMaterialColetado(1, TipodeMateriais.METAL);
+            System.out.println("jogador " + j.getNome() + " quantidade metal atual: " + j.getMaterialColetado().getQtdeMetal());
             break;
         case PAPEL:
+            System.out.println("jogador " + j.getNome() + " quantidade papel: " + j.getMaterialColetado().getQtdePapel());
             j.setMaterialColetado(1, TipodeMateriais.PAPEL);
+            System.out.println("jogador " + j.getNome() + " quantidade papel atual: " + j.getMaterialColetado().getQtdePapel());
             break;
         case ORGANICO:
+            System.out.println("jogador " + j.getNome() + " quantidade organico: " + j.getMaterialColetado().getQtdeOrganico());
             j.setMaterialColetado(1, TipodeMateriais.ORGANICO);
+            System.out.println("jogador " + j.getNome() + " quantidade organico atual: " + j.getMaterialColetado().getQtdeOrganico());
             break;
         case PLASTICO:
+            System.out.println("jogador " + j.getNome() + " quantidade plastico: " + j.getMaterialColetado().getQtdePlastico());
             j.setMaterialColetado(1, TipodeMateriais.PLASTICO);
+            System.out.println("jogador " + j.getNome() + " quantidade plastico atual: " + j.getMaterialColetado().getQtdePlastico());
             break;
         case VIDRO:
+            System.out.println("jogador " + j.getNome() + " quantidade vidro: " + j.getMaterialColetado().getQtdeVidro());
             j.setMaterialColetado(1, TipodeMateriais.VIDRO);
+            System.out.println("jogador " + j.getNome() + " quantidade vidro atual: " + j.getMaterialColetado().getQtdeVidro());
             break;
         case MADEIRA:
+            System.out.println("jogador " + j.getNome() + " quantidade madeira: " + j.getMaterialColetado().getQtdeMadeira());
             j.setMaterialColetado(1, TipodeMateriais.MADEIRA);
+            System.out.println("jogador " + j.getNome() + " quantidade madeira atual: " + j.getMaterialColetado().getQtdeMadeira());
             break;
         case NAORECICLAVEL:
+            System.out.println("jogador " + j.getNome() + " quantidade naoreciclavel: " + j.getMaterialColetado().getQtdeNaoReciclavel());
             j.setMaterialColetado(1, TipodeMateriais.NAORECICLAVEL);
+            System.out.println("jogador " + j.getNome() + " quantidade naoreciclavel atual: " + j.getMaterialColetado().getQtdeNaoReciclavel());
             break;
         }
    
@@ -598,6 +611,7 @@ public class GameBoard extends javax.swing.JFrame {
         jLNomeJogador = new javax.swing.JLabel();
         jBJogar = new javax.swing.JButton();
         jBColetar = new javax.swing.JButton();
+        jBNaoColetar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -628,7 +642,6 @@ public class GameBoard extends javax.swing.JFrame {
         jLP2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jLP2.setMaximumSize(new java.awt.Dimension(75, 120));
         jLP2.setMinimumSize(new java.awt.Dimension(75, 120));
-        jLP2.setPreferredSize(new java.awt.Dimension(75, 120));
 
         javax.swing.GroupLayout jLP2Layout = new javax.swing.GroupLayout(jLP2);
         jLP2.setLayout(jLP2Layout);
@@ -645,7 +658,6 @@ public class GameBoard extends javax.swing.JFrame {
         jLP3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jLP3.setMaximumSize(new java.awt.Dimension(75, 120));
         jLP3.setMinimumSize(new java.awt.Dimension(75, 120));
-        jLP3.setPreferredSize(new java.awt.Dimension(75, 120));
 
         javax.swing.GroupLayout jLP3Layout = new javax.swing.GroupLayout(jLP3);
         jLP3.setLayout(jLP3Layout);
@@ -662,7 +674,6 @@ public class GameBoard extends javax.swing.JFrame {
         jLP4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jLP4.setMaximumSize(new java.awt.Dimension(75, 120));
         jLP4.setMinimumSize(new java.awt.Dimension(75, 120));
-        jLP4.setPreferredSize(new java.awt.Dimension(75, 120));
 
         javax.swing.GroupLayout jLP4Layout = new javax.swing.GroupLayout(jLP4);
         jLP4.setLayout(jLP4Layout);
@@ -679,7 +690,6 @@ public class GameBoard extends javax.swing.JFrame {
         jLP5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jLP5.setMaximumSize(new java.awt.Dimension(75, 120));
         jLP5.setMinimumSize(new java.awt.Dimension(75, 120));
-        jLP5.setPreferredSize(new java.awt.Dimension(75, 120));
 
         javax.swing.GroupLayout jLP5Layout = new javax.swing.GroupLayout(jLP5);
         jLP5.setLayout(jLP5Layout);
@@ -696,7 +706,6 @@ public class GameBoard extends javax.swing.JFrame {
         jLP6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jLP6.setMaximumSize(new java.awt.Dimension(75, 120));
         jLP6.setMinimumSize(new java.awt.Dimension(75, 120));
-        jLP6.setPreferredSize(new java.awt.Dimension(75, 120));
 
         javax.swing.GroupLayout jLP6Layout = new javax.swing.GroupLayout(jLP6);
         jLP6.setLayout(jLP6Layout);
@@ -713,7 +722,6 @@ public class GameBoard extends javax.swing.JFrame {
         jLP7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jLP7.setMaximumSize(new java.awt.Dimension(75, 120));
         jLP7.setMinimumSize(new java.awt.Dimension(75, 120));
-        jLP7.setPreferredSize(new java.awt.Dimension(75, 120));
 
         javax.swing.GroupLayout jLP7Layout = new javax.swing.GroupLayout(jLP7);
         jLP7.setLayout(jLP7Layout);
@@ -730,7 +738,6 @@ public class GameBoard extends javax.swing.JFrame {
         jLP8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jLP8.setMaximumSize(new java.awt.Dimension(75, 120));
         jLP8.setMinimumSize(new java.awt.Dimension(75, 120));
-        jLP8.setPreferredSize(new java.awt.Dimension(75, 120));
 
         javax.swing.GroupLayout jLP8Layout = new javax.swing.GroupLayout(jLP8);
         jLP8.setLayout(jLP8Layout);
@@ -747,7 +754,6 @@ public class GameBoard extends javax.swing.JFrame {
         jLP9.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jLP9.setMaximumSize(new java.awt.Dimension(75, 120));
         jLP9.setMinimumSize(new java.awt.Dimension(75, 120));
-        jLP9.setPreferredSize(new java.awt.Dimension(75, 120));
 
         javax.swing.GroupLayout jLP9Layout = new javax.swing.GroupLayout(jLP9);
         jLP9.setLayout(jLP9Layout);
@@ -764,7 +770,6 @@ public class GameBoard extends javax.swing.JFrame {
         jLP10.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jLP10.setMaximumSize(new java.awt.Dimension(75, 120));
         jLP10.setMinimumSize(new java.awt.Dimension(75, 120));
-        jLP10.setPreferredSize(new java.awt.Dimension(75, 120));
 
         javax.swing.GroupLayout jLP10Layout = new javax.swing.GroupLayout(jLP10);
         jLP10.setLayout(jLP10Layout);
@@ -781,7 +786,6 @@ public class GameBoard extends javax.swing.JFrame {
         jLP11.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jLP11.setMaximumSize(new java.awt.Dimension(75, 120));
         jLP11.setMinimumSize(new java.awt.Dimension(75, 120));
-        jLP11.setPreferredSize(new java.awt.Dimension(75, 120));
 
         javax.swing.GroupLayout jLP11Layout = new javax.swing.GroupLayout(jLP11);
         jLP11.setLayout(jLP11Layout);
@@ -830,7 +834,6 @@ public class GameBoard extends javax.swing.JFrame {
         jLP14.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jLP14.setMaximumSize(new java.awt.Dimension(75, 120));
         jLP14.setMinimumSize(new java.awt.Dimension(75, 120));
-        jLP14.setPreferredSize(new java.awt.Dimension(75, 120));
 
         javax.swing.GroupLayout jLP14Layout = new javax.swing.GroupLayout(jLP14);
         jLP14.setLayout(jLP14Layout);
@@ -895,7 +898,6 @@ public class GameBoard extends javax.swing.JFrame {
         jLP18.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jLP18.setMaximumSize(new java.awt.Dimension(75, 120));
         jLP18.setMinimumSize(new java.awt.Dimension(75, 120));
-        jLP18.setPreferredSize(new java.awt.Dimension(75, 120));
 
         javax.swing.GroupLayout jLP18Layout = new javax.swing.GroupLayout(jLP18);
         jLP18.setLayout(jLP18Layout);
@@ -912,7 +914,6 @@ public class GameBoard extends javax.swing.JFrame {
         jLP19.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jLP19.setMaximumSize(new java.awt.Dimension(75, 120));
         jLP19.setMinimumSize(new java.awt.Dimension(75, 120));
-        jLP19.setPreferredSize(new java.awt.Dimension(75, 120));
 
         javax.swing.GroupLayout jLP19Layout = new javax.swing.GroupLayout(jLP19);
         jLP19.setLayout(jLP19Layout);
@@ -961,7 +962,6 @@ public class GameBoard extends javax.swing.JFrame {
         jLP22.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jLP22.setMaximumSize(new java.awt.Dimension(75, 120));
         jLP22.setMinimumSize(new java.awt.Dimension(75, 120));
-        jLP22.setPreferredSize(new java.awt.Dimension(75, 120));
 
         javax.swing.GroupLayout jLP22Layout = new javax.swing.GroupLayout(jLP22);
         jLP22.setLayout(jLP22Layout);
@@ -1028,11 +1028,21 @@ public class GameBoard extends javax.swing.JFrame {
             }
         });
 
+        jBColetar.setMnemonic('C');
         jBColetar.setText("Coletar");
-        jBColetar.setActionCommand("Coletar");
+        jBColetar.setEnabled(false);
         jBColetar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBColetarActionPerformed(evt);
+            }
+        });
+
+        jBNaoColetar.setMnemonic('N');
+        jBNaoColetar.setText("Não Coletar");
+        jBNaoColetar.setEnabled(false);
+        jBNaoColetar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBNaoColetarActionPerformed(evt);
             }
         });
 
@@ -1083,8 +1093,7 @@ public class GameBoard extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLP8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLP9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(jLP9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPFundoTelaLayout.createSequentialGroup()
                                 .addGroup(jPFundoTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLP23, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1097,17 +1106,16 @@ public class GameBoard extends javax.swing.JFrame {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(jLCorJogador, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jLNomeJogador, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(329, 329, 329)))
+                                        .addComponent(jLNomeJogador, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPFundoTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(jBNaoColetar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                                        .addComponent(jBColetar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPFundoTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPFundoTelaLayout.createSequentialGroup()
-                                .addComponent(jLP11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(jPFundoTelaLayout.createSequentialGroup()
-                                .addGroup(jPFundoTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLP10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLP12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
+                            .addComponent(jLP11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLP10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLP12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         jPFundoTelaLayout.setVerticalGroup(
             jPFundoTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1140,8 +1148,15 @@ public class GameBoard extends javax.swing.JFrame {
                                     .addComponent(jLNomeJogador))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jBJogar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLP23, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(jPFundoTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPFundoTelaLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLP23, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPFundoTelaLayout.createSequentialGroup()
+                                .addGap(54, 54, 54)
+                                .addComponent(jBColetar)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jBNaoColetar)))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPFundoTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLP13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1221,7 +1236,7 @@ public class GameBoard extends javax.swing.JFrame {
 
         Random rnd = new Random();
         for (int i = 0; i < 20; i++) {
-            jBJogar.setIcon(dice[(rnd.nextInt(5) + 1)]);
+            jBJogar.setIcon(dice[(rnd.nextInt(6) + 1)]);
             jBJogar.update(jBJogar.getGraphics());
             try {
                 Thread.sleep(100);
@@ -1237,9 +1252,13 @@ public class GameBoard extends javax.swing.JFrame {
 
         movimentarJogador(d.getNumFace(), j);
         setCursor(Cursor.getDefaultCursor());
-        determinaProximoJogador(j);
-        mostrarQuemEstaJogando();
+//        determinaProximoJogador(j);
+//        mostrarQuemEstaJogando();
 //        sortear(j);
+
+        jBColetar.setEnabled(true);
+        jBNaoColetar.setEnabled(true);
+        jBJogar.setEnabled(false);
     }//GEN-LAST:event_jBJogarActionPerformed
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
@@ -1276,7 +1295,41 @@ public class GameBoard extends javax.swing.JFrame {
         }
         
         coletarMaterial(j);
+        // vai para o próximo jogador
+        determinaProximoJogador(j);
+        mostrarQuemEstaJogando();
+        jBColetar.setEnabled(false);
+        jBNaoColetar.setEnabled(false);
+        jBJogar.setEnabled(true);
     }//GEN-LAST:event_jBColetarActionPerformed
+
+    private void jBNaoColetarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBNaoColetarActionPerformed
+        // define uma variável temporária
+        Jogador j = new Jogador();
+        
+        // verifica quem está jogando, para atualizar a tela
+        switch (vezJogador) {
+            case AMARELO:
+                j = jogadores[0];
+                break;
+            case AZUL:
+                j = jogadores[1];
+                break;
+            case BRANCO:
+                j = jogadores[2];
+                break;
+            case PRETO:
+                j = jogadores[3];
+                break;
+        }
+        
+        // vai para o próximo jogador
+        determinaProximoJogador(j);
+        mostrarQuemEstaJogando();
+        jBColetar.setEnabled(false);
+        jBNaoColetar.setEnabled(false);
+        jBJogar.setEnabled(true);
+    }//GEN-LAST:event_jBNaoColetarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1317,6 +1370,7 @@ public class GameBoard extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBColetar;
     private javax.swing.JButton jBJogar;
+    private javax.swing.JButton jBNaoColetar;
     private javax.swing.JLabel jLCorJogador;
     private javax.swing.JLabel jLJogador;
     private javax.swing.JLabel jLNomeJogador;
@@ -1394,4 +1448,6 @@ public class GameBoard extends javax.swing.JFrame {
 
     //Cria uma lista temporaria para realizar a troca das cartas
     private List<Objetivo> cartasTmp = new ArrayList<Objetivo>();
+    
+    private List<Casa> casas = new ArrayList<Casa>();
 }

@@ -11,19 +11,26 @@ package br.org.recresiduos.entidades;
  */
 public class MaterialColetado {
     private String descricao;
-    private double valor, qtdaVidro, qtdaPapel, qtdaOrganico, qtdaMetal, qtdaMadeira, qtdaPlastico,qtdaNReciclavel;
+    private double valor;
+    private double qtdeVidro;
+    private double qtdePapel;
+    private double qtdeOrganico;
+    private double qtdeMetal;
+    private double qtdeMadeira;
+    private double qtdePlastico;
+    private double qtdeNReciclavel;
     private int cont;
     
      public MaterialColetado(String descricao,double valor, double vidro, double papel, double organico, double metal, double madeira, double plastico,double nreciclavel, int cont){
          this.valor = valor;
          this.descricao = descricao;
-         this.qtdaVidro = vidro;
-         this.qtdaPapel = papel;
-         this.qtdaOrganico = organico;
-         this.qtdaMetal = metal;
-         this.qtdaMadeira = madeira;
-         this.qtdaPlastico = plastico;
-         this.qtdaNReciclavel = nreciclavel;
+         this.qtdeVidro = vidro;
+         this.qtdePapel = papel;
+         this.qtdeOrganico = organico;
+         this.qtdeMetal = metal;
+         this.qtdeMadeira = madeira;
+         this.qtdePlastico = plastico;
+         this.qtdeNReciclavel = nreciclavel;
          this.cont = cont;
     }
      
@@ -31,13 +38,13 @@ public class MaterialColetado {
          //construtor padrão para iniciar os valores;
          this.valor = 0;
          this.descricao = "";
-         this.qtdaVidro = 0;
-         this.qtdaPapel = 0;
-         this.qtdaOrganico = 0;
-         this.qtdaMetal = 0;
-         this.qtdaMadeira = 0;
-         this.qtdaPlastico = 0;
-         this.qtdaNReciclavel = 0;
+         this.qtdeVidro = 0;
+         this.qtdePapel = 0;
+         this.qtdeOrganico = 0;
+         this.qtdeMetal = 0;
+         this.qtdeMadeira = 0;
+         this.qtdePlastico = 0;
+         this.qtdeNReciclavel = 0;
          this.cont = 0;
      }
      
@@ -57,63 +64,63 @@ public class MaterialColetado {
         return descricao;
     }
     
-     public void setVidro(double vidro) {
-        this.qtdaVidro = vidro;
+     public void setQtdeVidro(double vidro) {
+        this.qtdeVidro = vidro;
     }
     
-    public double getVidro() {
-        return qtdaVidro;
+    public double getQtdeVidro() {
+        return qtdeVidro;
     }
     
-     public void setPapel(double papel) {
-        this.qtdaPapel = papel;
+     public void setQtdePapel(double papel) {
+        this.qtdePapel = papel;
     }
     
-    public double getPapel() {
-        return qtdaPapel;
+    public double getQtdePapel() {
+        return qtdePapel;
     }
 
-    public double getQtdaOrganico() {
-        return qtdaOrganico;
+    public double getQtdeOrganico() {
+        return qtdeOrganico;
     }
 
-    public void setQtdaOrganico(double qtdaOrganico) {
-        this.qtdaOrganico = qtdaOrganico;
+    public void setQtdeOrganico(double qtdaOrganico) {
+        this.qtdeOrganico = qtdaOrganico;
     }
 
-    public double getQtdaMetal() {
-        return qtdaMetal;
+    public double getQtdeMetal() {
+        return qtdeMetal;
     }
 
-    public void setQtdaMetal(double qtdaMetal) {
-        this.qtdaMetal = qtdaMetal;
+    public void setQtdeMetal(double qtdaMetal) {
+        this.qtdeMetal = qtdaMetal;
     }
         
-    public void setMadeira(double madeira) {
-        this.qtdaMadeira = madeira;
+    public void setQtdeMadeira(double madeira) {
+        this.qtdeMadeira = madeira;
     }
     
-    public double getMadeira() {
-        return qtdaMadeira;
+    public double getQtdeMadeira() {
+        return qtdeMadeira;
     }
     
-     public void setPlastico(double plastico) {
-        this.qtdaPlastico = plastico;
+     public void setQtdePlastico(double plastico) {
+        this.qtdePlastico = plastico;
     }
     
-    public double getPlastico() {
-        return qtdaPlastico;
+    public double getQtdePlastico() {
+        return qtdePlastico;
     }
     public MaterialColetado getAll() {
          return this;
     }
 
-    public double getQtdaNReciclavel() {
-        return qtdaNReciclavel;
+    public double getQtdeNaoReciclavel() {
+        return qtdeNReciclavel;
     }
 
-    public void setQtdaNReciclavel(double qtdaNReciclavel) {
-        this.qtdaNReciclavel = qtdaNReciclavel;
+    public void setQtdeNaoReciclavel(double qtdaNReciclavel) {
+        this.qtdeNReciclavel = qtdaNReciclavel;
     }
     
 }
