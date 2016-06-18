@@ -115,6 +115,18 @@ public class Jogador {
                 this.materialColetado.setQtdeNaoReciclavel(quantidade + this.materialColetado.getQtdeNaoReciclavel());
                 System.out.println("Agora tem : " + this.materialColetado.getQtdeNaoReciclavel());
                 break;
+            case FERRO:
+                this.materialColetado.setQtdeFerro(quantidade + this.materialColetado.getQtdeFerro());
+                System.out.println("Agora tem : " + this.materialColetado.getQtdeFerro());
+                break;
+            case ALUMINIO:
+                this.materialColetado.setQtdeAluminio(quantidade + this.materialColetado.getQtdeAluminio());
+                System.out.println("Agora tem : " + this.materialColetado.getQtdeAluminio());
+                break;
+            case OLEO:
+                this.materialColetado.setQtdeOleo(quantidade + this.materialColetado.getQtdeOleo());
+                System.out.println("Agora tem : " + this.materialColetado.getQtdeOleo());
+                break;
             case PLASTICO:
                 this.materialColetado.setQtdePlastico(quantidade + this.materialColetado.getQtdePlastico());
                 System.out.println("Agora tem : " + this.materialColetado.getQtdePlastico());
