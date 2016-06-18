@@ -11,21 +11,36 @@ package br.org.recresiduos.entidades;
  */
 public class MaterialColetado {
     private String descricao;
-    private double valor, qtdaVidro, qtdaPapel, qtdaFerro, qtdaAluminio, qtdaOleo, qtdaMadeira, qtdaPlastico;
+    private double valor, qtdaVidro, qtdaPapel, qtdaOrganico, qtdaMetal, qtdaMadeira, qtdaPlastico,qtdaNReciclavel;
     private int cont;
     
-     public MaterialColetado(String descricao,double valor, double vidro, double papel, double ferro, double aluminio, double oleo, double madeira, double plastico, int cont){
+     public MaterialColetado(String descricao,double valor, double vidro, double papel, double organico, double metal, double madeira, double plastico,double nreciclavel, int cont){
          this.valor = valor;
          this.descricao = descricao;
          this.qtdaVidro = vidro;
          this.qtdaPapel = papel;
-         this.qtdaFerro = ferro;
-         this.qtdaAluminio = aluminio;
-         this.qtdaOleo = oleo;
+         this.qtdaOrganico = organico;
+         this.qtdaMetal = metal;
          this.qtdaMadeira = madeira;
          this.qtdaPlastico = plastico;
+         this.qtdaNReciclavel = nreciclavel;
          this.cont = cont;
     }
+     
+     public MaterialColetado(){
+         //construtor padrão para iniciar os valores;
+         this.valor = 0;
+         this.descricao = "";
+         this.qtdaVidro = 0;
+         this.qtdaPapel = 0;
+         this.qtdaOrganico = 0;
+         this.qtdaMetal = 0;
+         this.qtdaMadeira = 0;
+         this.qtdaPlastico = 0;
+         this.qtdaNReciclavel = 0;
+         this.cont = 0;
+     }
+     
       public void setValor(double valor) {
         this.valor = valor;
     }
@@ -57,32 +72,24 @@ public class MaterialColetado {
     public double getPapel() {
         return qtdaPapel;
     }
-    
-     public void setFerro(double ferro) {
-        this.qtdaFerro = ferro;
+
+    public double getQtdaOrganico() {
+        return qtdaOrganico;
     }
-    
-    public double getFerro() {
-        return qtdaFerro;
+
+    public void setQtdaOrganico(double qtdaOrganico) {
+        this.qtdaOrganico = qtdaOrganico;
     }
-    
-     public void setAluminio(double aluminio) {
-        this.qtdaAluminio = aluminio;
+
+    public double getQtdaMetal() {
+        return qtdaMetal;
     }
-    
-    public double getAluminio() {
-        return qtdaAluminio;
+
+    public void setQtdaMetal(double qtdaMetal) {
+        this.qtdaMetal = qtdaMetal;
     }
-    
-     public void setOleo(double oleo) {
-        this.qtdaOleo = oleo;
-    }
-    
-    public double getOleo() {
-        return qtdaOleo;
-    }
-    
-     public void setMadeira(double madeira) {
+        
+    public void setMadeira(double madeira) {
         this.qtdaMadeira = madeira;
     }
     
@@ -99,6 +106,14 @@ public class MaterialColetado {
     }
     public MaterialColetado getAll() {
          return this;
+    }
+
+    public double getQtdaNReciclavel() {
+        return qtdaNReciclavel;
+    }
+
+    public void setQtdaNReciclavel(double qtdaNReciclavel) {
+        this.qtdaNReciclavel = qtdaNReciclavel;
     }
     
 }

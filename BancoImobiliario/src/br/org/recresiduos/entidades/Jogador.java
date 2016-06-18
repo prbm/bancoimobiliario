@@ -18,7 +18,7 @@ public class Jogador {
     private JLabel peaoJogador;
     private Objetivo objetivo;
     private MaterialColetado materialColetado;
-    
+       
     public Jogador() {
         configuracaoInicial();
     }
@@ -97,26 +97,35 @@ public class Jogador {
     public void setMaterialColetado(double quantidade, TipodeMateriais tm) {
         //verifica o tipo de material, para saber onde jogar a quantidade
         switch(tm){
+            case NENHUM:
+                break;
             case MADEIRA:
                 this.materialColetado.setMadeira(quantidade);
+                System.out.println("\nAgora tem : " + this.materialColetado.getMadeira());
                 break;
-            case FERRO:
-                this.materialColetado.setFerro(quantidade);
+            case METAL:
+                this.materialColetado.setQtdaMetal(quantidade);
+                System.out.println("\nAgora tem : " + this.materialColetado.getQtdaMetal());
                 break;
-            case ALUMINIO:
-                this.materialColetado.setAluminio(quantidade);
+            case ORGANICO:
+                this.materialColetado.setQtdaOrganico(quantidade);
+                System.out.println("\nAgora tem : " + this.materialColetado.getQtdaOrganico());
                 break;
-            case OLEO:
-                this.materialColetado.setOleo(quantidade);
+            case NAORECICLAVEL:
+                this.materialColetado.setQtdaNReciclavel(quantidade);
+                System.out.println("\nAgora tem : " + this.materialColetado.getQtdaNReciclavel());
                 break;
             case PLASTICO:
                 this.materialColetado.setPlastico(quantidade);
+                System.out.println("\nAgora tem : " + this.materialColetado.getPlastico());
                 break;
             case VIDRO:
                 this.materialColetado.setVidro(quantidade);
+                System.out.println("\nAgora tem : " + this.materialColetado.getVidro());
                 break;
             case PAPEL:
                 this.materialColetado.setPapel(quantidade);
+                System.out.println("\nAgora tem : " + this.materialColetado.getPapel());
                 break;
         }
     }
@@ -125,6 +134,8 @@ public class Jogador {
         numeroCasa = 1;
         saldo = 20000; // saldo do jogador no jogo
         podeSortear = true;
+        // cria os materiais coletados
+        this.materialColetado = new MaterialColetado();
     }
 
     public void atualizarSaldo(double valor, String tipoAtualizacao) {

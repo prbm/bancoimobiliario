@@ -7,6 +7,8 @@ package br.org.recresiduos.telas;
 
 import br.org.recresiduos.uteis.Dado;
 import br.org.recresiduos.constantes.CorJogador;
+import br.org.recresiduos.constantes.TipodeMateriais;
+import br.org.recresiduos.entidades.Casa;
 import br.org.recresiduos.entidades.Jogador;
 import br.org.recresiduos.entidades.Objetivo;
 import java.awt.Component;
@@ -47,6 +49,7 @@ public class GameBoard extends javax.swing.JFrame {
         jLFundoCasa2 = new JLabel();
         jLFundoCasa3 = new JLabel();
         jLFundoCasa4 = new JLabel();
+        
         // determina os nomes dos peões
         jLFundoCasa1.setName("Fundo001");
         jLFundoCasa2.setName("Fundo001");
@@ -192,10 +195,51 @@ public class GameBoard extends javax.swing.JFrame {
 
         // atualiza a tela
         mostrarQuemEstaJogando();
+        
+        //preencher casas tabuleiro
+        configuraCasasTabuleiro();
 
         //definir as cartas sorte e reves do jogo
         definirCartas();
 
+    }
+     private void configuraCasasTabuleiro() {
+
+        // inicia a relação de casas do tabuleiro
+        casas = new ArrayList<Casa>();
+        //Coloquei para iniciar casa por casa assim quando chegarem as imagens só vou trocar os valores
+        casas.add(new Casa(false, 0, 0, 0, 0, 0, TipodeMateriais.NENHUM));
+        casas.add(new Casa(true, 0, 0, 0, 0, 1, TipodeMateriais.NENHUM));
+        casas.add(new Casa(true, 1000, 100, 100, 1000, 2, TipodeMateriais.METAL));
+        casas.add(new Casa(true, 4000, 400, 400, 4000, 3, TipodeMateriais.PAPEL));
+        casas.add(new Casa(true, 3500, 350, 350,3500, 4,  TipodeMateriais.ORGANICO));
+        casas.add(new Casa(true, 1800, 180, 180, 1800, 5,  TipodeMateriais.PLASTICO));
+        casas.add(new Casa(true, 2000, 200, 200, 2000, 6,  TipodeMateriais.VIDRO));
+        casas.add(new Casa(true, 1000, 100, 100, 1000, 7,  TipodeMateriais.MADEIRA));
+        casas.add(new Casa(true, 1600, 160, 160, 1600, 8,  TipodeMateriais.METAL));
+        casas.add(new Casa(true, 1400, 140, 140, 1400, 9,  TipodeMateriais.PAPEL));
+        casas.add(new Casa(true, 1400, 140, 140, 1400, 10, TipodeMateriais.NAORECICLAVEL));
+        casas.add(new Casa(true, 2600, 260, 260, 2600, 11, TipodeMateriais.ORGANICO));
+        casas.add(new Casa(true, 2200, 220, 220, 2200, 12,  TipodeMateriais.PLASTICO));
+        casas.add(new Casa(true, 2400, 240, 240, 2400, 13,  TipodeMateriais.NAORECICLAVEL));
+        casas.add(new Casa(true, 600, 60, 60, 600, 14,  TipodeMateriais.VIDRO));
+        casas.add(new Casa(true, 750, 75, 75, 750, 15,  TipodeMateriais.MADEIRA));
+        casas.add(new Casa(true, 1000, 100, 100, 1000, 16, TipodeMateriais.METAL));
+        casas.add(new Casa(true, 2600, 260, 260, 2600, 17, TipodeMateriais.PAPEL));
+        casas.add(new Casa(true, 2600, 260, 260, 2600, 18, TipodeMateriais.ORGANICO));
+        casas.add(new Casa(true, 3000, 300, 300, 3000, 19, TipodeMateriais.PLASTICO));
+        casas.add(new Casa(true, 3000, 300, 300, 3000, 20, TipodeMateriais.NAORECICLAVEL));
+        casas.add(new Casa(true, 2600, 260, 260, 2600, 21,  TipodeMateriais.VIDRO));
+        casas.add(new Casa(true, 2600, 260, 260, 2600, 22,  TipodeMateriais.NAORECICLAVEL));
+        casas.add(new Casa(true, 3000, 300, 300, 3000, 23,  TipodeMateriais.MADEIRA));
+        casas.add(new Casa(true, 3000, 300, 300, 3000, 24,  TipodeMateriais.METAL));
+        
+        System.out.println("Foram configuradas " + casas.size() + " casas");
+
+        for (int i = 0; i < 25; i++) {
+            Casa c = casas.get(i);
+            System.out.println("Casa" + String.format("%03d", i) + "," + c.isPodeComprar() + "," + c.getAluguel());
+        }
     }
 
     private void montaListaLayeredPanel() {
@@ -470,6 +514,48 @@ public class GameBoard extends javax.swing.JFrame {
             cartas.remove(0);		// remove a primeira carta para a lista
         }
     }
+    
+    // verifica qual material o jogador vai recolher
+    private void coletarMaterial(Jogador j){
+              
+        // lê o número da casa em que o jogador se encontra
+        int numeroCasa = j.getNumeroCasa();
+        
+        System.out.println("Numero casa: "+ numeroCasa+
+        "\n"+        
+        "Material: "+ casas.get(numeroCasa).getMaterial());
+
+         // verifica o material da casa que o jogador se encontra
+                
+        switch (casas.get(numeroCasa).getMaterial()) {
+
+        case NENHUM:
+            System.out.println("Nada a recolher!");
+            break;
+        case METAL:
+            j.setMaterialColetado(1, TipodeMateriais.METAL);
+            break;
+        case PAPEL:
+            j.setMaterialColetado(1, TipodeMateriais.PAPEL);
+            break;
+        case ORGANICO:
+            j.setMaterialColetado(1, TipodeMateriais.ORGANICO);
+            break;
+        case PLASTICO:
+            j.setMaterialColetado(1, TipodeMateriais.PLASTICO);
+            break;
+        case VIDRO:
+            j.setMaterialColetado(1, TipodeMateriais.VIDRO);
+            break;
+        case MADEIRA:
+            j.setMaterialColetado(1, TipodeMateriais.MADEIRA);
+            break;
+        case NAORECICLAVEL:
+            j.setMaterialColetado(1, TipodeMateriais.NAORECICLAVEL);
+            break;
+        }
+   
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -509,9 +595,9 @@ public class GameBoard extends javax.swing.JFrame {
         jLCorJogador = new javax.swing.JLabel();
         jLNomeJogador = new javax.swing.JLabel();
         jBJogar = new javax.swing.JButton();
+        jBColetar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
-        setAlwaysOnTop(true);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
                 formWindowClosing(evt);
@@ -915,12 +1001,18 @@ public class GameBoard extends javax.swing.JFrame {
         jLNomeJogador.setText("Nome Jogador:");
         jLNomeJogador.setToolTipText("");
 
-        jBJogar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagensbir/Dice001.png"))); // NOI18N
         jBJogar.setMnemonic('J');
-        jBJogar.setPreferredSize(new java.awt.Dimension(75, 75));
         jBJogar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBJogarActionPerformed(evt);
+            }
+        });
+
+        jBColetar.setText("Coletar");
+        jBColetar.setActionCommand("Coletar");
+        jBColetar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBColetarActionPerformed(evt);
             }
         });
 
@@ -959,6 +1051,11 @@ public class GameBoard extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPFundoTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPFundoTelaLayout.createSequentialGroup()
+                                .addComponent(jBJogar, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jBColetar)
+                                .addGap(30, 30, 30))
+                            .addGroup(jPFundoTelaLayout.createSequentialGroup()
                                 .addGroup(jPFundoTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPFundoTelaLayout.createSequentialGroup()
                                         .addComponent(jLP21, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -981,11 +1078,8 @@ public class GameBoard extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLP15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLP14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(jPFundoTelaLayout.createSequentialGroup()
-                                .addComponent(jBJogar, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLP14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                         .addGroup(jPFundoTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLP12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLP11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -1009,23 +1103,26 @@ public class GameBoard extends javax.swing.JFrame {
                     .addComponent(jLP10, javax.swing.GroupLayout.PREFERRED_SIZE, 120, Short.MAX_VALUE))
                 .addGroup(jPFundoTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPFundoTelaLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLP11, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPFundoTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPFundoTelaLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLP11, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPFundoTelaLayout.createSequentialGroup()
+                                .addGap(59, 59, 59)
+                                .addComponent(jBColetar)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLP12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPFundoTelaLayout.createSequentialGroup()
-                        .addGroup(jPFundoTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(5, 5, 5)
+                        .addGroup(jPFundoTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPFundoTelaLayout.createSequentialGroup()
-                                .addGap(27, 27, 27)
                                 .addGroup(jPFundoTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLJogador)
                                     .addComponent(jLCorJogador, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLNomeJogador))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jBJogar, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPFundoTelaLayout.createSequentialGroup()
-                                .addGap(5, 5, 5)
-                                .addComponent(jLP24, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(2, 2, 2)
+                                .addComponent(jBJogar, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLP24, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLP23, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1141,6 +1238,29 @@ public class GameBoard extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_formWindowClosing
 
+    private void jBColetarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBColetarActionPerformed
+        // define uma variável temporária
+        Jogador j = new Jogador();
+        
+        // verifica quem está jogando, para atualizar a tela
+        switch (vezJogador) {
+            case AMARELO:
+                j = jogadores[0];
+                break;
+            case AZUL:
+                j = jogadores[1];
+                break;
+            case BRANCO:
+                j = jogadores[2];
+                break;
+            case PRETO:
+                j = jogadores[3];
+                break;
+        }
+        
+        coletarMaterial(j);
+    }//GEN-LAST:event_jBColetarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1178,6 +1298,7 @@ public class GameBoard extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jBColetar;
     private javax.swing.JButton jBJogar;
     private javax.swing.JLabel jLCorJogador;
     private javax.swing.JLabel jLJogador;
@@ -1256,4 +1377,7 @@ public class GameBoard extends javax.swing.JFrame {
 
     //Cria uma lista temporaria para realizar a troca das cartas
     List<Objetivo> cartasTmp = new ArrayList<Objetivo>();
+    
+    // declaração da relação de todas as casas que existem no tabuleiro
+    private List<Casa> casas = new ArrayList<Casa>();
 }

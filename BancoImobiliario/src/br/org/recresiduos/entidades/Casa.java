@@ -5,6 +5,7 @@
  */
 package br.org.recresiduos.entidades;
 
+import br.org.recresiduos.constantes.TipodeMateriais;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,8 +24,9 @@ public class Casa {
     private boolean estaOcupada;
     private List<Jogador> jogadoresOcupandoCasa;
     private Jogador pertence;
+    private TipodeMateriais material;
 
-    public Casa(boolean podeComprar, double valorCasa, double valorAluguel, double aluguel, double compra, int numeroCasa, Jogador jogador) {
+    public Casa(boolean podeComprar, double valorCasa, double valorAluguel, double aluguel, double compra, int numeroCasa, TipodeMateriais material) {
         this.podeComprar = podeComprar;
         this.valorCasa = valorCasa;
         this.valorAluguel = valorAluguel;
@@ -33,11 +35,19 @@ public class Casa {
         this.numeroCasa = numeroCasa;
         this.estaOcupada = false;
         this.jogadoresOcupandoCasa = new ArrayList<Jogador>();
-        this.pertence = jogador;
+        this.material = material;
     }
  
-    //Não entendi o que esta parte esta fazendo
+    
     public Casa(){/* construtor padrão, somente para constar, se precisar, adicionar um código aqui */}
+
+    public TipodeMateriais getMaterial() {
+        return material;
+    }
+
+    public void setMaterial(TipodeMateriais material) {
+        this.material = material;
+    }
 
     public boolean isPodeComprar() {
         return podeComprar;

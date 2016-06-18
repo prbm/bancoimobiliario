@@ -7,6 +7,7 @@ package br.org.recresiduos.telas;
 
 import br.org.recresiduos.uteis.Dado;
 import br.org.recresiduos.constantes.CorJogador;
+import br.org.recresiduos.constantes.TipodeMateriais;
 import br.org.recresiduos.entidades.Objetivo;
 import br.org.recresiduos.entidades.Casa;
 import br.org.recresiduos.entidades.Jogador;
@@ -67,28 +68,32 @@ public class Tabuleiro extends javax.swing.JFrame {
         // inicia a relação de casas do tabuleiro
         casas = new ArrayList<Casa>();
         //Coloquei para iniciar casa por casa assim quando chegarem as imagens só vou trocar os valores
-        casas.add(new Casa(false, 0, 0, 0, 0, 0, banco));
-        casas.add(new Casa(true, 0, 0, 0, 0, 1, banco));
-        casas.add(new Casa(true, 1000, 100, 100, 1000, 2, banco));
-        casas.add(new Casa(true, 4000, 400, 400, 4000, 3, banco));
-        casas.add(new Casa(true, 3500, 350, 350,3500, 4, banco));
-        casas.add(new Casa(true, 1800, 180, 180, 1800, 5, banco));
-        casas.add(new Casa(true, 2000, 200, 200, 2000, 6, banco));
-        casas.add(new Casa(true, 1000, 100, 100, 1000, 7, banco));
-        casas.add(new Casa(true, 1600, 160, 160, 1600, 8, banco));
-        casas.add(new Casa(true, 1400, 140, 140, 1400, 9, banco));
-        casas.add(new Casa(true, 1400, 140, 140, 1400, 10, banco));
-        casas.add(new Casa(true, 2600, 260, 260, 2600, 11, banco));
-        casas.add(new Casa(true, 2200, 220, 220, 2200, 12, banco));
-        casas.add(new Casa(true, 2400, 240, 240, 2400, 13, banco));
-        casas.add(new Casa(true, 600, 60, 60, 600, 14, banco));
-        casas.add(new Casa(true, 750, 75, 75, 750, 15, banco));
-        casas.add(new Casa(true, 1000, 100, 100, 1000, 16, banco));
-        casas.add(new Casa(true, 2600, 260, 260, 2600, 17, banco));
-        casas.add(new Casa(true, 2600, 260, 260, 2600, 18, banco));
-        casas.add(new Casa(true, 3000, 300, 300, 3000, 19, banco));
-        casas.add(new Casa(true, 3000, 300, 300, 3000, 20, banco));
-
+        casas.add(new Casa(false, 0, 0, 0, 0, 0, TipodeMateriais.NENHUM));
+        casas.add(new Casa(true, 0, 0, 0, 0, 1, TipodeMateriais.NENHUM));
+        casas.add(new Casa(true, 1000, 100, 100, 1000, 2, TipodeMateriais.METAL));
+        casas.add(new Casa(true, 4000, 400, 400, 4000, 3, TipodeMateriais.PAPEL));
+        casas.add(new Casa(true, 3500, 350, 350,3500, 4,  TipodeMateriais.ORGANICO));
+        casas.add(new Casa(true, 1800, 180, 180, 1800, 5,  TipodeMateriais.PLASTICO));
+        casas.add(new Casa(true, 2000, 200, 200, 2000, 6,  TipodeMateriais.VIDRO));
+        casas.add(new Casa(true, 1000, 100, 100, 1000, 7,  TipodeMateriais.MADEIRA));
+        casas.add(new Casa(true, 1600, 160, 160, 1600, 8,  TipodeMateriais.METAL));
+        casas.add(new Casa(true, 1400, 140, 140, 1400, 9,  TipodeMateriais.PAPEL));
+        casas.add(new Casa(true, 1400, 140, 140, 1400, 10, TipodeMateriais.NAORECICLAVEL));
+        casas.add(new Casa(true, 2600, 260, 260, 2600, 11, TipodeMateriais.ORGANICO));
+        casas.add(new Casa(true, 2200, 220, 220, 2200, 12,  TipodeMateriais.PLASTICO));
+        casas.add(new Casa(true, 2400, 240, 240, 2400, 13,  TipodeMateriais.NAORECICLAVEL));
+        casas.add(new Casa(true, 600, 60, 60, 600, 14,  TipodeMateriais.VIDRO));
+        casas.add(new Casa(true, 750, 75, 75, 750, 15,  TipodeMateriais.MADEIRA));
+        casas.add(new Casa(true, 1000, 100, 100, 1000, 16, TipodeMateriais.METAL));
+        casas.add(new Casa(true, 2600, 260, 260, 2600, 17, TipodeMateriais.PAPEL));
+        casas.add(new Casa(true, 2600, 260, 260, 2600, 18, TipodeMateriais.ORGANICO));
+        casas.add(new Casa(true, 3000, 300, 300, 3000, 19, TipodeMateriais.PLASTICO));
+        casas.add(new Casa(true, 3000, 300, 300, 3000, 20, TipodeMateriais.NAORECICLAVEL));
+        casas.add(new Casa(true, 2600, 260, 260, 2600, 21,  TipodeMateriais.VIDRO));
+        casas.add(new Casa(true, 2600, 260, 260, 2600, 22,  TipodeMateriais.NAORECICLAVEL));
+        casas.add(new Casa(true, 3000, 300, 300, 3000, 23,  TipodeMateriais.MADEIRA));
+        casas.add(new Casa(true, 3000, 300, 300, 3000, 24,  TipodeMateriais.METAL));
+        
         System.out.println("Foram configuradas " + casas.size() + " casas");
 
         for (int i = 0; i < 21; i++) {

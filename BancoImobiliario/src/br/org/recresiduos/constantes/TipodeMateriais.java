@@ -10,12 +10,13 @@ package br.org.recresiduos.constantes;
  * @author Thays
  */
 public enum TipodeMateriais {
-    MADEIRA,
-    PAPEL, 
-    OLEO,
+    NENHUM,
+    METAL,
+    PAPEL,
+    ORGANICO,
+    PLASTICO,
     VIDRO,
-    ALUMINIO,
-    FERRO,
-    PLASTICO
+    MADEIRA,
+    NAORECICLAVEL
     
 }
