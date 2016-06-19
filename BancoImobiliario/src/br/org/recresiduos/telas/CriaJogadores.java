@@ -7,7 +7,9 @@ package br.org.recresiduos.telas;
 
 import br.org.recresiduos.constantes.CorJogador;
 import br.org.recresiduos.entidades.Jogador;
+import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 
 /**
  *
@@ -19,10 +21,9 @@ public class CriaJogadores extends javax.swing.JFrame {
      * Creates new form CriaJogadores
      */
     public CriaJogadores() {
+        primeiraVezFoco = true;
         initComponents();
-
     }
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -64,9 +65,15 @@ public class CriaJogadores extends javax.swing.JFrame {
         jTFNomeJogador1.setText("Escreva seu nome aqui");
         jTFNomeJogador1.setToolTipText("");
         jTFNomeJogador1.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        jTFNomeJogador1.setName("jTFNomeJogador1"); // NOI18N
         jTFNomeJogador1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTFNomeJogador1ActionPerformed(evt);
+            }
+        });
+        jTFNomeJogador1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTFNomeJogador1KeyPressed(evt);
             }
         });
 
@@ -79,6 +86,12 @@ public class CriaJogadores extends javax.swing.JFrame {
 
         jTFNomeJogador2.setText("Escreva seu nome aqui");
         jTFNomeJogador2.setToolTipText("");
+        jTFNomeJogador2.setName("jTFNomeJogador2"); // NOI18N
+        jTFNomeJogador2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTFNomeJogador2KeyPressed(evt);
+            }
+        });
 
         jLBranco.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLBranco.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagensbir/jogadorBranco.png"))); // NOI18N
@@ -89,6 +102,12 @@ public class CriaJogadores extends javax.swing.JFrame {
 
         jTFNomeJogador3.setText("Escreva seu nome aqui");
         jTFNomeJogador3.setToolTipText("");
+        jTFNomeJogador3.setName("jTFNomeJogador3"); // NOI18N
+        jTFNomeJogador3.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTFNomeJogador3KeyPressed(evt);
+            }
+        });
 
         jLPreto.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLPreto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagensbir/jogadorPreto.png"))); // NOI18N
@@ -99,6 +118,12 @@ public class CriaJogadores extends javax.swing.JFrame {
 
         jTFNomeJogador4.setText("Escreva seu nome aqui");
         jTFNomeJogador4.setToolTipText("");
+        jTFNomeJogador4.setName("jTFNomeJogador4"); // NOI18N
+        jTFNomeJogador4.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTFNomeJogador4KeyPressed(evt);
+            }
+        });
 
         jBContinuar.setMnemonic('C');
         jBContinuar.setText("Continuar");
@@ -138,34 +163,31 @@ public class CriaJogadores extends javax.swing.JFrame {
                 .addGroup(jLPFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jLPFundoLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 279, Short.MAX_VALUE))
+                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jLPFundoLayout.createSequentialGroup()
-                        .addGroup(jLPFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(30, 30, 30)
+                        .addGroup(jLPFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jLPFundoLayout.createSequentialGroup()
-                                .addGap(30, 30, 30)
-                                .addGroup(jLPFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jLPFundoLayout.createSequentialGroup()
-                                        .addComponent(jLAmarelo, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jTFNomeJogador1, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(jLPFundoLayout.createSequentialGroup()
-                                        .addComponent(jLAzul, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jTFNomeJogador2, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(jLPFundoLayout.createSequentialGroup()
-                                        .addComponent(jLBranco, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jTFNomeJogador3, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(jLPFundoLayout.createSequentialGroup()
-                                        .addComponent(jLPreto, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jTFNomeJogador4, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(jLAzul, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jTFNomeJogador2))
                             .addGroup(jLPFundoLayout.createSequentialGroup()
-                                .addGap(40, 40, 40)
+                                .addComponent(jLBranco, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jTFNomeJogador3))
+                            .addGroup(jLPFundoLayout.createSequentialGroup()
+                                .addComponent(jLAmarelo, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jTFNomeJogador1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jLPFundoLayout.createSequentialGroup()
+                                .addComponent(jLPreto, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jTFNomeJogador4))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jLPFundoLayout.createSequentialGroup()
                                 .addComponent(jBContinuar)
-                                .addGap(31, 31, 31)
-                                .addComponent(jBSair)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jBSair, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 42, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jLPFundoLayout.setVerticalGroup(
@@ -197,7 +219,7 @@ public class CriaJogadores extends javax.swing.JFrame {
                         .addGap(13, 13, 13)
                         .addComponent(jTFNomeJogador4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
-                .addGroup(jLPFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jLPFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jBContinuar)
                     .addComponent(jBSair))
                 .addContainerGap(18, Short.MAX_VALUE))
@@ -217,7 +239,7 @@ public class CriaJogadores extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLPFundo)
+            .addComponent(jLPFundo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -237,59 +259,96 @@ public class CriaJogadores extends javax.swing.JFrame {
     private void jBSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSairActionPerformed
         // TODO add your handling code here:
         int res = JOptionPane.showConfirmDialog(null, "Você quer realmente sair do jogo?", "Vai sair?", JOptionPane.YES_NO_OPTION);
-        if(res == JOptionPane.YES_OPTION)
+        if (res == JOptionPane.YES_OPTION) {
             this.dispose();
+        }
     }//GEN-LAST:event_jBSairActionPerformed
 
     private void jBContinuarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBContinuarActionPerformed
         // verifica os nomes que foram digitados
-        if((jTFNomeJogador1.getText().trim().isEmpty() && 
-                jTFNomeJogador2.getText().trim().isEmpty() && 
-                jTFNomeJogador3.getText().trim().isEmpty() && 
-                jTFNomeJogador4.getText().trim().isEmpty()) ||
-                (jTFNomeJogador1.getText().trim().toLowerCase().equals("escreva seu nome aqui") &&
-                    jTFNomeJogador2.getText().trim().toLowerCase().equals("escreva seu nome aqui") &&
-                    jTFNomeJogador3.getText().trim().toLowerCase().equals("escreva seu nome aqui") &&
-                    jTFNomeJogador4.getText().trim().toLowerCase().equals("escreva seu nome aqui"))) {
+        if ((jTFNomeJogador1.getText().trim().isEmpty()
+                && jTFNomeJogador2.getText().trim().isEmpty()
+                && jTFNomeJogador3.getText().trim().isEmpty()
+                && jTFNomeJogador4.getText().trim().isEmpty())
+                || (jTFNomeJogador1.getText().trim().toLowerCase().equals("escreva seu nome aqui")
+                && jTFNomeJogador2.getText().trim().toLowerCase().equals("escreva seu nome aqui")
+                && jTFNomeJogador3.getText().trim().toLowerCase().equals("escreva seu nome aqui")
+                && jTFNomeJogador4.getText().trim().toLowerCase().equals("escreva seu nome aqui"))) {
             JOptionPane.showMessageDialog(null, "Não foi selecionado nenhum jogador, escreva seu nome ao lado de uma cor para selecionar a cor com que quer jogar!");
             jTFNomeJogador1.requestFocus();
             return;
         }
-        
+
         // declara os quatro jogadores como null
         Jogador[] j = new Jogador[4];
         j[0] = null;
         j[1] = null;
         j[2] = null;
         j[3] = null;
-        
+
         // verifica quais os jogadores selecionados
-        
         // verifica se o jogador amarelo foi selecionado
-        if(!jTFNomeJogador1.getText().trim().isEmpty() && !jTFNomeJogador1.getText().trim().toLowerCase().equals("escreva seu nome aqui")){
+        if (!jTFNomeJogador1.getText().trim().isEmpty() && !jTFNomeJogador1.getText().trim().toLowerCase().equals("escreva seu nome aqui")) {
             j[0] = new Jogador(jTFNomeJogador1.getText(), CorJogador.AMARELO, null);
         }
-        
+
         // verifica se o jogador azul foi selecionado
-        if(!jTFNomeJogador2.getText().trim().isEmpty() && !jTFNomeJogador2.getText().trim().toLowerCase().equals("escreva seu nome aqui")){
+        if (!jTFNomeJogador2.getText().trim().isEmpty() && !jTFNomeJogador2.getText().trim().toLowerCase().equals("escreva seu nome aqui")) {
             j[1] = new Jogador(jTFNomeJogador2.getText(), CorJogador.AZUL, null);
         }
 
         // verifica se o jogador branco foi selecionado
-        if(!jTFNomeJogador3.getText().trim().isEmpty() && !jTFNomeJogador3.getText().trim().toLowerCase().equals("escreva seu nome aqui")){
+        if (!jTFNomeJogador3.getText().trim().isEmpty() && !jTFNomeJogador3.getText().trim().toLowerCase().equals("escreva seu nome aqui")) {
             j[2] = new Jogador(jTFNomeJogador3.getText(), CorJogador.BRANCO, null);
         }
-        
+
         // verifica se o jogador preto foi selecionado
-        if(!jTFNomeJogador4.getText().trim().isEmpty() && !jTFNomeJogador4.getText().trim().toLowerCase().equals("escreva seu nome aqui")){
+        if (!jTFNomeJogador4.getText().trim().isEmpty() && !jTFNomeJogador4.getText().trim().toLowerCase().equals("escreva seu nome aqui")) {
             j[3] = new Jogador(jTFNomeJogador4.getText(), CorJogador.PRETO, null);
         }
-        
+
         // chama a tela GameBoard, sem manter o vínculo entre elas
         new GameBoard(j).setVisible(true);
         // fecha esta tela
         this.dispose();
     }//GEN-LAST:event_jBContinuarActionPerformed
+
+    /*
+     * Os métodos a seguir tratam os eventos de teclado gerados pelo usuário, quando
+     * definirem os nomes do jogadores
+    */
+    
+    private void jTFNomeJogador1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTFNomeJogador1KeyPressed
+        limpaJTEFNomeJogador(jTFNomeJogador1, evt);
+    }//GEN-LAST:event_jTFNomeJogador1KeyPressed
+
+    private void jTFNomeJogador2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTFNomeJogador2KeyPressed
+        limpaJTEFNomeJogador(jTFNomeJogador2, evt);
+    }//GEN-LAST:event_jTFNomeJogador2KeyPressed
+
+    private void jTFNomeJogador3KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTFNomeJogador3KeyPressed
+        limpaJTEFNomeJogador(jTFNomeJogador3, evt);
+    }//GEN-LAST:event_jTFNomeJogador3KeyPressed
+
+    private void jTFNomeJogador4KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTFNomeJogador4KeyPressed
+        limpaJTEFNomeJogador(jTFNomeJogador4, evt);
+    }//GEN-LAST:event_jTFNomeJogador4KeyPressed
+
+    // trata os eventos de teclado ao definir o nome do jogador
+    private void limpaJTEFNomeJogador(JTextField jtf, java.awt.event.KeyEvent evt) {
+        // verifica se o evento foi gerado por algum dos campos de TextField, usando a propriedade getName()
+        // pois todos os nomes possuem este texto em comum jTFNomeJogador
+        if (evt.getComponent().getName().substring(0, jtf.getName().length() - 1).equals("jTFNomeJogador")) {
+            // verifica se apenas a tecla shift não foi pressionada
+            if (evt.getKeyCode() != KeyEvent.VK_SHIFT) {
+                // verifica se o campo está com o texto original
+                if (jtf.getText().toLowerCase().equals("escreva seu nome aqui")) {
+                    // limpa o campo, para que apareça o que o usuário está digitando
+                    jtf.setText("");
+                }
+            }
+        }
+    }
 
     /**
      * @param args the command line arguments
@@ -340,4 +399,6 @@ public class CriaJogadores extends javax.swing.JFrame {
     private javax.swing.JTextField jTFNomeJogador3;
     private javax.swing.JTextField jTFNomeJogador4;
     // End of variables declaration//GEN-END:variables
+    // variável de controle se o focus é a primeira vez
+    private boolean primeiraVezFoco = false;
 }
