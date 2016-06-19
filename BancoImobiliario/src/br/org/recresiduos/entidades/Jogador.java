@@ -144,7 +144,7 @@ public class Jogador {
     
     private void configuracaoInicial(){
         numeroCasa = 1;
-        saldo = 20000; // saldo do jogador no jogo
+        saldo = 0; // saldo inicial do jogador
         podeSortear = true;
         // cria os materiais coletados
         this.materialColetado = new MaterialColetado();

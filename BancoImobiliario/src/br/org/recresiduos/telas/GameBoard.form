@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+  <NonVisualComponents>
+    <Component class="javax.swing.JLabel" name="jLabel3">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="jLabel3"/>
+      </Properties>
+    </Component>
+  </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="0"/>
   </Properties>
@@ -86,18 +93,40 @@
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jBJogar" min="-2" max="-2" attributes="0"/>
-                                      <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                          <Component id="jBNaoColetar" alignment="0" pref="0" max="32767" attributes="0"/>
-                                          <Component id="jBColetar" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jBProduzir" alignment="0" pref="0" max="32767" attributes="0"/>
-                                      </Group>
                                       <Group type="102" alignment="0" attributes="0">
                                           <Component id="jLJogador" min="-2" pref="48" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Component id="jLCorJogador" min="-2" pref="30" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Component id="jLNomeJogador" min="-2" pref="228" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <Component id="jBJogar" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                                  <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Component id="jLSaldo" min="-2" pref="50" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                                  <Component id="jBReciclar" alignment="0" pref="0" max="32767" attributes="0"/>
+                                                  <Component id="jBNaoColetar" alignment="0" pref="0" max="32767" attributes="0"/>
+                                                  <Component id="jBColetar" alignment="0" max="32767" attributes="0"/>
+                                                  <Component id="jBProduzir" alignment="0" pref="0" max="32767" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="jLPlastico" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jLMaterialColetado" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jLMetal" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jLPapel" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jLOrganico" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jLVidro" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jLMadeira" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jLNaoReciclavel" min="-2" max="-2" attributes="0"/>
+                                          </Group>
                                       </Group>
                                   </Group>
                                   <EmptySpace max="32767" attributes="0"/>
@@ -162,6 +191,53 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jLJogador" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLCorJogador" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                              <Component id="jLNomeJogador" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="jBJogar" min="-2" max="-2" attributes="0"/>
+                              <Group type="102" attributes="0">
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLSaldo" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLMaterialColetado" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="jLMetal" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="jLPapel" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="jLOrganico" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Component id="jBColetar" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
+                                  <Component id="jBNaoColetar" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Component id="jBProduzir" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="jBReciclar" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
+                                  <Component id="jLPlastico" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="jLVidro" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="jLMadeira" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="jLNaoReciclavel" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
+                      </Group>
+                      <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jLP11" min="-2" max="-2" attributes="0"/>
                               <Group type="102" attributes="0">
@@ -179,23 +255,8 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jLP23" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <Group type="102" attributes="0">
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jLJogador" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLCorJogador" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                              <Component id="jLNomeJogador" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
-                          <Component id="jBJogar" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="jBColetar" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jBNaoColetar" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jBProduzir" min="-2" max="-2" attributes="0"/>
-                      </Group>
                   </Group>
-                  <EmptySpace max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jLP13" min="-2" max="-2" attributes="0"/>
                       <Component id="jLP14" min="-2" max="-2" attributes="0"/>
@@ -1090,6 +1151,70 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBProduzirActionPerformed"/>
           </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="jBReciclar">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Reciclar"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBReciclarActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel1">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="11" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Saldo:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLSaldo">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="0"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLMaterialColetado">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="11" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Materiais Coletados"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLMetal">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Metal:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLPapel">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Papel:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLOrganico">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Organico:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLPlastico">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Pl&#xe1;stico"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLVidro">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Vidro:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLMadeira">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Madeira:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLNaoReciclavel">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="N&#xe3;o Reciclavel:"/>
+          </Properties>
         </Component>
       </SubComponents>
     </Container>
