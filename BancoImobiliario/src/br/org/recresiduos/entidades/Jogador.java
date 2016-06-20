@@ -16,8 +16,10 @@ public class Jogador {
     private double saldo;
     private CorJogador cor;
     private JLabel peaoJogador;
+    private JLabel iconeJogador;
     private Objetivo objetivo;
     private MaterialColetado materialColetado;
+    private boolean jogando;
        
     public Jogador() {
         configuracaoInicial();
@@ -29,7 +31,19 @@ public class Jogador {
         this.peaoJogador = peaoJogador;
         configuracaoInicial();
     }
-   
+
+    private void configuracaoInicial(){
+        numeroCasa = 1;
+        saldo = 20000; // saldo do jogador no jogo
+        podeSortear = true;
+        // cria os materiais coletados
+        this.materialColetado = new MaterialColetado();
+        // determina que o jogador está sem objetivo no jogo
+        this.objetivo = null;
+        // determina se o jogador deu a saída
+        this.jogando = false;
+    }
+    
     public String getNome() {
         return nome;
     }
@@ -74,6 +88,14 @@ public class Jogador {
         return peaoJogador;
     }
 
+    public JLabel getIconeJogador() {
+        return iconeJogador;
+    }
+
+    public void setIconeJogador(JLabel iconeJogador) {
+        this.iconeJogador = iconeJogador;
+    }
+    
     public void setPeaoJogador(JLabel peaoJogador) {
         this.peaoJogador = peaoJogador;
     }
@@ -141,15 +163,15 @@ public class Jogador {
                 break;
         }
     }
-    
-    private void configuracaoInicial(){
-        numeroCasa = 1;
-        saldo = 0; // saldo inicial do jogador
-        podeSortear = true;
-        // cria os materiais coletados
-        this.materialColetado = new MaterialColetado();
+
+    public boolean isJogando() {
+        return jogando;
     }
 
+    public void setJogando(boolean jogando) {
+        this.jogando = jogando;
+    }
+    
     public void atualizarSaldo(double valor, String tipoAtualizacao) {
         System.out.println("Atualizando saldo do jogador [" + nome + "][" + tipoAtualizacao + "]");
         if (tipoAtualizacao.trim().toUpperCase().equals("AUMENTAR")) {
@@ -160,5 +182,4 @@ public class Jogador {
             this.saldo = 0.0;
         }
     }
-
 }
