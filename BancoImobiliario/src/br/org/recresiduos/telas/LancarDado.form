@@ -152,7 +152,7 @@
             <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="Dado"/>
           </AccessibilityProperties>
           <Events>
-            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLDadoMouseClicked"/>
+            <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jLDadoFocusGained"/>
           </Events>
         </Component>
       </SubComponents>

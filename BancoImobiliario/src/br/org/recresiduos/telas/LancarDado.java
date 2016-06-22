@@ -29,6 +29,47 @@ public class LancarDado extends javax.swing.JDialog {
         this.jog = jogador;
         // atualiza o nome do jogador na tela
         jLNomeJogador.setText(this.jog.getNome());
+        // foco no dado
+        jLDado.requestFocus();
+        
+    }
+    
+    private void lancarDado(){
+        setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        // animar dado
+        ImageIcon[] dice = new ImageIcon[7];
+        for (int i = 1; i < 7; i++) {
+            String path = "/imagensbir/Dice00" + i + ".png";
+            dice[i] = new ImageIcon(getClass().getResource(path));
+        }
+
+        // gera números aleatórios para mostrar as faces do dado
+        Random rnd = new Random();
+        for (int i = 0; i < 20; i++) {
+            jLDado.setIcon(dice[(rnd.nextInt(6) + 1)]);
+            jLDado.update(jLDado.getGraphics());
+            try {
+                Thread.sleep(100);
+            } catch (InterruptedException ie) {
+                System.out.println(ie.getMessage());
+            }
+        }
+        // fim da animação  
+        setCursor(Cursor.getDefaultCursor());
+
+        // sorteia um número do dado e mostra o resultado
+        dado.rolarDados();
+        jLDado.setIcon(dice[dado.getNumFace()]);
+        jLDado.update(jLDado.getGraphics());
+
+        // pausa a tela por 1,5 segundos, para mostrar o número sorteado
+        try {
+            Thread.sleep(1500);
+        } catch (InterruptedException ie) {
+            System.out.println(ie.getMessage());
+        }
+        
+        this.dispose();        
     }
 
     /**
@@ -86,9 +127,9 @@ public class LancarDado extends javax.swing.JDialog {
         jLDado.setMinimumSize(new java.awt.Dimension(280, 90));
         jLDado.setName("Dado"); // NOI18N
         jLDado.setPreferredSize(new java.awt.Dimension(280, 90));
-        jLDado.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLDadoMouseClicked(evt);
+        jLDado.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jLDadoFocusGained(evt);
             }
         });
 
@@ -135,49 +176,9 @@ public class LancarDado extends javax.swing.JDialog {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jLDadoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLDadoMouseClicked
-
-        setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
-        // animar dado
-        ImageIcon[] dice = new ImageIcon[7];
-        for (int i = 1; i < 7; i++) {
-            String path = "/imagensbir/Dice00" + i + ".png";
-            dice[i] = new ImageIcon(getClass().getResource(path));
-        }
-
-        // gera números aleatórios para mostrar as faces do dado
-        Random rnd = new Random();
-        for (int i = 0; i < 20; i++) {
-            jLDado.setIcon(dice[(rnd.nextInt(6) + 1)]);
-            jLDado.update(jLDado.getGraphics());
-            try {
-                Thread.sleep(100);
-            } catch (InterruptedException ie) {
-                System.out.println(ie.getMessage());
-            }
-        }
-        // fim da animação  
-        setCursor(Cursor.getDefaultCursor());
-
-        // sorteia um número do dado e mostra o resultado
-        dado.rolarDados();
-        jLDado.setIcon(dice[dado.getNumFace()]);
-        jLDado.update(jLDado.getGraphics());
-
-        // pausa a tela por 1,5 segundos, para mostrar o número sorteado
-        try {
-            Thread.sleep(1500);
-        } catch (InterruptedException ie) {
-            System.out.println(ie.getMessage());
-        }
-
-//        if(numDado > 1)
-//            JOptionPane.showMessageDialog(null, "Você vai andar " + numDado + " casas!");
-//        else
-//            JOptionPane.showMessageDialog(null, "Você vai andar " + numDado + " casa!");
-        
-        this.dispose();
-    }//GEN-LAST:event_jLDadoMouseClicked
+    private void jLDadoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jLDadoFocusGained
+        lancarDado();
+    }//GEN-LAST:event_jLDadoFocusGained
 
     /**
      * @param args the command line arguments
