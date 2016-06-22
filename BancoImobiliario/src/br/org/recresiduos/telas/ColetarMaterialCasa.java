@@ -5,10 +5,9 @@
  */
 package br.org.recresiduos.telas;
 
+import br.org.recresiduos.entidades.Casa;
 import br.org.recresiduos.entidades.Jogador;
-import java.awt.Graphics;
-import java.awt.image.BufferedImage;
-import javax.swing.ImageIcon;
+import java.util.Random;
 
 /**
  *
@@ -19,15 +18,66 @@ public class ColetarMaterialCasa extends javax.swing.JDialog {
     /**
      * Creates new form LancaDado
      */
-    public ColetarMaterialCasa(java.awt.Frame parent, boolean modal, Jogador jogador) {
+    public ColetarMaterialCasa(java.awt.Frame parent, boolean modal, Jogador jogador, Casa casa) {
         super(parent, modal);
         initComponents();
         
-        backBuffer = new BufferedImage(75, 75, BufferedImage.TYPE_INT_RGB);
-        bbg = backBuffer.getGraphics();//ISSO TAMBÉM JÁ ESTAVA AQUI...
+        // copia os dados do jogador e da casa, para uso nesta tela
+        this.jogador = jogador;
+        this.casa = casa;
+        // define o nome do jogador
+        jLNomeJogador.setText(this.jogador.getNome());
+        // preenche as quantidades que ele coletou, através de uma variável temporária
+        String tmp = String.valueOf(this.jogador.getMaterialColetado().getQtdeMetal());
+        jLQtdeMetal.setText(tmp); 
+        tmp = String.valueOf(this.jogador.getMaterialColetado().getQtdePapel());
+        jLQtdePapel.setText(tmp); 
+        tmp = String.valueOf(this.jogador.getMaterialColetado().getQtdePlastico());
+        jLQtdePlastico.setText(tmp); 
+        tmp = String.valueOf(this.jogador.getMaterialColetado().getQtdeMadeira());
+        jLQtdeMadeira.setText(tmp); 
+        tmp = String.valueOf(this.jogador.getMaterialColetado().getQtdeVidro());
+        jLQtdeVidro.setText(tmp); 
+        tmp = String.valueOf(this.jogador.getMaterialColetado().getQtdeOrganico());
+        jLQtdeOrganicos.setText(tmp);
+        
+        // preenche as informações da casa em que o jogador está
+        tmp = this.casa.getMaterial().toString();
+        jLTipoMaterial.setText(tmp);
 
-        ImageIcon dado = new ImageIcon(getClass().getResource("/imagensbir/Dice001.png"));
-         bbg.drawImage(dado.getImage(), 500, 100, this);
+        // verifica o tipo de material, para configurar os labels associados ao que precisa
+        // ser coletado, de acordo com a cor do label que o jogador tá tem coletado
+        switch(this.casa.getMaterial()){
+            case METAL:
+                jLTipoMaterial.setBackground(jLMetal.getBackground());
+                jLTipoMaterial.setForeground(jLMetal.getForeground());
+                break;
+            case MADEIRA:
+                jLTipoMaterial.setBackground(jLMadeira.getBackground());
+                jLTipoMaterial.setForeground(jLMadeira.getForeground());
+                break;
+            case PAPEL:
+                jLTipoMaterial.setBackground(jLPapel.getBackground());
+                jLTipoMaterial.setForeground(jLPapel.getForeground());
+                break;
+            case PLASTICO:
+                jLTipoMaterial.setBackground(jLPlastico.getBackground());
+                jLTipoMaterial.setForeground(jLPlastico.getForeground());
+                break;
+            case VIDRO:
+                jLTipoMaterial.setBackground(jLVidro.getBackground());
+                jLTipoMaterial.setForeground(jLVidro.getForeground());
+                break;
+            case ORGANICO:
+                jLTipoMaterial.setBackground(jLOrganicos.getBackground());
+                jLTipoMaterial.setForeground(jLOrganicos.getForeground());
+                break;
+        }
+
+        // cria uma quantidade entre 1 e 4
+        tmp = String.valueOf((new Random().nextInt(4))+1);
+        jLQtdeMaterial.setText(tmp);
+        
     }
 
     /**
@@ -51,7 +101,7 @@ public class ColetarMaterialCasa extends javax.swing.JDialog {
         jLMadeira = new javax.swing.JLabel();
         jLOrganicos = new javax.swing.JLabel();
         jLQtdeOrganicos = new javax.swing.JLabel();
-        jLQtdeVidro1 = new javax.swing.JLabel();
+        jLQtdeMadeira = new javax.swing.JLabel();
         jLQtdeVidro = new javax.swing.JLabel();
         jLQtdePlastico = new javax.swing.JLabel();
         jLQtdePapel = new javax.swing.JLabel();
@@ -173,15 +223,15 @@ public class ColetarMaterialCasa extends javax.swing.JDialog {
         jLQtdeOrganicos.setOpaque(true);
         jLQtdeOrganicos.setPreferredSize(new java.awt.Dimension(50, 35));
 
-        jLQtdeVidro1.setBackground(new java.awt.Color(255, 255, 255));
-        jLQtdeVidro1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLQtdeVidro1.setText("jLabel1");
-        jLQtdeVidro1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLQtdeVidro1.setMaximumSize(new java.awt.Dimension(50, 35));
-        jLQtdeVidro1.setMinimumSize(new java.awt.Dimension(50, 35));
-        jLQtdeVidro1.setName("QtdeVidro"); // NOI18N
-        jLQtdeVidro1.setOpaque(true);
-        jLQtdeVidro1.setPreferredSize(new java.awt.Dimension(50, 35));
+        jLQtdeMadeira.setBackground(new java.awt.Color(255, 255, 255));
+        jLQtdeMadeira.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLQtdeMadeira.setText("jLabel1");
+        jLQtdeMadeira.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jLQtdeMadeira.setMaximumSize(new java.awt.Dimension(50, 35));
+        jLQtdeMadeira.setMinimumSize(new java.awt.Dimension(50, 35));
+        jLQtdeMadeira.setName("QtdeMadeira"); // NOI18N
+        jLQtdeMadeira.setOpaque(true);
+        jLQtdeMadeira.setPreferredSize(new java.awt.Dimension(50, 35));
 
         jLQtdeVidro.setBackground(new java.awt.Color(255, 255, 255));
         jLQtdeVidro.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -251,7 +301,7 @@ public class ColetarMaterialCasa extends javax.swing.JDialog {
                     .addGroup(jPMaterialColetadoLayout.createSequentialGroup()
                         .addComponent(jLMadeira, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLQtdeVidro1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jLQtdeMadeira, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPMaterialColetadoLayout.createSequentialGroup()
                         .addComponent(jLOrganicos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -281,7 +331,7 @@ public class ColetarMaterialCasa extends javax.swing.JDialog {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPMaterialColetadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLMadeira, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLQtdeVidro1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLQtdeMadeira, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPMaterialColetadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLOrganicos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -289,10 +339,10 @@ public class ColetarMaterialCasa extends javax.swing.JDialog {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jLMetal.getAccessibleContext().setAccessibleName("Metal");
         jLPlastico.getAccessibleContext().setAccessibleName("Plastico");
         jLOrganicos.getAccessibleContext().setAccessibleName("Organicos");
         jLQtdeOrganicos.getAccessibleContext().setAccessibleName("QtdeOrganicos");
+        jLQtdeMadeira.getAccessibleContext().setAccessibleName("QtdeMadeira");
         jLQtdeVidro.getAccessibleContext().setAccessibleName("QtdeVidro");
         jLQtdePlastico.getAccessibleContext().setAccessibleName("QtdePlastico");
         jLQtdePapel.getAccessibleContext().setAccessibleName("QtdePapel");
@@ -336,10 +386,7 @@ public class ColetarMaterialCasa extends javax.swing.JDialog {
         jLCartaObjetivo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLCartaObjetivo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagensbir/CartaObjetivoFrente.png"))); // NOI18N
         jLCartaObjetivo.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLCartaObjetivo.setMaximumSize(new java.awt.Dimension(150, 245));
-        jLCartaObjetivo.setMinimumSize(new java.awt.Dimension(150, 245));
         jLCartaObjetivo.setName("CartaObjetivo"); // NOI18N
-        jLCartaObjetivo.setPreferredSize(new java.awt.Dimension(150, 245));
 
         javax.swing.GroupLayout jPObjetivoLayout = new javax.swing.GroupLayout(jPObjetivo);
         jPObjetivo.setLayout(jPObjetivoLayout);
@@ -355,7 +402,7 @@ public class ColetarMaterialCasa extends javax.swing.JDialog {
                             .addComponent(jBProduzir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(47, 47, 47))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPObjetivoLayout.createSequentialGroup()
-                        .addComponent(jLCartaObjetivo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLCartaObjetivo)
                         .addGap(23, 23, 23))))
         );
         jPObjetivoLayout.setVerticalGroup(
@@ -363,7 +410,7 @@ public class ColetarMaterialCasa extends javax.swing.JDialog {
             .addGroup(jPObjetivoLayout.createSequentialGroup()
                 .addComponent(jLObjetivo, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLCartaObjetivo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLCartaObjetivo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jBProduzir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -581,7 +628,7 @@ public class ColetarMaterialCasa extends javax.swing.JDialog {
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                ColetarMaterialCasa dialog = new ColetarMaterialCasa(new javax.swing.JFrame(), true, new Jogador());
+                ColetarMaterialCasa dialog = new ColetarMaterialCasa(new javax.swing.JFrame(), true, new Jogador(), new Casa());
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
@@ -608,13 +655,13 @@ public class ColetarMaterialCasa extends javax.swing.JDialog {
     private javax.swing.JLabel jLOrganicos;
     private javax.swing.JLabel jLPapel;
     private javax.swing.JLabel jLPlastico;
+    private javax.swing.JLabel jLQtdeMadeira;
     private javax.swing.JLabel jLQtdeMaterial;
     private javax.swing.JLabel jLQtdeMetal;
     private javax.swing.JLabel jLQtdeOrganicos;
     private javax.swing.JLabel jLQtdePapel;
     private javax.swing.JLabel jLQtdePlastico;
     private javax.swing.JLabel jLQtdeVidro;
-    private javax.swing.JLabel jLQtdeVidro1;
     private javax.swing.JLabel jLTipoMaterial;
     private javax.swing.JLabel jLVidro;
     private javax.swing.JLabel jLabel1;
@@ -626,8 +673,12 @@ public class ColetarMaterialCasa extends javax.swing.JDialog {
     private javax.swing.JButton jbContinuarJogando;
     // End of variables declaration//GEN-END:variables
 
-    private BufferedImage backBuffer;
-    private Graphics g = getGraphics(); //ISSO JÁ ESTAVA AQUI
-    private Graphics bbg; // = backBuffer.getGraphics();//ISSO TAMBÉM JÁ ESTAVA AQUI...
+//    private BufferedImage backBuffer;
+//    private Graphics g = getGraphics(); //ISSO JÁ ESTAVA AQUI
+//    private Graphics bbg; // = backBuffer.getGraphics();//ISSO TAMBÉM JÁ ESTAVA AQUI...
+    
+    // Atributos adicionais para esta classe
+    private Jogador jogador;
+    private Casa casa;
 
 }

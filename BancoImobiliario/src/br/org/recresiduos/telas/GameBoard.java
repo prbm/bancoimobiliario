@@ -1404,7 +1404,7 @@ public class GameBoard extends javax.swing.JFrame {
         setCursor(Cursor.getDefaultCursor());
         
         // chama a janela que trata a casa em que o jogador caiu
-        ColetarMaterialCasa cmc = new ColetarMaterialCasa(this, true, j);
+        ColetarMaterialCasa cmc = new ColetarMaterialCasa(this, true, j, casas.get(j.getNumeroCasa()));
         cmc.setVisible(true);
         
         // verifica quem é o próximo jogador 
