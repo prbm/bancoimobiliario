@@ -10,16 +10,30 @@ package br.org.recresiduos.constantes;
  * @author Thays
  */
 public enum TipodeMateriais {
-	NENHUM,
-	METAL,
-    MADEIRA,
-    PAPEL, 
-    OLEO,
-	ORGANICO,
-    VIDRO,
-    ALUMINIO,
-    FERRO,
-    PLASTICO,
-	NAORECICLAVEL
+    // declaração dos dados do material
+    // NOME (valor)
+    NENHUM  (0.0),
+    METAL   (1.5),
+    MADEIRA (3.4),
+    PAPEL   (2.6),
+    OLEO    (0.8),
+    ORGANICO(0.3),
+    VIDRO   (0.75),
+    ALUMINIO(2.4),
+    FERRO   (1.75),
+    PLASTICO(0.95),
+    NAORECICLAVEL(0.0);
     
+    // atributo que determina o valor do material
+    private final double valorMaterial;
+    
+    // construtos que indica que este enum informa o valor, além do nome do material
+    private TipodeMateriais(double valorMaterial){
+        this.valorMaterial = valorMaterial;
+    }
+    
+    // declara o método que informa o valor do material
+    private double getValorMaterial(){
+        return this.valorMaterial;
+    }
 }
