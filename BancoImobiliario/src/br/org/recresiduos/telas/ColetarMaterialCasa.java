@@ -5,6 +5,7 @@
  */
 package br.org.recresiduos.telas;
 
+import br.org.recresiduos.constantes.TipodeMateriais;
 import br.org.recresiduos.entidades.Casa;
 import br.org.recresiduos.entidades.Jogador;
 import java.util.Random;
@@ -21,7 +22,7 @@ public class ColetarMaterialCasa extends javax.swing.JDialog {
     public ColetarMaterialCasa(java.awt.Frame parent, boolean modal, Jogador jogador, Casa casa) {
         super(parent, modal);
         initComponents();
-        
+
         // copia os dados do jogador e da casa, para uso nesta tela
         this.jogador = jogador;
         this.casa = casa;
@@ -29,25 +30,25 @@ public class ColetarMaterialCasa extends javax.swing.JDialog {
         jLNomeJogador.setText(this.jogador.getNome());
         // preenche as quantidades que ele coletou, através de uma variável temporária
         String tmp = String.valueOf(this.jogador.getMaterialColetado().getQtdeMetal());
-        jLQtdeMetal.setText(tmp); 
+        jLQtdeMetal.setText(tmp);
         tmp = String.valueOf(this.jogador.getMaterialColetado().getQtdePapel());
-        jLQtdePapel.setText(tmp); 
+        jLQtdePapel.setText(tmp);
         tmp = String.valueOf(this.jogador.getMaterialColetado().getQtdePlastico());
-        jLQtdePlastico.setText(tmp); 
+        jLQtdePlastico.setText(tmp);
         tmp = String.valueOf(this.jogador.getMaterialColetado().getQtdeMadeira());
-        jLQtdeMadeira.setText(tmp); 
+        jLQtdeMadeira.setText(tmp);
         tmp = String.valueOf(this.jogador.getMaterialColetado().getQtdeVidro());
-        jLQtdeVidro.setText(tmp); 
+        jLQtdeVidro.setText(tmp);
         tmp = String.valueOf(this.jogador.getMaterialColetado().getQtdeOrganico());
         jLQtdeOrganicos.setText(tmp);
-        
+
         // preenche as informações da casa em que o jogador está
         tmp = this.casa.getMaterial().toString();
         jLTipoMaterial.setText(tmp);
 
         // verifica o tipo de material, para configurar os labels associados ao que precisa
         // ser coletado, de acordo com a cor do label que o jogador tá tem coletado
-        switch(this.casa.getMaterial()){
+        switch (this.casa.getMaterial()) {
             case METAL:
                 jLTipoMaterial.setBackground(jLMetal.getBackground());
                 jLTipoMaterial.setForeground(jLMetal.getForeground());
@@ -75,9 +76,73 @@ public class ColetarMaterialCasa extends javax.swing.JDialog {
         }
 
         // cria uma quantidade entre 1 e 4
-        tmp = String.valueOf((new Random().nextInt(4))+1);
+        tmp = String.valueOf((new Random().nextInt(4)) + 1);
         jLQtdeMaterial.setText(tmp);
-        
+
+    }
+
+    // efetua a coleta do material pelo jogador
+    private void coletarMaterial() {
+
+        // lê o número da casa em que o jogador se encontra
+        int numeroCasa = this.jogador.getNumeroCasa();
+
+        // log de debug
+        System.out.println("casa[" + numeroCasa + "], Material: " + this.casa.getMaterial().toString() + ", Qtde: " + jLQtdeMaterial.getText());
+
+        // verifica o quanto de material vai ser coletado
+        double qtdeColetado = Double.parseDouble(jLQtdeMaterial.getText());
+        // verifica o material da casa que o jogador se encontra, e ajusta a tela de acordo com a quantidade coletada
+        switch (this.casa.getMaterial()) {
+            case NENHUM:
+                System.out.println("Nada a recolher!");
+                break;
+            case METAL:
+                System.out.println("jogador " + this.jogador.getNome() + " quantidade metal: " + this.jogador.getMaterialColetado().getQtdeMetal());
+                this.jogador.setMaterialColetado(qtdeColetado, TipodeMateriais.METAL);
+                jLQtdeMetal.setText(String.valueOf(this.jogador.getMaterialColetado().getQtdeMetal()));
+                System.out.println("jogador " + this.jogador.getNome() + " quantidade metal atual: " + this.jogador.getMaterialColetado().getQtdeMetal());
+                break;
+            case PAPEL:
+                System.out.println("jogador " + this.jogador.getNome() + " quantidade papel: " + this.jogador.getMaterialColetado().getQtdePapel());
+                this.jogador.setMaterialColetado(qtdeColetado, TipodeMateriais.PAPEL);
+                jLQtdePapel.setText(String.valueOf(this.jogador.getMaterialColetado().getQtdePapel()));
+                System.out.println("jogador " + this.jogador.getNome() + " quantidade papel atual: " + this.jogador.getMaterialColetado().getQtdePapel());
+                break;
+            case ORGANICO:
+                System.out.println("jogador " + this.jogador.getNome() + " quantidade organico: " + this.jogador.getMaterialColetado().getQtdeOrganico());
+                this.jogador.setMaterialColetado(qtdeColetado, TipodeMateriais.ORGANICO);
+                jLQtdeOrganicos.setText(String.valueOf(this.jogador.getMaterialColetado().getQtdeOrganico()));
+                System.out.println("jogador " + this.jogador.getNome() + " quantidade organico atual: " + this.jogador.getMaterialColetado().getQtdeOrganico());
+                break;
+            case PLASTICO:
+                System.out.println("jogador " + this.jogador.getNome() + " quantidade plastico: " + this.jogador.getMaterialColetado().getQtdePlastico());
+                this.jogador.setMaterialColetado(qtdeColetado, TipodeMateriais.PLASTICO);
+                jLQtdePlastico.setText(String.valueOf(this.jogador.getMaterialColetado().getQtdePlastico()));
+                System.out.println("jogador " + this.jogador.getNome() + " quantidade plastico atual: " + this.jogador.getMaterialColetado().getQtdePlastico());
+                break;
+            case VIDRO:
+                System.out.println("jogador " + this.jogador.getNome() + " quantidade vidro: " + this.jogador.getMaterialColetado().getQtdeVidro());
+                this.jogador.setMaterialColetado(qtdeColetado, TipodeMateriais.VIDRO);
+                jLQtdeVidro.setText(String.valueOf(this.jogador.getMaterialColetado().getQtdeVidro()));
+                System.out.println("jogador " + this.jogador.getNome() + " quantidade vidro atual: " + this.jogador.getMaterialColetado().getQtdeVidro());
+                break;
+            case MADEIRA:
+                System.out.println("jogador " + this.jogador.getNome() + " quantidade madeira: " + this.jogador.getMaterialColetado().getQtdeMadeira());
+                this.jogador.setMaterialColetado(qtdeColetado, TipodeMateriais.MADEIRA);
+                jLQtdeMadeira.setText(String.valueOf(this.jogador.getMaterialColetado().getQtdeMadeira()));
+                System.out.println("jogador " + this.jogador.getNome() + " quantidade madeira atual: " + this.jogador.getMaterialColetado().getQtdeMadeira());
+                break;
+            case NAORECICLAVEL:
+                System.out.println("jogador " + this.jogador.getNome() + " quantidade naoreciclavel: " + this.jogador.getMaterialColetado().getQtdeNaoReciclavel());
+                this.jogador.setMaterialColetado(qtdeColetado, TipodeMateriais.NAORECICLAVEL);
+                System.out.println("jogador " + this.jogador.getNome() + " quantidade naoreciclavel atual: " + this.jogador.getMaterialColetado().getQtdeNaoReciclavel());
+                break;
+        }
+        // impede que o jogador colete mais material
+        jLQtdeMaterial.setText("0");
+        jBColetar.setEnabled(false);
+        jBColetar.setToolTipText("Você não pode coletar mais material");
     }
 
     /**
@@ -478,6 +543,11 @@ public class ColetarMaterialCasa extends javax.swing.JDialog {
         jBColetar.setMinimumSize(new java.awt.Dimension(105, 35));
         jBColetar.setName("Coletar"); // NOI18N
         jBColetar.setPreferredSize(new java.awt.Dimension(105, 35));
+        jBColetar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jBColetarMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPColetarLayout = new javax.swing.GroupLayout(jPColetar);
         jPColetar.setLayout(jPColetarLayout);
@@ -595,6 +665,10 @@ public class ColetarMaterialCasa extends javax.swing.JDialog {
         this.dispose();
     }//GEN-LAST:event_jbContinuarJogandoActionPerformed
 
+    private void jBColetarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBColetarMouseClicked
+        coletarMaterial();
+    }//GEN-LAST:event_jBColetarMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -673,10 +747,6 @@ public class ColetarMaterialCasa extends javax.swing.JDialog {
     private javax.swing.JButton jbContinuarJogando;
     // End of variables declaration//GEN-END:variables
 
-//    private BufferedImage backBuffer;
-//    private Graphics g = getGraphics(); //ISSO JÁ ESTAVA AQUI
-//    private Graphics bbg; // = backBuffer.getGraphics();//ISSO TAMBÉM JÁ ESTAVA AQUI...
-    
     // Atributos adicionais para esta classe
     private Jogador jogador;
     private Casa casa;

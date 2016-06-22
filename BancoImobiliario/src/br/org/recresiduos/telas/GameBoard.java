@@ -594,7 +594,6 @@ public class GameBoard extends javax.swing.JFrame {
         jLJogador = new javax.swing.JLabel();
         jLCorJogador = new javax.swing.JLabel();
         jLNomeJogador = new javax.swing.JLabel();
-        jBColetar = new javax.swing.JButton();
         jBNaoColetar = new javax.swing.JButton();
         jLCartaObjetivo = new javax.swing.JLabel();
         jBDetalhesObjetivo = new javax.swing.JButton();
@@ -1020,15 +1019,6 @@ public class GameBoard extends javax.swing.JFrame {
         jLNomeJogador.setText("Nome Jogador:");
         jLNomeJogador.setToolTipText("");
 
-        jBColetar.setMnemonic('C');
-        jBColetar.setText("Coletar");
-        jBColetar.setEnabled(false);
-        jBColetar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBColetarActionPerformed(evt);
-            }
-        });
-
         jBNaoColetar.setMnemonic('N');
         jBNaoColetar.setText("Não Coletar");
         jBNaoColetar.setEnabled(false);
@@ -1153,7 +1143,6 @@ public class GameBoard extends javax.swing.JFrame {
                                         .addGroup(jPFundoTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                             .addComponent(jBReciclar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                                             .addComponent(jBNaoColetar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                                            .addComponent(jBColetar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                             .addComponent(jBProduzir, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                         .addGap(22, 22, 22)
                                         .addGroup(jPFundoTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1242,9 +1231,7 @@ public class GameBoard extends javax.swing.JFrame {
                         .addGap(1, 1, 1)
                         .addGroup(jPFundoTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPFundoTelaLayout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jBColetar)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(0, 0, Short.MAX_VALUE)
                                 .addComponent(jBNaoColetar)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jBProduzir)
@@ -1329,20 +1316,6 @@ public class GameBoard extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_formWindowClosing
 
-    private void jBColetarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBColetarActionPerformed
-        // verifica quem está jogando
-        Jogador j = dizQuemEstaJogando();
-        
-        coletarMaterial(j);
-        atualizarMaterial(j);
-        
-        // vai para o próximo jogador
-        determinaProximoJogador(j);
-        mostrarQuemEstaJogando();
-        jBColetar.setEnabled(false);
-        jBNaoColetar.setEnabled(false);
-    }//GEN-LAST:event_jBColetarActionPerformed
-
     private void jBNaoColetarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBNaoColetarActionPerformed
         // verifica quem está jogando
         Jogador j = dizQuemEstaJogando();
@@ -1350,7 +1323,6 @@ public class GameBoard extends javax.swing.JFrame {
         // vai para o próximo jogador
         determinaProximoJogador(j);
         mostrarQuemEstaJogando();
-        jBColetar.setEnabled(false);
         jBNaoColetar.setEnabled(false);
     }//GEN-LAST:event_jBNaoColetarActionPerformed
 
@@ -1449,7 +1421,6 @@ public class GameBoard extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jBColetar;
     private javax.swing.JButton jBDetalhesObjetivo;
     private javax.swing.JButton jBNaoColetar;
     private javax.swing.JButton jBNovoObjetivo;

@@ -864,6 +864,9 @@
                   <Dimension value="[105, 35]"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jBColetarMouseClicked"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
