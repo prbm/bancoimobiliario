@@ -10,7 +10,7 @@ package br.org.recresiduos.constantes;
  * @author Thays
  */
 public enum TipodeMateriais {
-    // declaração dos dados do material
+    // declaracao dos dados do material
     // NOME (valor)
     NENHUM  (0.0),
     METAL   (1.5),
@@ -27,13 +27,13 @@ public enum TipodeMateriais {
     // atributo que determina o valor do material
     private final double valorMaterial;
     
-    // construtos que indica que este enum informa o valor, além do nome do material
+    // construtos que indica que este enum informa o valor, alem do nome do material
     private TipodeMateriais(double valorMaterial){
         this.valorMaterial = valorMaterial;
     }
     
-    // declara o método que informa o valor do material
-    private double getValorMaterial(){
+    // declara o metodo que informa o valor do material
+    public double getValorMaterial(){
         return this.valorMaterial;
     }
 }

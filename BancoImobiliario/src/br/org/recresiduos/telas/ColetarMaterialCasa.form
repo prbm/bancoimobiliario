@@ -602,6 +602,7 @@
             </Component>
             <Component class="javax.swing.JCheckBox" name="jCBReciclaMetal">
               <Properties>
+                <Property name="enabled" type="boolean" value="false"/>
                 <Property name="name" type="java.lang.String" value="CBReciclaMetal" noResource="true"/>
                 <Property name="opaque" type="boolean" value="false"/>
               </Properties>
@@ -611,6 +612,7 @@
             </Component>
             <Component class="javax.swing.JCheckBox" name="jCBReciclaPapel">
               <Properties>
+                <Property name="enabled" type="boolean" value="false"/>
                 <Property name="name" type="java.lang.String" value="CBReciclaPapel" noResource="true"/>
                 <Property name="opaque" type="boolean" value="false"/>
               </Properties>
@@ -620,6 +622,7 @@
             </Component>
             <Component class="javax.swing.JCheckBox" name="jCBReciclaPlastico">
               <Properties>
+                <Property name="enabled" type="boolean" value="false"/>
                 <Property name="name" type="java.lang.String" value="CBReciclaPlastico" noResource="true"/>
                 <Property name="opaque" type="boolean" value="false"/>
               </Properties>
@@ -629,6 +632,7 @@
             </Component>
             <Component class="javax.swing.JCheckBox" name="jCBReciclaVidro">
               <Properties>
+                <Property name="enabled" type="boolean" value="false"/>
                 <Property name="name" type="java.lang.String" value="CBReciclaVidro" noResource="true"/>
                 <Property name="opaque" type="boolean" value="false"/>
               </Properties>
@@ -638,6 +642,7 @@
             </Component>
             <Component class="javax.swing.JCheckBox" name="jCBReciclaMadeira">
               <Properties>
+                <Property name="enabled" type="boolean" value="false"/>
                 <Property name="name" type="java.lang.String" value="CBReciclaMadeira" noResource="true"/>
                 <Property name="opaque" type="boolean" value="false"/>
               </Properties>
@@ -647,6 +652,7 @@
             </Component>
             <Component class="javax.swing.JCheckBox" name="jCBReciclaOrganico">
               <Properties>
+                <Property name="enabled" type="boolean" value="false"/>
                 <Property name="name" type="java.lang.String" value="CBReciclaOrganico" noResource="true"/>
                 <Property name="opaque" type="boolean" value="false"/>
               </Properties>

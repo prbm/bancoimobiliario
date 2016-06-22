@@ -8,6 +8,7 @@ package br.org.recresiduos.telas;
 import br.org.recresiduos.constantes.TipodeMateriais;
 import br.org.recresiduos.entidades.Casa;
 import br.org.recresiduos.entidades.Jogador;
+import java.awt.Color;
 import java.util.Random;
 import javax.swing.JOptionPane;
 
@@ -80,6 +81,9 @@ public class ColetarMaterialCasa extends javax.swing.JDialog {
         tmp = String.valueOf((new Random().nextInt(4)) + 1);
         jLQtdeMaterial.setText(tmp);
 
+        // verifica os check boxes que podem ser habilitados
+        habilitaDesabilitaCheckBoxReciclagem();
+
     }
 
     // efetua a coleta do material pelo jogador
@@ -144,6 +148,9 @@ public class ColetarMaterialCasa extends javax.swing.JDialog {
         jLQtdeMaterial.setText("0");
         jBColetar.setEnabled(false);
         jBColetar.setToolTipText("Você não pode coletar mais material");
+
+        // atualiza os check boxes que indicam a reciclagem
+        habilitaDesabilitaCheckBoxReciclagem();
     }
     
     private void subMaterialColetado(){
@@ -184,6 +191,47 @@ public class ColetarMaterialCasa extends javax.swing.JDialog {
         tmp = String.valueOf(this.jogador.getMaterialColetado().getQtdeOrganico());
         jLQtdeOrganicos.setText(tmp);
     }
+	
+    // verifica quais os check box de reciclagem que podem ser habilitados 
+    private void habilitaDesabilitaCheckBoxReciclagem() {
+
+        if (this.jogador.getMaterialColetado().getQtdeMetal() > 0) {
+            jCBReciclaMetal.setEnabled(true);
+        } else {
+            jCBReciclaMetal.setEnabled(false);
+        }
+
+        if (this.jogador.getMaterialColetado().getQtdeMadeira() > 0) {
+            jCBReciclaMadeira.setEnabled(true);
+        } else {
+            jCBReciclaMadeira.setEnabled(false);
+        }
+
+        if (this.jogador.getMaterialColetado().getQtdePapel() > 0) {
+            jCBReciclaPapel.setEnabled(true);
+        } else {
+            jCBReciclaPapel.setEnabled(false);
+        }
+
+        if (this.jogador.getMaterialColetado().getQtdePlastico() > 0) {
+            jCBReciclaPlastico.setEnabled(true);
+        } else {
+            jCBReciclaPlastico.setEnabled(false);
+        }
+
+        if (this.jogador.getMaterialColetado().getQtdeVidro() > 0) {
+            jCBReciclaVidro.setEnabled(true);
+        } else {
+            jCBReciclaVidro.setEnabled(false);
+        }
+
+        if (this.jogador.getMaterialColetado().getQtdeOrganico() > 0) {
+            jCBReciclaOrganico.setEnabled(true);
+        } else {
+            jCBReciclaOrganico.setEnabled(false);
+        }
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -397,21 +445,27 @@ public class ColetarMaterialCasa extends javax.swing.JDialog {
             }
         });
 
+        jCBReciclaMetal.setEnabled(false);
         jCBReciclaMetal.setName("CBReciclaMetal"); // NOI18N
         jCBReciclaMetal.setOpaque(false);
 
+        jCBReciclaPapel.setEnabled(false);
         jCBReciclaPapel.setName("CBReciclaPapel"); // NOI18N
         jCBReciclaPapel.setOpaque(false);
 
+        jCBReciclaPlastico.setEnabled(false);
         jCBReciclaPlastico.setName("CBReciclaPlastico"); // NOI18N
         jCBReciclaPlastico.setOpaque(false);
 
+        jCBReciclaVidro.setEnabled(false);
         jCBReciclaVidro.setName("CBReciclaVidro"); // NOI18N
         jCBReciclaVidro.setOpaque(false);
 
+        jCBReciclaMadeira.setEnabled(false);
         jCBReciclaMadeira.setName("CBReciclaMadeira"); // NOI18N
         jCBReciclaMadeira.setOpaque(false);
 
+        jCBReciclaOrganico.setEnabled(false);
         jCBReciclaOrganico.setName("CBReciclaOrganico"); // NOI18N
         jCBReciclaOrganico.setOpaque(false);
 
@@ -759,14 +813,6 @@ public class ColetarMaterialCasa extends javax.swing.JDialog {
         this.dispose();
     }//GEN-LAST:event_jBDescartarActionPerformed
 
-    private void jBReciclarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBReciclarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jBReciclarActionPerformed
-
-    private void jbContinuarJogandoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbContinuarJogandoActionPerformed
-        this.dispose();
-    }//GEN-LAST:event_jbContinuarJogandoActionPerformed
-
     private void jBColetarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBColetarMouseClicked
         coletarMaterial();
     }//GEN-LAST:event_jBColetarMouseClicked
@@ -817,8 +863,109 @@ public class ColetarMaterialCasa extends javax.swing.JDialog {
         else JOptionPane.showMessageDialog(null, "Ainda falta alguns materiais! ");
     }//GEN-LAST:event_jBProduzirActionPerformed
 
+
+    private void jbContinuarJogandoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbContinuarJogandoActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_jbContinuarJogandoActionPerformed
+
+
+
+    private void jBReciclarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBReciclarActionPerformed
+        // verifica se entre os check boxes de reciclagem, se pelo menos um está selecionado
+        String msg = "";
+
+        if (jCBReciclaMetal.isEnabled() && jCBReciclaMetal.isSelected()) {
+            msg += "\n" + TipodeMateriais.METAL.name();
+        }
+
+        if (jCBReciclaPapel.isEnabled() && jCBReciclaPapel.isSelected()) {
+            msg += "\n" + TipodeMateriais.PAPEL.name();
+        }
+
+        if (jCBReciclaPlastico.isEnabled() && jCBReciclaPlastico.isSelected()) {
+            msg += "\n" + TipodeMateriais.PLASTICO.name();
+        }
+
+        if (jCBReciclaVidro.isEnabled() && jCBReciclaVidro.isSelected()) {
+            msg += "\n" + TipodeMateriais.VIDRO.name();
+        }
+
+        if (jCBReciclaMadeira.isEnabled() && jCBReciclaMadeira.isSelected()) {
+            msg += "\n" + TipodeMateriais.MADEIRA.name();
+        }
+
+        if (jCBReciclaOrganico.isEnabled() && jCBReciclaOrganico.isSelected()) {
+            msg += "\n" + TipodeMateriais.ORGANICO.name();
+        }
+
+        // se não tiver sido selecionado nenhum item
+        if (msg.trim().isEmpty()) {
+            // mosttra a mensagem e aborta
+            JOptionPane.showMessageDialog(null, "Você tem que selecionar pelo menos um item para reciclar!", "Cuidado", JOptionPane.ERROR_MESSAGE);
+            jCBReciclaMetal.requestFocus();
+            return;
+        } else {
+            // mostra os itens selecionados e verifica se o jogador quer realmente reciclar
+            msg = "Se você quer reciclar todos estes itens:\n\n" + msg + "\n\nClique SIM para confirmar";
+            int res = JOptionPane.showConfirmDialog(null, msg, "Confirma a reciclagem", JOptionPane.YES_NO_OPTION);
+
+            if (res == JOptionPane.NO_OPTION) {
+                return;
+            }
+        }
+
+        // declara uma variável para determinar o ganho com a reciclagem
+        double ganhoReciclagem = 0.0;
+        double valorReciclagem = 0.0;
+
+        // verifica as quantidades que serão recicladas, e calcula o lucro
+        if (jCBReciclaMetal.isEnabled() && jCBReciclaMetal.isSelected()) {
+            valorReciclagem = Double.parseDouble(jLQtdeMetal.getText());
+            ganhoReciclagem += TipodeMateriais.METAL.getValorMaterial() * valorReciclagem;
+            this.jogador.getMaterialColetado().setQtdeMetal(0);
+        }
+
+        if (jCBReciclaPapel.isEnabled() && jCBReciclaPapel.isSelected()) {
+            valorReciclagem = Double.parseDouble(jLQtdePapel.getText());
+            ganhoReciclagem += TipodeMateriais.PAPEL.getValorMaterial() * valorReciclagem;        
+            this.jogador.getMaterialColetado().setQtdePapel(0);
+        }
+
+        if (jCBReciclaPlastico.isEnabled() && jCBReciclaPlastico.isSelected()) {
+            valorReciclagem = Double.parseDouble(jLQtdePlastico.getText());
+            ganhoReciclagem += TipodeMateriais.PLASTICO.getValorMaterial() * valorReciclagem;        
+            this.jogador.getMaterialColetado().setQtdePlastico(0);
+        }
+
+        if (jCBReciclaVidro.isEnabled() && jCBReciclaVidro.isSelected()) {
+            valorReciclagem = Double.parseDouble(jLQtdeVidro.getText());
+            ganhoReciclagem += TipodeMateriais.VIDRO.getValorMaterial() * valorReciclagem;        
+            this.jogador.getMaterialColetado().setQtdeVidro(0);
+        }
+
+        if (jCBReciclaMadeira.isEnabled() && jCBReciclaMadeira.isSelected()) {
+            valorReciclagem = Double.parseDouble(jLQtdeMadeira.getText());
+            ganhoReciclagem += TipodeMateriais.MADEIRA.getValorMaterial() * valorReciclagem;        
+            this.jogador.getMaterialColetado().setQtdeMadeira(0);
+        }
+
+        if (jCBReciclaOrganico.isEnabled() && jCBReciclaOrganico.isSelected()) {
+            valorReciclagem = Double.parseDouble(jLQtdeOrganicos.getText());
+            ganhoReciclagem += TipodeMateriais.ORGANICO.getValorMaterial() * valorReciclagem;
+            this.jogador.getMaterialColetado().setQtdeOrganico(0);
+        }
+        
+        JOptionPane.showMessageDialog(null, "Você lucrou " + ganhoReciclagem + " reciclando seus materiais!");
+
+        // atualiza o saldo do jogador
+        this.jogador.setSaldo(this.jogador.getSaldo() + ganhoReciclagem);
+        
+        // desabilita botão reciclar
+        jBReciclar.setEnabled(false);
+    }//GEN-LAST:event_jBReciclarActionPerformed
+
     private void jBColetarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBColetarActionPerformed
-        // TODO add your handling code here:
+        coletarMaterial();
     }//GEN-LAST:event_jBColetarActionPerformed
 
     /**
