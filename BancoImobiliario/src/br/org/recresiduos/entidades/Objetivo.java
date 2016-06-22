@@ -15,21 +15,34 @@ import java.util.Random;
 public class Objetivo {
     private TipodeMateriais tipo;
     private String descricao;
-    private double valor, qtdaVidro, qtdaPapel, qtdaFerro, qtdaAluminio, qtdaOleo, qtdaMadeira, qtdaPlastico;
+    private double valor;
+    private double qtdeVidro;
+    private double qtdePapel;
+    private double qtdeOrganico;
+    private double qtdeMetal;
+    private double qtdeMadeira;
+    private double qtdePlastico;
+    private double qtdeNReciclavel;
+    private double qtdeFerro;
+    private double qtdeOleo;
+    private double qtdeAluminio;
     private int cont;
     private int numObjetivo;
     
-    public Objetivo(String descricao,double valor, double vidro, double papel, double ferro, double aluminio, double oleo, double madeira, double plastico, int cont){
-         this.valor = valor;
-         this.descricao = descricao;
-         this.qtdaVidro = vidro;
-         this.qtdaPapel = papel;
-         this.qtdaFerro = ferro;
-         this.qtdaAluminio = aluminio;
-         this.qtdaOleo = oleo;
-         this.qtdaMadeira = madeira;
-         this.qtdaPlastico = plastico;
-         this.cont = cont;
+    public Objetivo(String descricao, double valor, double qtdeVidro, double qtdePapel, double qtdeOrganico, double qtdeMetal, double qtdeMadeira, double qtdePlastico, double qtdeNReciclavel, double qtdeFerro, double qtdeOleo, double qtdeAluminio, int cont) {
+        this.descricao = descricao;
+        this.valor = valor;
+        this.qtdeVidro = qtdeVidro;
+        this.qtdePapel = qtdePapel;
+        this.qtdeOrganico = qtdeOrganico;
+        this.qtdeMetal = qtdeMetal;
+        this.qtdeMadeira = qtdeMadeira;
+        this.qtdePlastico = qtdePlastico;
+        this.qtdeNReciclavel = qtdeNReciclavel;
+        this.qtdeFerro = qtdeFerro;
+        this.qtdeOleo = qtdeOleo;
+        this.qtdeAluminio = qtdeAluminio;
+        this.cont = cont;
     }
     
     public void setValor(double valor) {
@@ -47,62 +60,87 @@ public class Objetivo {
     public String getDescr() {
         return descricao;
     }
-    
-     public void setVidro(double vidro) {
-        this.qtdaVidro = vidro;
+
+    public double getQtdeVidro() {
+        return qtdeVidro;
     }
-    
-    public double getVidro() {
-        return qtdaVidro;
+
+    public void setQtdeVidro(double qtdeVidro) {
+        this.qtdeVidro = qtdeVidro;
     }
-    
-     public void setPapel(double papel) {
-        this.qtdaPapel = papel;
+
+    public double getQtdePapel() {
+        return qtdePapel;
     }
-    
-    public double getPapel() {
-        return qtdaPapel;
+
+    public void setQtdePapel(double qtdePapel) {
+        this.qtdePapel = qtdePapel;
     }
-    
-     public void setFerro(double ferro) {
-        this.qtdaFerro = ferro;
+
+    public double getQtdeOrganico() {
+        return qtdeOrganico;
     }
-    
-    public double getFerro() {
-        return qtdaFerro;
+
+    public void setQtdeOrganico(double qtdeOrganico) {
+        this.qtdeOrganico = qtdeOrganico;
     }
-    
-     public void setAluminio(double aluminio) {
-        this.qtdaAluminio = aluminio;
+
+    public double getQtdeMetal() {
+        return qtdeMetal;
     }
-    
-    public double getAluminio() {
-        return qtdaAluminio;
+
+    public void setQtdeMetal(double qtdeMetal) {
+        this.qtdeMetal = qtdeMetal;
     }
-    
-     public void setOleo(double oleo) {
-        this.qtdaOleo = oleo;
+
+    public double getQtdeMadeira() {
+        return qtdeMadeira;
     }
-    
-    public double getOleo() {
-        return qtdaOleo;
+
+    public void setQtdeMadeira(double qtdeMadeira) {
+        this.qtdeMadeira = qtdeMadeira;
     }
-    
-     public void setMadeira(double madeira) {
-        this.qtdaMadeira = madeira;
+
+    public double getQtdePlastico() {
+        return qtdePlastico;
     }
-    
-    public double getMadeira() {
-        return qtdaMadeira;
+
+    public void setQtdePlastico(double qtdePlastico) {
+        this.qtdePlastico = qtdePlastico;
     }
-    
-     public void setPlastico(double plastico) {
-        this.qtdaPlastico = plastico;
+
+    public double getQtdeNReciclavel() {
+        return qtdeNReciclavel;
     }
-    
-    public double getPlastico() {
-        return qtdaPlastico;
+
+    public void setQtdeNReciclavel(double qtdeNReciclavel) {
+        this.qtdeNReciclavel = qtdeNReciclavel;
     }
+
+    public double getQtdeFerro() {
+        return qtdeFerro;
+    }
+
+    public void setQtdeFerro(double qtdeFerro) {
+        this.qtdeFerro = qtdeFerro;
+    }
+
+    public double getQtdeOleo() {
+        return qtdeOleo;
+    }
+
+    public void setQtdeOleo(double qtdeOleo) {
+        this.qtdeOleo = qtdeOleo;
+    }
+
+    public double getQtdeAluminio() {
+        return qtdeAluminio;
+    }
+
+    public void setQtdeAluminio(double qtdeAluminio) {
+        this.qtdeAluminio = qtdeAluminio;
+    }
+  
     public Objetivo getAll() {
          return this;
     }

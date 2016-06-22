@@ -279,8 +279,6 @@ public class GameBoard extends javax.swing.JFrame {
         jLNomeJogador.setText(j.getNome());
         //Atualiza o saldo do jogador
         jLSaldo.setText(String.valueOf(j.getSaldo()));
-        //Atualiza o material coletado do jogador
-        atualizarMaterial(j);
     }
 
     private void determinaProximoJogador(Jogador j) {
@@ -416,16 +414,16 @@ public class GameBoard extends javax.swing.JFrame {
         cartas = new ArrayList<Objetivo>();
 
         // até aqui, tudo bem
-        cartas.add(new Objetivo("Mesa Vidro", 0, 0, 0, 0, 0, 0, 0, 0, 1));
-        cartas.add(new Objetivo("Cadeira Madeira", 0, 0, 0, 0, 0, 0, 0, 0, 2));
-        cartas.add(new Objetivo("Mesa Madeira", 0, 0, 0, 0, 0, 0, 0, 0, 3));
-        cartas.add(new Objetivo("Mesa Ferro", 0, 0, 0, 0, 0, 0, 0, 0, 4));
-        cartas.add(new Objetivo("Mesa a", 0, 0, 0, 0, 0, 0, 0, 0, 5));
-        cartas.add(new Objetivo("Mesa b ", 0, 0, 0, 0, 0, 0, 0, 0, 6));
-        cartas.add(new Objetivo("Mesa c", 0, 0, 0, 0, 0, 0, 0, 0, 7));
-        cartas.add(new Objetivo("Mesa d", 0, 0, 0, 0, 0, 0, 0, 0, 8));
-        cartas.add(new Objetivo("Mesa e", 0, 0, 0, 0, 0, 0, 0, 0, 9));
-        cartas.add(new Objetivo("Mesa f", 0, 0, 0, 0, 0, 0, 0, 0, 10));
+        cartas.add(new Objetivo("Mesa Vidro", 10, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1));
+        cartas.add(new Objetivo("Cadeira Madeira", 10, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 2));
+        cartas.add(new Objetivo("Mesa Madeira", 10, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 3));
+        cartas.add(new Objetivo("Mesa Ferro",10, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 4));
+        cartas.add(new Objetivo("Mesa a", 10, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 5));
+        cartas.add(new Objetivo("Mesa b ",10, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 6));
+        cartas.add(new Objetivo("Mesa c",10, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 7));
+        cartas.add(new Objetivo("Mesa d",10, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 8));
+        cartas.add(new Objetivo("Mesa e", 10, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 9));
+        cartas.add(new Objetivo("Mesa f",10, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 10));
 
         // embaralha as cartas, enquanto a lista original não estiver vazia
         while (!cartas.isEmpty()) {
@@ -465,20 +463,24 @@ public class GameBoard extends javax.swing.JFrame {
             double valorCarta = cartas.get(0).getValor();
 
             System.out.println("Descrição: " + cartas.get(0).getDescr()
-             + "\n"
-               + "Vidro: " + cartas.get(0).getVidro()
                + "\n"
-               + "Papel: " + cartas.get(0).getPapel()
+               + "Vidro: " + cartas.get(0).getQtdeVidro()
                + "\n"
-               + "Ferro: " + cartas.get(0).getFerro()
+               + "Papel: " + cartas.get(0).getQtdePapel()
                + "\n"
-               + "Aluminio: " + cartas.get(0).getAluminio()
+               + "Organico: " + cartas.get(0).getQtdeOrganico()
                + "\n"
-               + "Oleo: " + cartas.get(0).getOleo()
+               + "Metal: " + cartas.get(0).getQtdeMetal()
                + "\n"
-               + "Madeira: " + cartas.get(0).getMadeira()
+               + "Ferro: " + cartas.get(0).getQtdeFerro()
                + "\n"
-               + "Plastico: " + cartas.get(0).getPlastico()
+               + "Aluminio: " + cartas.get(0).getQtdeAluminio()
+               + "\n"
+               + "Oleo: " + cartas.get(0).getQtdeOleo()
+               + "\n"
+               + "Madeira: " + cartas.get(0).getQtdeMadeira()
+               + "\n"
+               + "Plastico: " + cartas.get(0).getQtdePlastico()
                + "\n"
                + "Valor: " + cartas.get(0).getValor());
             
@@ -546,16 +548,7 @@ public class GameBoard extends javax.swing.JFrame {
    
     }
     
-    private void atualizarMaterial (Jogador j){
-        jLMetal.setText("Metal: " + j.getMaterialColetado().getQtdeMetal());
-        jLPapel.setText("Papel: " + j.getMaterialColetado().getQtdePapel());
-        jLOrganico.setText("Organico: " + j.getMaterialColetado().getQtdeOrganico());
-        jLPlastico.setText("Plastico: " + j.getMaterialColetado().getQtdePlastico());
-        jLVidro.setText("Vidro: " + j.getMaterialColetado().getQtdeVidro());
-        jLMadeira.setText("Madeira: " + j.getMaterialColetado().getQtdeMadeira());
-        jLNaoReciclavel.setText("Não Reciclavel: " + j.getMaterialColetado().getQtdeNaoReciclavel());
-    }
-
+   
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -594,22 +587,8 @@ public class GameBoard extends javax.swing.JFrame {
         jLJogador = new javax.swing.JLabel();
         jLCorJogador = new javax.swing.JLabel();
         jLNomeJogador = new javax.swing.JLabel();
-        jBNaoColetar = new javax.swing.JButton();
-        jLCartaObjetivo = new javax.swing.JLabel();
-        jBDetalhesObjetivo = new javax.swing.JButton();
-        jBNovoObjetivo = new javax.swing.JButton();
-        jBProduzir = new javax.swing.JButton();
-        jBReciclar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLSaldo = new javax.swing.JLabel();
-        jLMaterialColetado = new javax.swing.JLabel();
-        jLMetal = new javax.swing.JLabel();
-        jLPapel = new javax.swing.JLabel();
-        jLOrganico = new javax.swing.JLabel();
-        jLPlastico = new javax.swing.JLabel();
-        jLVidro = new javax.swing.JLabel();
-        jLMadeira = new javax.swing.JLabel();
-        jLNaoReciclavel = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
 
         jLabel3.setText("jLabel3");
@@ -1019,78 +998,10 @@ public class GameBoard extends javax.swing.JFrame {
         jLNomeJogador.setText("Nome Jogador:");
         jLNomeJogador.setToolTipText("");
 
-        jBNaoColetar.setMnemonic('N');
-        jBNaoColetar.setText("Não Coletar");
-        jBNaoColetar.setEnabled(false);
-        jBNaoColetar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBNaoColetarActionPerformed(evt);
-            }
-        });
-
-        jLCartaObjetivo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagensbir/CartaObjetivoCostas.png"))); // NOI18N
-        jLCartaObjetivo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jLCartaObjetivo.setMaximumSize(new java.awt.Dimension(150, 245));
-        jLCartaObjetivo.setMinimumSize(new java.awt.Dimension(150, 245));
-        jLCartaObjetivo.setPreferredSize(new java.awt.Dimension(150, 245));
-
-        jBDetalhesObjetivo.setText("D");
-        jBDetalhesObjetivo.setToolTipText("");
-        jBDetalhesObjetivo.setMaximumSize(new java.awt.Dimension(45, 45));
-        jBDetalhesObjetivo.setMinimumSize(new java.awt.Dimension(45, 45));
-        jBDetalhesObjetivo.setPreferredSize(new java.awt.Dimension(45, 45));
-        jBDetalhesObjetivo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBDetalhesObjetivoActionPerformed(evt);
-            }
-        });
-
-        jBNovoObjetivo.setText("V");
-        jBNovoObjetivo.setMaximumSize(new java.awt.Dimension(45, 45));
-        jBNovoObjetivo.setMinimumSize(new java.awt.Dimension(45, 45));
-        jBNovoObjetivo.setPreferredSize(new java.awt.Dimension(45, 45));
-        jBNovoObjetivo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBNovoObjetivoActionPerformed(evt);
-            }
-        });
-
-        jBProduzir.setMnemonic('P');
-        jBProduzir.setText("Produzir");
-        jBProduzir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBProduzirActionPerformed(evt);
-            }
-        });
-
-        jBReciclar.setText("Reciclar");
-        jBReciclar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBReciclarActionPerformed(evt);
-            }
-        });
-
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel1.setText("Saldo:");
 
         jLSaldo.setText("0");
-
-        jLMaterialColetado.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLMaterialColetado.setText("Materiais Coletados");
-
-        jLMetal.setText("Metal:");
-
-        jLPapel.setText("Papel:");
-
-        jLOrganico.setText("Organico:");
-
-        jLPlastico.setText("Plástico");
-
-        jLVidro.setText("Vidro:");
-
-        jLMadeira.setText("Madeira:");
-
-        jLNaoReciclavel.setText("Não Reciclavel:");
 
         jButton1.setText("jButton1");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -1108,7 +1019,7 @@ public class GameBoard extends javax.swing.JFrame {
                 .addGroup(jPFundoTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPFundoTelaLayout.createSequentialGroup()
                         .addGroup(jPFundoTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPFundoTelaLayout.createSequentialGroup()
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPFundoTelaLayout.createSequentialGroup()
                                 .addComponent(jLP1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLP2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1125,49 +1036,28 @@ public class GameBoard extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLP8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLP9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(jPFundoTelaLayout.createSequentialGroup()
+                                .addComponent(jLP9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPFundoTelaLayout.createSequentialGroup()
                                 .addGroup(jPFundoTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLP23, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLP24, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(jPFundoTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPFundoTelaLayout.createSequentialGroup()
-                                        .addComponent(jLJogador, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGroup(jPFundoTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLJogador, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jLabel1))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jLCorJogador, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jLNomeJogador, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(jPFundoTelaLayout.createSequentialGroup()
-                                        .addGroup(jPFundoTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                            .addComponent(jBReciclar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                                            .addComponent(jBNaoColetar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                                            .addComponent(jBProduzir, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                        .addGap(22, 22, 22)
                                         .addGroup(jPFundoTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(jPFundoTelaLayout.createSequentialGroup()
-                                                .addComponent(jLabel1)
+                                                .addComponent(jLCorJogador, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(jLSaldo, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addComponent(jButton1))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addGroup(jPFundoTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLPlastico)
-                                            .addComponent(jLMaterialColetado)
-                                            .addComponent(jLMetal)
-                                            .addComponent(jLPapel)
-                                            .addComponent(jLOrganico)
-                                            .addComponent(jLVidro)
-                                            .addComponent(jLMadeira)
-                                            .addComponent(jLNaoReciclavel))))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLCartaObjetivo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPFundoTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jBNovoObjetivo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jBDetalhesObjetivo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                                .addComponent(jLNomeJogador, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGroup(jPFundoTelaLayout.createSequentialGroup()
+                                                .addGap(10, 10, 10)
+                                                .addComponent(jLSaldo, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addComponent(jButton1))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPFundoTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLP11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLP10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1213,6 +1103,17 @@ public class GameBoard extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPFundoTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPFundoTelaLayout.createSequentialGroup()
+                        .addGroup(jPFundoTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPFundoTelaLayout.createSequentialGroup()
+                                .addComponent(jLP11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLP12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPFundoTelaLayout.createSequentialGroup()
+                                .addComponent(jLP24, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLP23, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPFundoTelaLayout.createSequentialGroup()
                         .addGroup(jPFundoTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLJogador)
                             .addComponent(jLCorJogador, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1220,54 +1121,10 @@ public class GameBoard extends javax.swing.JFrame {
                         .addGap(15, 15, 15)
                         .addGroup(jPFundoTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel1)
-                            .addComponent(jLSaldo)
-                            .addComponent(jLMaterialColetado))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLMetal)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLPapel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLOrganico)
-                        .addGap(1, 1, 1)
-                        .addGroup(jPFundoTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPFundoTelaLayout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(jBNaoColetar)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jBProduzir)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jBReciclar))
-                            .addGroup(jPFundoTelaLayout.createSequentialGroup()
-                                .addGap(6, 6, 6)
-                                .addGroup(jPFundoTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jButton1)
-                                    .addGroup(jPFundoTelaLayout.createSequentialGroup()
-                                        .addComponent(jLPlastico)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jLVidro)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jLMadeira)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jLNaoReciclavel)))
-                                .addGap(0, 0, Short.MAX_VALUE))))
-                    .addGroup(jPFundoTelaLayout.createSequentialGroup()
-                        .addGroup(jPFundoTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPFundoTelaLayout.createSequentialGroup()
-                                .addGroup(jPFundoTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLP11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(jPFundoTelaLayout.createSequentialGroup()
-                                        .addComponent(jBNovoObjetivo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jBDetalhesObjetivo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLP12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLCartaObjetivo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPFundoTelaLayout.createSequentialGroup()
-                                .addComponent(jLP24, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLP23, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jLSaldo))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton1)
+                        .addGap(48, 48, 48)))
                 .addGroup(jPFundoTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLP13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLP14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1316,55 +1173,14 @@ public class GameBoard extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_formWindowClosing
 
-    private void jBNaoColetarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBNaoColetarActionPerformed
-        // verifica quem está jogando
-        Jogador j = dizQuemEstaJogando();
-        
-        // vai para o próximo jogador
-        determinaProximoJogador(j);
-        mostrarQuemEstaJogando();
-        jBNaoColetar.setEnabled(false);
-    }//GEN-LAST:event_jBNaoColetarActionPerformed
-
-    private void jBDetalhesObjetivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBDetalhesObjetivoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jBDetalhesObjetivoActionPerformed
-
-    private void jBNovoObjetivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBNovoObjetivoActionPerformed
-        jLCartaObjetivo.setIcon(new ImageIcon(getClass().getResource("/imagensbir/CartaObjetivoFrente.png")));
-        // verifica quem está jogando
-        Jogador j = dizQuemEstaJogando();
-        // sorteia o objetivo
-        sortear (j);
-    }//GEN-LAST:event_jBNovoObjetivoActionPerformed
-
-    private void jBProduzirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBProduzirActionPerformed
-        
-        // verifica quem está jogando
-        Jogador j = dizQuemEstaJogando();
-        // Se produziu o objetivo, pode sortear novo objetivo
-        j.setPodeSortear(true);
-        
-        // Atualiza o saldo do jogador
-        jLSaldo.setText(String.valueOf(j.getSaldo()));
-    }//GEN-LAST:event_jBProduzirActionPerformed
-
-    private void jBReciclarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBReciclarActionPerformed
-       
-        // verifica quem está jogando
-        Jogador j = dizQuemEstaJogando();
-        //Atualiza o saldo do jogador
-        jLSaldo.setText(String.valueOf(j.getSaldo()));
-    }//GEN-LAST:event_jBReciclarActionPerformed
-
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // verifica quem está jogando
         Jogador j = dizQuemEstaJogando();
         // cria um objeto do dado, para saber o número tirado
         Dado d = new Dado();
-        
+
         mostrarQuemEstaJogando();
- 
+
         // chama a tela que mostra o dado a ser rolado, e o que o jogador
         // consegui, na casa em que ele caiu
         LancarDado ld = new LancarDado(this, true, d, j);
@@ -1374,14 +1190,20 @@ public class GameBoard extends javax.swing.JFrame {
         setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
         movimentarJogador(d.getNumFace(), j);
         setCursor(Cursor.getDefaultCursor());
-        
+
+        // Sorteia o objetivo
+        sortear (j);
+
         // chama a janela que trata a casa em que o jogador caiu
         ColetarMaterialCasa cmc = new ColetarMaterialCasa(this, true, j, casas.get(j.getNumeroCasa()));
         cmc.setVisible(true);
-        
-        // verifica quem é o próximo jogador 
+
+        // Atualiza o saldo do jogador
+        jLSaldo.setText(String.valueOf(j.getSaldo()));
+
+        // verifica quem é o próximo jogador
         determinaProximoJogador(j);
-        
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -1421,21 +1243,10 @@ public class GameBoard extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jBDetalhesObjetivo;
-    private javax.swing.JButton jBNaoColetar;
-    private javax.swing.JButton jBNovoObjetivo;
-    private javax.swing.JButton jBProduzir;
-    private javax.swing.JButton jBReciclar;
     private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLCartaObjetivo;
     private javax.swing.JLabel jLCorJogador;
     private javax.swing.JLabel jLJogador;
-    private javax.swing.JLabel jLMadeira;
-    private javax.swing.JLabel jLMaterialColetado;
-    private javax.swing.JLabel jLMetal;
-    private javax.swing.JLabel jLNaoReciclavel;
     private javax.swing.JLabel jLNomeJogador;
-    private javax.swing.JLabel jLOrganico;
     private javax.swing.JLayeredPane jLP1;
     private javax.swing.JLayeredPane jLP10;
     private javax.swing.JLayeredPane jLP11;
@@ -1460,10 +1271,7 @@ public class GameBoard extends javax.swing.JFrame {
     private javax.swing.JLayeredPane jLP7;
     private javax.swing.JLayeredPane jLP8;
     private javax.swing.JLayeredPane jLP9;
-    private javax.swing.JLabel jLPapel;
-    private javax.swing.JLabel jLPlastico;
     private javax.swing.JLabel jLSaldo;
-    private javax.swing.JLabel jLVidro;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPFundoTela;

@@ -750,6 +750,9 @@
                   <Dimension value="[105, 35]"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBProduzirActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLCartaObjetivo">
               <Properties>
@@ -955,6 +958,7 @@
               </Properties>
               <Events>
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jBColetarMouseClicked"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBColetarActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>

@@ -123,43 +123,91 @@ public class Jogador {
                 break;
             case MADEIRA:
                 this.materialColetado.setQtdeMadeira(quantidade + this.materialColetado.getQtdeMadeira());
-                System.out.println("Agora tem : " + this.materialColetado.getQtdeMadeira());
+                System.out.println("Agora tem madeira : " + this.materialColetado.getQtdeMadeira());
                 break;
             case METAL:
                 this.materialColetado.setQtdeMetal(quantidade + this.materialColetado.getQtdeMetal());
-                System.out.println("Agora tem : " + this.materialColetado.getQtdeMetal());
+                System.out.println("Agora tem  metal: " + this.materialColetado.getQtdeMetal());
                 break;
             case ORGANICO:
                 this.materialColetado.setQtdeOrganico(quantidade + this.materialColetado.getQtdeOrganico());
-                System.out.println("Agora tem : " + this.materialColetado.getQtdeOrganico());
+                System.out.println("Agora tem  organico: " + this.materialColetado.getQtdeOrganico());
                 break;
             case NAORECICLAVEL:
                 this.materialColetado.setQtdeNaoReciclavel(quantidade + this.materialColetado.getQtdeNaoReciclavel());
-                System.out.println("Agora tem : " + this.materialColetado.getQtdeNaoReciclavel());
+                System.out.println("Agora tem  não reciclavel: " + this.materialColetado.getQtdeNaoReciclavel());
                 break;
             case FERRO:
                 this.materialColetado.setQtdeFerro(quantidade + this.materialColetado.getQtdeFerro());
-                System.out.println("Agora tem : " + this.materialColetado.getQtdeFerro());
+                System.out.println("Agora tem ferro: " + this.materialColetado.getQtdeFerro());
                 break;
             case ALUMINIO:
                 this.materialColetado.setQtdeAluminio(quantidade + this.materialColetado.getQtdeAluminio());
-                System.out.println("Agora tem : " + this.materialColetado.getQtdeAluminio());
+                System.out.println("Agora tem aluminio: " + this.materialColetado.getQtdeAluminio());
                 break;
             case OLEO:
                 this.materialColetado.setQtdeOleo(quantidade + this.materialColetado.getQtdeOleo());
-                System.out.println("Agora tem : " + this.materialColetado.getQtdeOleo());
+                System.out.println("Agora tem oléo: " + this.materialColetado.getQtdeOleo());
                 break;
             case PLASTICO:
                 this.materialColetado.setQtdePlastico(quantidade + this.materialColetado.getQtdePlastico());
-                System.out.println("Agora tem : " + this.materialColetado.getQtdePlastico());
+                System.out.println("Agora tem plastico: " + this.materialColetado.getQtdePlastico());
                 break;
             case VIDRO:
                 this.materialColetado.setQtdeVidro(quantidade + this.materialColetado.getQtdeVidro());
-                System.out.println("Agora tem : " + this.materialColetado.getQtdeVidro());
+                System.out.println("Agora tem  vidro: " + this.materialColetado.getQtdeVidro());
                 break;
             case PAPEL:
                 this.materialColetado.setQtdePapel(quantidade + this.materialColetado.getQtdePapel());
-                System.out.println("Agora tem : " + this.materialColetado.getQtdePapel());
+                System.out.println("Agora tem papel: " + this.materialColetado.getQtdePapel());
+                break;
+        }
+    }
+    
+     public void setAtualizarMaterial(double quantidade, TipodeMateriais tm) {
+        //verifica o tipo de material, para saber onde jogar a quantidade
+        switch(tm){
+            case NENHUM:
+                break;
+            case MADEIRA:
+                this.materialColetado.setQtdeMadeira(quantidade);
+                System.out.println("Agora tem madeira: " + this.materialColetado.getQtdeMadeira());
+                break;
+            case METAL:
+                this.materialColetado.setQtdeMetal(quantidade);
+                System.out.println("Agora tem metal: " + this.materialColetado.getQtdeMetal());
+                break;
+            case ORGANICO:
+                this.materialColetado.setQtdeOrganico(quantidade);
+                System.out.println("Agora tem organico: " + this.materialColetado.getQtdeOrganico());
+                break;
+            case NAORECICLAVEL:
+                this.materialColetado.setQtdeNaoReciclavel(quantidade);
+                System.out.println("Agora tem não reciclavel: " + this.materialColetado.getQtdeNaoReciclavel());
+                break;
+            case FERRO:
+                this.materialColetado.setQtdeFerro(quantidade);
+                System.out.println("Agora tem ferro: " + this.materialColetado.getQtdeFerro());
+                break;
+            case ALUMINIO:
+                this.materialColetado.setQtdeAluminio(quantidade);
+                System.out.println("Agora tem aluminio: " + this.materialColetado.getQtdeAluminio());
+                break;
+            case OLEO:
+                this.materialColetado.setQtdeOleo(quantidade);
+                System.out.println("Agora tem oléo: " + this.materialColetado.getQtdeOleo());
+                break;
+            case PLASTICO:
+                this.materialColetado.setQtdePlastico(quantidade);
+                System.out.println("Agora tem plastico: " + this.materialColetado.getQtdePlastico());
+                break;
+            case VIDRO:
+                this.materialColetado.setQtdeVidro(quantidade);
+                System.out.println("Agora tem vidro: " + this.materialColetado.getQtdeVidro());
+                break;
+            case PAPEL:
+                this.materialColetado.setQtdePapel(quantidade);
+                System.out.println("Agora tem papel: " + this.materialColetado.getQtdePapel());
                 break;
         }
     }

@@ -9,6 +9,7 @@ import br.org.recresiduos.constantes.TipodeMateriais;
 import br.org.recresiduos.entidades.Casa;
 import br.org.recresiduos.entidades.Jogador;
 import java.util.Random;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -144,7 +145,45 @@ public class ColetarMaterialCasa extends javax.swing.JDialog {
         jBColetar.setEnabled(false);
         jBColetar.setToolTipText("Você não pode coletar mais material");
     }
-
+    
+    private void subMaterialColetado(){
+        
+        // subtrai o material coletado do objetivo
+        double madeira = jogador.getMaterialColetado().getQtdeMadeira()- jogador.getObjetivo().getQtdeMadeira();
+        double aluminio = jogador.getMaterialColetado().getQtdeAluminio() -jogador.getObjetivo().getQtdeAluminio();
+        double ferro = jogador.getMaterialColetado().getQtdeFerro()- jogador.getObjetivo().getQtdeFerro();
+        double metal = jogador.getMaterialColetado().getQtdeMetal() - jogador.getObjetivo().getQtdeMetal();
+        double oleo = jogador.getMaterialColetado().getQtdeOleo() - jogador.getObjetivo().getQtdeOleo();
+        double organico = jogador.getMaterialColetado().getQtdeOrganico() - jogador.getObjetivo().getQtdeOrganico();
+        double papel = jogador.getMaterialColetado().getQtdePapel()- jogador.getObjetivo().getQtdePapel();
+        double plastico = jogador.getMaterialColetado().getQtdePlastico()-jogador.getObjetivo().getQtdePlastico();
+        double vidro = jogador.getMaterialColetado().getQtdeVidro()-jogador.getObjetivo().getQtdeVidro();
+        
+        // passa a informação
+        jogador.setAtualizarMaterial(madeira, TipodeMateriais.MADEIRA);
+        jogador.setAtualizarMaterial(aluminio, TipodeMateriais.ALUMINIO);
+        jogador.setAtualizarMaterial(ferro, TipodeMateriais.FERRO);
+        jogador.setAtualizarMaterial(metal, TipodeMateriais.METAL);
+        jogador.setAtualizarMaterial(oleo, TipodeMateriais.OLEO);
+        jogador.setAtualizarMaterial(organico, TipodeMateriais.ORGANICO);
+        jogador.setAtualizarMaterial(papel, TipodeMateriais.PAPEL);
+        jogador.setAtualizarMaterial(plastico, TipodeMateriais.PLASTICO);
+        jogador.setAtualizarMaterial(vidro, TipodeMateriais.VIDRO);
+        
+        // preenche as quantidades que ele coletou, através de uma variável temporária
+        String tmp = String.valueOf(this.jogador.getMaterialColetado().getQtdeMetal());
+        jLQtdeMetal.setText(tmp);
+        tmp = String.valueOf(this.jogador.getMaterialColetado().getQtdePapel());
+        jLQtdePapel.setText(tmp);
+        tmp = String.valueOf(this.jogador.getMaterialColetado().getQtdePlastico());
+        jLQtdePlastico.setText(tmp);
+        tmp = String.valueOf(this.jogador.getMaterialColetado().getQtdeMadeira());
+        jLQtdeMadeira.setText(tmp);
+        tmp = String.valueOf(this.jogador.getMaterialColetado().getQtdeVidro());
+        jLQtdeVidro.setText(tmp);
+        tmp = String.valueOf(this.jogador.getMaterialColetado().getQtdeOrganico());
+        jLQtdeOrganicos.setText(tmp);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -502,6 +541,11 @@ public class ColetarMaterialCasa extends javax.swing.JDialog {
         jBProduzir.setMinimumSize(new java.awt.Dimension(105, 35));
         jBProduzir.setName("Coletar"); // NOI18N
         jBProduzir.setPreferredSize(new java.awt.Dimension(105, 35));
+        jBProduzir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBProduzirActionPerformed(evt);
+            }
+        });
 
         jLCartaObjetivo.setBackground(new java.awt.Color(204, 0, 0));
         jLCartaObjetivo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -598,6 +642,11 @@ public class ColetarMaterialCasa extends javax.swing.JDialog {
         jBColetar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jBColetarMouseClicked(evt);
+            }
+        });
+        jBColetar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBColetarActionPerformed(evt);
             }
         });
 
@@ -721,6 +770,56 @@ public class ColetarMaterialCasa extends javax.swing.JDialog {
     private void jBColetarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBColetarMouseClicked
         coletarMaterial();
     }//GEN-LAST:event_jBColetarMouseClicked
+
+    private void jBProduzirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBProduzirActionPerformed
+        
+        if(jogador.getMaterialColetado().getQtdeMadeira()>= jogador.getObjetivo().getQtdeMadeira()){
+            if(jogador.getMaterialColetado().getQtdeAluminio()>=jogador.getObjetivo().getQtdeAluminio()){
+                if(jogador.getMaterialColetado().getQtdeFerro()>=jogador.getObjetivo().getQtdeFerro()){
+                    if(jogador.getMaterialColetado().getQtdeMetal()>=jogador.getObjetivo().getQtdeMetal()){
+                        if(jogador.getMaterialColetado().getQtdeOleo()>=jogador.getObjetivo().getQtdeOleo()){
+                            if(jogador.getMaterialColetado().getQtdeOrganico()>=jogador.getObjetivo().getQtdeOrganico()){
+                                if(jogador.getMaterialColetado().getQtdePapel()>=jogador.getObjetivo().getQtdePapel()){
+                                    if(jogador.getMaterialColetado().getQtdePlastico()>=jogador.getObjetivo().getQtdePlastico()){
+                                        if(jogador.getMaterialColetado().getQtdeVidro()>=jogador.getObjetivo().getQtdeVidro()){
+                                            
+                                          // atualiza o saldo do jogador com o valor da carta objetivo produzida  
+                                          jogador.atualizarSaldo(jogador.getObjetivo().getValor(), "AUMENTAR");
+                                          
+                                          // subtrair os materiais que foram usados para a produção
+                                          subMaterialColetado();
+                                          
+                                          // permite que o jogador produza apenas uma vez
+                                          jBProduzir.setEnabled(false);
+                                          jBProduzir.setToolTipText("Você já produziu!");
+                                          
+                                          // Se produziu o objetivo, pode sortear novo objetivo
+                                          jogador.setPodeSortear(true);
+                                          
+                                          JOptionPane.showMessageDialog(null, "Você cumpriu o objetivo objetivo! ");
+                                        }
+                                        else JOptionPane.showMessageDialog(null, "Ainda falta alguns materiais! ");
+                                    }
+                                    else  JOptionPane.showMessageDialog(null, "Ainda falta alguns materiais! ");
+                                } 
+                                else JOptionPane.showMessageDialog(null, "Ainda falta alguns materiais! ");
+                            }
+                            else JOptionPane.showMessageDialog(null, "Ainda falta alguns materiais! ");
+                        }
+                        else JOptionPane.showMessageDialog(null, "Ainda falta alguns materiais! ");
+                    }
+                    else JOptionPane.showMessageDialog(null, "Ainda falta alguns materiais! ");
+                }
+                else JOptionPane.showMessageDialog(null, "Ainda falta alguns materiais! ");
+            }
+            else JOptionPane.showMessageDialog(null, "Ainda falta alguns materiais! ");
+        }  
+        else JOptionPane.showMessageDialog(null, "Ainda falta alguns materiais! ");
+    }//GEN-LAST:event_jBProduzirActionPerformed
+
+    private void jBColetarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBColetarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jBColetarActionPerformed
 
     /**
      * @param args the command line arguments

@@ -137,16 +137,16 @@ public class Tabuleiro extends javax.swing.JFrame {
         cartas = new ArrayList<Objetivo>();
         
         // até aqui, tudo bem
-        cartas.add(new Objetivo("Mesa Vidro",0,0,0,0,0,0,0,0,1));
-        cartas.add(new Objetivo("Cadeira Madeira",0,0,0,0,0,0,0,0,2));
-        cartas.add(new Objetivo("Mesa Madeira",0,0,0,0,0,0,0,0,3));
-        cartas.add(new Objetivo("Mesa Ferro",0,0,0,0,0,0,0,0,4));
-        cartas.add(new Objetivo("Mesa a",0,0,0,0,0,0,0,0,5));
-        cartas.add(new Objetivo("Mesa b ",0,0,0,0,0,0,0,0,6));
-        cartas.add(new Objetivo("Mesa c",0,0,0,0,0,0,0,0,7));
-        cartas.add(new Objetivo("Mesa d",0,0,0,0,0,0,0,0,8));
-        cartas.add(new Objetivo("Mesa e",0,0,0,0,0,0,0,0,9));
-        cartas.add(new Objetivo("Mesa f",0,0,0,0,0,0,0,0,10));
+        cartas.add(new Objetivo("Mesa Vidro", 10, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1));
+        cartas.add(new Objetivo("Cadeira Madeira", 10, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 2));
+        cartas.add(new Objetivo("Mesa Madeira", 10, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 3));
+        cartas.add(new Objetivo("Mesa Ferro",10, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 4));
+        cartas.add(new Objetivo("Mesa a", 10, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 5));
+        cartas.add(new Objetivo("Mesa b ",10, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 6));
+        cartas.add(new Objetivo("Mesa c",10, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 7));
+        cartas.add(new Objetivo("Mesa d",10, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 8));
+        cartas.add(new Objetivo("Mesa e", 10, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 9));
+        cartas.add(new Objetivo("Mesa f",10, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 10));
         
        
         
@@ -749,22 +749,26 @@ public class Tabuleiro extends javax.swing.JFrame {
                 jogadorVez.setSaldo((jogadorVez.getSaldo() + valorCarta));
                 System.out.println("O saldo do jogador " + jogadorVez.getNome() + " foi atualizado para " + jogadorVez.getSaldo());
                 JOptionPane.showMessageDialog(null, "Descrição:" + cartas.get(0).getDescr() + 
-                        "\n"+
-                        "Vidro: " + cartas.get(0).getVidro()+
-                        "\n"+
-                        "Papel: " + cartas.get(0).getPapel()+
-                        "\n"+
-                        "Ferro: " + cartas.get(0).getFerro()+
-                        "\n"+
-                        "Aluminio: " + cartas.get(0).getAluminio()+
-                        "\n"+
-                        "Oleo: " + cartas.get(0).getOleo()+
-                        "\n"+
-                        "Madeira: " + cartas.get(0).getMadeira()+
-                        "\n"+
-                        "Plastico: " + cartas.get(0).getPlastico()+
-                        "\n"+
-                        "Valor: " + cartas.get(0).getValor());
+                    "\n"
+                    + "Vidro: " + cartas.get(0).getQtdeVidro()
+                    + "\n"
+                    + "Papel: " + cartas.get(0).getQtdePapel()
+                    + "\n"
+                    + "Organico: " + cartas.get(0).getQtdeOrganico()
+                    + "\n"
+                    + "Metal: " + cartas.get(0).getQtdeMetal()
+                    + "\n"
+                    + "Ferro: " + cartas.get(0).getQtdeFerro()
+                    + "\n"
+                    + "Aluminio: " + cartas.get(0).getQtdeAluminio()
+                    + "\n"
+                    + "Oleo: " + cartas.get(0).getQtdeOleo()
+                    + "\n"
+                    + "Madeira: " + cartas.get(0).getQtdeMadeira()
+                    + "\n"
+                    + "Plastico: " + cartas.get(0).getQtdePlastico()
+                    + "\n"
+                    + "Valor: " + cartas.get(0).getValor());
                 
                 //copia o objetivo para cada jogador
                jogadorVez.setObjetivo(cartas.get(0));

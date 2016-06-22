@@ -131,14 +131,6 @@ public class MaterialColetado {
         this.qtdeNReciclavel = qtdaNReciclavel;
     }
 
-    public double getQtdeNReciclavel() {
-        return qtdeNReciclavel;
-    }
-
-    public void setQtdeNReciclavel(double qtdeNReciclavel) {
-        this.qtdeNReciclavel = qtdeNReciclavel;
-    }
-
     public double getQtdeFerro() {
         return qtdeFerro;
     }
