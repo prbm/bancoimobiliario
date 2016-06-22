@@ -358,25 +358,17 @@ public class GameBoard extends javax.swing.JFrame {
     // Este método informa quem é o jogador que está jogando, pare evitar redundâncias
     // nos demais métodos
     private Jogador dizQuemEstaJogando(){
-        // Declara uma variável temporária
-        Jogador j = new Jogador();
-        
         switch (vezJogador) {
             case AMARELO:
-                j = jogadores[0];
-                break;
+                return jogadores[0];
             case AZUL:
-                j = jogadores[1];
-                break;
+                return jogadores[1];
             case BRANCO:
-                j = jogadores[2];
-                break;
+                return jogadores[2];
             case PRETO:
-                j = jogadores[3];
-                break;
+                return jogadores[3];
         }
-        
-        return j;
+        return null;
     }
     
     private void movimentarJogador(int numeroCasasAndar, Jogador j) {
@@ -642,10 +634,12 @@ public class GameBoard extends javax.swing.JFrame {
         jLVidro = new javax.swing.JLabel();
         jLMadeira = new javax.swing.JLabel();
         jLNaoReciclavel = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         jLabel3.setText("jLabel3");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
                 formWindowClosing(evt);
@@ -1142,6 +1136,13 @@ public class GameBoard extends javax.swing.JFrame {
 
         jLNaoReciclavel.setText("Não Reciclavel:");
 
+        jButton1.setText("jButton1");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPFundoTelaLayout = new javax.swing.GroupLayout(jPFundoTela);
         jPFundoTela.setLayout(jPFundoTelaLayout);
         jPFundoTelaLayout.setHorizontalGroup(
@@ -1184,17 +1185,19 @@ public class GameBoard extends javax.swing.JFrame {
                                         .addComponent(jLNomeJogador, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(jPFundoTelaLayout.createSequentialGroup()
                                         .addGroup(jPFundoTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(jPFundoTelaLayout.createSequentialGroup()
-                                                .addComponent(jBJogar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(18, 18, 18)
-                                                .addComponent(jLabel1)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(jLSaldo, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(jBJogar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addGroup(jPFundoTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                                 .addComponent(jBReciclar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                                                 .addComponent(jBNaoColetar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                                                 .addComponent(jBColetar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                                 .addComponent(jBProduzir, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                        .addGap(18, 18, 18)
+                                        .addGroup(jPFundoTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(jPFundoTelaLayout.createSequentialGroup()
+                                                .addComponent(jLabel1)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(jLSaldo, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(jButton1))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addGroup(jPFundoTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(jLPlastico)
@@ -1287,13 +1290,16 @@ public class GameBoard extends javax.swing.JFrame {
                                 .addComponent(jBReciclar))
                             .addGroup(jPFundoTelaLayout.createSequentialGroup()
                                 .addGap(6, 6, 6)
-                                .addComponent(jLPlastico)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLVidro)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLMadeira)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLNaoReciclavel)
+                                .addGroup(jPFundoTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jButton1)
+                                    .addGroup(jPFundoTelaLayout.createSequentialGroup()
+                                        .addComponent(jLPlastico)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jLVidro)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jLMadeira)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jLNaoReciclavel)))
                                 .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(jPFundoTelaLayout.createSequentialGroup()
                         .addGroup(jPFundoTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1349,81 +1355,81 @@ public class GameBoard extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jBJogarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBJogarActionPerformed
-
-        // verifica quem está jogando
-        Jogador j = dizQuemEstaJogando();
-        // define o ícone de quem está jogando;
-        jLCorJogador.setIcon(j.getIconeJogador().getIcon());
-        // declara o dado a ser usado no jogo
-        Dado d = new Dado();
-
-        // verifica quem está jogando, para atualizar a tela
-        JLabel peao = new JLabel();
-        
-        switch (vezJogador) {
-            case AMARELO:
-                peao = jLAmarelo;
-                break;
-            case AZUL:
-                peao = jLAzul;
-                break;
-            case BRANCO:
-                peao = jLBranco;
-                break;
-            case PRETO:
-                peao = jLPreto;
-                break;
-        }
-
-//        // se o jogador não tiver um objetivo selecionado
-//        if(j.getObjetivo()==null){
-//            // se a propriedade jogando estiver como false
-//            if(!j.isJogando()){
-//                // for a seleção de um objetivo
-//                JOptionPane.showMessageDialog(null, "Você não selecionou um objetivo para o jogo");
-//                
-//            }
-//            
+//
+//        // verifica quem está jogando
+//        Jogador j = dizQuemEstaJogando();
+//        // define o ícone de quem está jogando;
+//        jLCorJogador.setIcon(j.getIconeJogador().getIcon());
+//        // declara o dado a ser usado no jogo
+//        Dado d = new Dado();
+//
+//        // verifica quem está jogando, para atualizar a tela
+//        JLabel peao = new JLabel();
+//        
+//        switch (vezJogador) {
+//            case AMARELO:
+//                peao = jLAmarelo;
+//                break;
+//            case AZUL:
+//                peao = jLAzul;
+//                break;
+//            case BRANCO:
+//                peao = jLBranco;
+//                break;
+//            case PRETO:
+//                peao = jLPreto;
+//                break;
 //        }
-        
-        setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
-        mostrarQuemEstaJogando();
-        
-        //Atualiza o saldo do jogador 
-        jLSaldo.setText(String.valueOf(j.getSaldo()));
-        
-        // animar dado
-        ImageIcon[] dice = new ImageIcon[7];
-        for (int i = 1; i < 7; i++) {
-            String path = "/imagensbir/Dice00" + i + ".png";
-            dice[i] = new ImageIcon(getClass().getResource(path));
-        }
-
-        Random rnd = new Random();
-        for (int i = 0; i < 20; i++) {
-            jBJogar.setIcon(dice[(rnd.nextInt(6) + 1)]);
-            jBJogar.update(jBJogar.getGraphics());
-            try {
-                Thread.sleep(100);
-            } catch (InterruptedException ie) {
-                System.out.println(ie.getMessage());
-            }
-        }
-        // fim da animação
-
-        int numDado = d.rolarDados();
-        jBJogar.setIcon(dice[d.getNumFace()]);
-        jBJogar.update(jBJogar.getGraphics());
-
-        movimentarJogador(d.getNumFace(), j);
-        setCursor(Cursor.getDefaultCursor());
-//        determinaProximoJogador(j);
+//
+////        // se o jogador não tiver um objetivo selecionado
+////        if(j.getObjetivo()==null){
+////            // se a propriedade jogando estiver como false
+////            if(!j.isJogando()){
+////                // for a seleção de um objetivo
+////                JOptionPane.showMessageDialog(null, "Você não selecionou um objetivo para o jogo");
+////                
+////            }
+////            
+////        }
+//        
+//        setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
 //        mostrarQuemEstaJogando();
-//        sortear(j);
-
-        jBColetar.setEnabled(true);
-        jBNaoColetar.setEnabled(true);
-        jBJogar.setEnabled(false);
+//        
+//        //Atualiza o saldo do jogador 
+//        jLSaldo.setText(String.valueOf(j.getSaldo()));
+//        
+//        // animar dado
+//        ImageIcon[] dice = new ImageIcon[7];
+//        for (int i = 1; i < 7; i++) {
+//            String path = "/imagensbir/Dice00" + i + ".png";
+//            dice[i] = new ImageIcon(getClass().getResource(path));
+//        }
+//
+//        Random rnd = new Random();
+//        for (int i = 0; i < 20; i++) {
+//            jBJogar.setIcon(dice[(rnd.nextInt(6) + 1)]);
+//            jBJogar.update(jBJogar.getGraphics());
+//            try {
+//                Thread.sleep(100);
+//            } catch (InterruptedException ie) {
+//                System.out.println(ie.getMessage());
+//            }
+//        }
+//        // fim da animação
+//
+//        int numDado = d.rolarDados();
+//        jBJogar.setIcon(dice[d.getNumFace()]);
+//        jBJogar.update(jBJogar.getGraphics());
+//
+//        movimentarJogador(d.getNumFace(), j);
+//        setCursor(Cursor.getDefaultCursor());
+////        determinaProximoJogador(j);
+////        mostrarQuemEstaJogando();
+////        sortear(j);
+//
+//        jBColetar.setEnabled(true);
+//        jBNaoColetar.setEnabled(true);
+//        jBJogar.setEnabled(false);
     }//GEN-LAST:event_jBJogarActionPerformed
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
@@ -1497,6 +1503,33 @@ public class GameBoard extends javax.swing.JFrame {
         jLSaldo.setText(String.valueOf(j.getSaldo()));
     }//GEN-LAST:event_jBReciclarActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // verifica quem está jogando
+        Jogador j = dizQuemEstaJogando();
+        // cria um objeto do dado, para saber o número tirado
+        Dado d = new Dado();
+        
+        mostrarQuemEstaJogando();
+ 
+        // chama a tela que mostra o dado a ser rolado, e o que o jogador
+        // consegui, na casa em que ele caiu
+        LancarDado ld = new LancarDado(this, true, d, j);
+        ld.setVisible(true);
+
+        // move o peão pelo teclado e muda o cursos do mouse
+        setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        movimentarJogador(d.getNumFace(), j);
+        setCursor(Cursor.getDefaultCursor());
+        
+        // chama a janela que trata a casa em que o jogador caiu
+        ColetarMaterialCasa cmc = new ColetarMaterialCasa(this, true, j);
+        cmc.setVisible(true);
+        
+        // verifica quem é o próximo jogador 
+        determinaProximoJogador(j);
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1541,6 +1574,7 @@ public class GameBoard extends javax.swing.JFrame {
     private javax.swing.JButton jBNovoObjetivo;
     private javax.swing.JButton jBProduzir;
     private javax.swing.JButton jBReciclar;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLCartaObjetivo;
     private javax.swing.JLabel jLCorJogador;
     private javax.swing.JLabel jLJogador;
