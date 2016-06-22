@@ -122,13 +122,8 @@ public class GameBoard extends javax.swing.JFrame {
         jLAzul.setIcon(new ImageIcon(getClass().getResource("/imagensbir/peaoAzul.png")));
         jLBranco.setIcon(new ImageIcon(getClass().getResource("/imagensbir/peaoBranco.png")));
         jLPreto.setIcon(new ImageIcon(getClass().getResource("/imagensbir/peaoPreto.png")));
-        // adiciona as imagens aos layers da casa de início
+        // adiciona as imagen de fundo das casas
         jLP1.add(jLFundoCasa1, 0);
-        jLP1.add(jLAmarelo, 0);
-        jLP1.add(jLAzul, 0);
-        jLP1.add(jLBranco, 0);
-        jLP1.add(jLPreto, 0);
-        // adiciona as imagen de fundo das demais casas
         jLP2.add(jLFundoCasa2, 0);
         jLP3.add(jLFundoCasa3, 0);
         jLP4.add(jLFundoCasa4, 0);
@@ -158,7 +153,6 @@ public class GameBoard extends javax.swing.JFrame {
         montaListaLayeredPanel();
 
         // ajusta a configuração dos jogadores que estão jogando
-//        jogadores = new Jogador[4];
         for (int i = 0; i < 4; i++) {
             if (jogadores[i] != null) {
                 JLabel tmp = new JLabel();
@@ -166,18 +160,22 @@ public class GameBoard extends javax.swing.JFrame {
                     case AMARELO:
                         jogadores[i].setPeaoJogador(jLAmarelo);
                         tmp.setIcon(new ImageIcon(getClass().getResource("/imagensbir/jogadorAmarelo.png")));
+                        jLP1.add(jLAmarelo, 0);
                         break;
                     case AZUL:
                         jogadores[i].setPeaoJogador(jLAzul);
                         tmp.setIcon(new ImageIcon(getClass().getResource("/imagensbir/jogadorAzul.png")));
+                        jLP1.add(jLAzul, 0);
                         break;
                     case BRANCO:
                         jogadores[i].setPeaoJogador(jLBranco);
                         tmp.setIcon(new ImageIcon(getClass().getResource("/imagensbir/jogadorBranco.png")));
+                        jLP1.add(jLBranco, 0);
                         break;
                     case PRETO:
                         jogadores[i].setPeaoJogador(jLPreto);
                         tmp.setIcon(new ImageIcon(getClass().getResource("/imagensbir/jogadorPreto.png")));
+                        jLP1.add(jLPreto, 0);
                         break;
                 }
                 // atribui o ícone do jogador
