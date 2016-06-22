@@ -155,7 +155,7 @@ public class ColetarMaterialCasa extends javax.swing.JDialog {
     private void initComponents() {
 
         jRadioButton1 = new javax.swing.JRadioButton();
-        jPanel1 = new javax.swing.JPanel();
+        jPFundoTela = new javax.swing.JPanel();
         jLNomeJogador = new javax.swing.JLabel();
         jPMaterialColetado = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -189,17 +189,19 @@ public class ColetarMaterialCasa extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setBackground(new java.awt.Color(0, 102, 102));
-        setMaximumSize(new java.awt.Dimension(650, 520));
-        setMinimumSize(new java.awt.Dimension(650, 520));
+        setMaximumSize(new java.awt.Dimension(660, 520));
+        setMinimumSize(new java.awt.Dimension(660, 520));
         setName("dialogColetar"); // NOI18N
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(650, 520));
+        setPreferredSize(new java.awt.Dimension(660, 520));
         setResizable(false);
 
-        jPanel1.setBackground(new java.awt.Color(26, 64, 35));
-        jPanel1.setMaximumSize(new java.awt.Dimension(650, 520));
-        jPanel1.setMinimumSize(new java.awt.Dimension(650, 520));
-        jPanel1.setPreferredSize(new java.awt.Dimension(650, 520));
+        jPFundoTela.setBackground(new java.awt.Color(26, 64, 35));
+        jPFundoTela.setBorder(javax.swing.BorderFactory.createMatteBorder(3, 3, 3, 3, new java.awt.Color(255, 255, 255)));
+        jPFundoTela.setMaximumSize(new java.awt.Dimension(656, 520));
+        jPFundoTela.setMinimumSize(new java.awt.Dimension(656, 520));
+        jPFundoTela.setName("FundoTela"); // NOI18N
+        jPFundoTela.setPreferredSize(new java.awt.Dimension(656, 520));
 
         jLNomeJogador.setBackground(new java.awt.Color(161, 165, 108));
         jLNomeJogador.setFont(new java.awt.Font("Traditional Arabic", 1, 24)); // NOI18N
@@ -599,36 +601,36 @@ public class ColetarMaterialCasa extends javax.swing.JDialog {
             }
         });
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout jPFundoTelaLayout = new javax.swing.GroupLayout(jPFundoTela);
+        jPFundoTela.setLayout(jPFundoTelaLayout);
+        jPFundoTelaLayout.setHorizontalGroup(
+            jPFundoTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPFundoTelaLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPFundoTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLNomeJogador, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGroup(jPFundoTelaLayout.createSequentialGroup()
                         .addComponent(jPObjetivo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(jPFundoTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jbContinuarJogando, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jPMaterialColetado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jPMaterialColetado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jPColetar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
+                .addContainerGap(14, Short.MAX_VALUE))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        jPFundoTelaLayout.setVerticalGroup(
+            jPFundoTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPFundoTelaLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLNomeJogador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(jPFundoTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPMaterialColetado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPObjetivo, javax.swing.GroupLayout.DEFAULT_SIZE, 375, Short.MAX_VALUE)
                     .addComponent(jPColetar, javax.swing.GroupLayout.DEFAULT_SIZE, 375, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jbContinuarJogando, javax.swing.GroupLayout.DEFAULT_SIZE, 39, Short.MAX_VALUE)
+                .addComponent(jbContinuarJogando, javax.swing.GroupLayout.DEFAULT_SIZE, 33, Short.MAX_VALUE)
                 .addGap(18, 18, 18))
         );
 
@@ -640,12 +642,14 @@ public class ColetarMaterialCasa extends javax.swing.JDialog {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPFundoTela, javax.swing.GroupLayout.DEFAULT_SIZE, 660, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPFundoTela, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
+
+        jPFundoTela.getAccessibleContext().setAccessibleName("FundoTela");
 
         getAccessibleContext().setAccessibleName("DialogColetar");
 
@@ -740,9 +744,9 @@ public class ColetarMaterialCasa extends javax.swing.JDialog {
     private javax.swing.JLabel jLVidro;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPColetar;
+    private javax.swing.JPanel jPFundoTela;
     private javax.swing.JPanel jPMaterialColetado;
     private javax.swing.JPanel jPObjetivo;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JButton jbContinuarJogando;
     // End of variables declaration//GEN-END:variables

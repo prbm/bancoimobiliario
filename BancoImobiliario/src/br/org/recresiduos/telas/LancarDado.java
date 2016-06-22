@@ -99,16 +99,19 @@ public class LancarDado extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setBackground(new java.awt.Color(26, 64, 35));
-        setMaximumSize(new java.awt.Dimension(300, 250));
-        setMinimumSize(new java.awt.Dimension(300, 250));
+        setMaximumSize(new java.awt.Dimension(305, 250));
+        setMinimumSize(new java.awt.Dimension(305, 250));
         setName("LancarDado"); // NOI18N
         setUndecorated(true);
+        setPreferredSize(new java.awt.Dimension(305, 250));
         setResizable(false);
 
         jPFundo.setBackground(new java.awt.Color(26, 64, 35));
-        jPFundo.setMaximumSize(new java.awt.Dimension(300, 250));
-        jPFundo.setMinimumSize(new java.awt.Dimension(300, 250));
+        jPFundo.setBorder(javax.swing.BorderFactory.createMatteBorder(3, 3, 3, 3, new java.awt.Color(255, 255, 255)));
+        jPFundo.setMaximumSize(new java.awt.Dimension(305, 250));
+        jPFundo.setMinimumSize(new java.awt.Dimension(305, 250));
         jPFundo.setName("Fundo"); // NOI18N
+        jPFundo.setPreferredSize(new java.awt.Dimension(305, 250));
 
         jLNomeJogador.setBackground(new java.awt.Color(161, 165, 108));
         jLNomeJogador.setFont(new java.awt.Font("Traditional Arabic", 1, 24)); // NOI18N
@@ -139,10 +142,10 @@ public class LancarDado extends javax.swing.JDialog {
             jPFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPFundoLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLNomeJogador, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLDado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jLDado, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(jLNomeJogador, javax.swing.GroupLayout.DEFAULT_SIZE, 276, Short.MAX_VALUE))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
         jPFundoLayout.setVerticalGroup(
             jPFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -151,7 +154,7 @@ public class LancarDado extends javax.swing.JDialog {
                 .addComponent(jLNomeJogador, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(43, 43, 43)
                 .addComponent(jLDado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(69, Short.MAX_VALUE))
+                .addContainerGap(63, Short.MAX_VALUE))
         );
 
         jLNomeJogador.getAccessibleContext().setAccessibleName("NomeJogador");
@@ -161,7 +164,7 @@ public class LancarDado extends javax.swing.JDialog {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPFundo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPFundo, javax.swing.GroupLayout.DEFAULT_SIZE, 310, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
