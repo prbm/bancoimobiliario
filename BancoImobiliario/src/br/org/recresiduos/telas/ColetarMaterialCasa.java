@@ -850,7 +850,7 @@ public class ColetarMaterialCasa extends javax.swing.JDialog {
                                           
                                           // permite que o jogador produza apenas uma vez
                                           jBProduzir.setEnabled(false);
-                                          jBProduzir.setToolTipText("Você já produziu!");
+                                          jBProduzir.setToolTipText("Você lucrou "+jogador.getObjetivo().getValor()+" com a sua produção! ");
                                           
                                           // Se produziu o objetivo, pode sortear novo objetivo
                                           jogador.setPodeSortear(true);

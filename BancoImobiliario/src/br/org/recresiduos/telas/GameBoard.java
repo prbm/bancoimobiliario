@@ -197,8 +197,7 @@ public class GameBoard extends javax.swing.JFrame {
 
         //preencher casas tabuleiro
         configuraCasasTabuleiro();
-        //definir as cartas sorte e reves do jogo
-        definirCartas();
+               
         // atualiza a tela
         mostrarQuemEstaJogando();
     }
@@ -409,92 +408,8 @@ public class GameBoard extends javax.swing.JFrame {
         jLPTmp.paintComponents(jLPTmp.getGraphics());
     }
 
-    // configuração das cartas objetivo
-    private void definirCartas() {
-
-        // inicia a relação de cartas objetivo
-        cartas = new ArrayList<Objetivo>();
-
-        // até aqui, tudo bem
-        cartas.add(new Objetivo("Mesa Vidro", 10, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1));
-        cartas.add(new Objetivo("Cadeira Madeira", 10, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 2));
-        cartas.add(new Objetivo("Mesa Madeira", 10, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 3));
-        cartas.add(new Objetivo("Mesa Ferro", 10, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 4));
-        cartas.add(new Objetivo("Mesa a", 10, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 5));
-        cartas.add(new Objetivo("Mesa b ", 10, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 6));
-        cartas.add(new Objetivo("Mesa c", 10, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 7));
-        cartas.add(new Objetivo("Mesa d", 10, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 8));
-        cartas.add(new Objetivo("Mesa e", 10, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 9));
-        cartas.add(new Objetivo("Mesa f", 10, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 10));
-
-        // embaralha as cartas, enquanto a lista original não estiver vazia
-        while (!cartas.isEmpty()) {
-            // reinicia o objeto
-            Objetivo ob = null;
-            // se houver mais de uma carta na lista
-            if (cartas.size() > 1) {
-                // lê o número total de cartas que a lista tem
-                int numeroCartas = cartas.size();
-                // gera aleatoriamente o número da posição da lista original
-                Random rnd = new Random();
-                int posicaoLista = rnd.nextInt(numeroCartas);
-                // identifica o objeto da posição selecionada
-                ob = cartas.get(posicaoLista);
-            } else {
-                // lê o objeto da posição 0
-                ob = cartas.get(0);
-            }
-            // adiciona o objeto selecionado à nova lista
-            cartasTmp.add(ob);
-            // remove o objeto selecionado da lista original
-            cartas.remove(ob);
-        }
-        // copia as cartas embaralhadas para a lista original
-        cartas = cartasTmp;
-
-        // imprime a lista embaralhada, para conferência
-        for (Objetivo s : cartas) {
-            System.out.println("Carta: " + s.getDescr());
-        }
-    }
-
-    private void sortear(Jogador j) {
-
-        while (j.isPodeSortear()) {
-            //trás a primeira carta da pilha
-            double valorCarta = cartas.get(0).getValor();
-
-            System.out.println("Descrição: " + cartas.get(0).getDescr()
-                    + "\n"
-                    + "Vidro: " + cartas.get(0).getQtdeVidro()
-                    + "\n"
-                    + "Papel: " + cartas.get(0).getQtdePapel()
-                    + "\n"
-                    + "Organico: " + cartas.get(0).getQtdeOrganico()
-                    + "\n"
-                    + "Metal: " + cartas.get(0).getQtdeMetal()
-                    + "\n"
-                    + "Ferro: " + cartas.get(0).getQtdeFerro()
-                    + "\n"
-                    + "Aluminio: " + cartas.get(0).getQtdeAluminio()
-                    + "\n"
-                    + "Oleo: " + cartas.get(0).getQtdeOleo()
-                    + "\n"
-                    + "Madeira: " + cartas.get(0).getQtdeMadeira()
-                    + "\n"
-                    + "Plastico: " + cartas.get(0).getQtdePlastico()
-                    + "\n"
-                    + "Valor: " + cartas.get(0).getValor());
-
-            //copia o objetivo para cada jogador
-            j.setObjetivo(cartas.get(0));
-            j.setPodeSortear(false);
-
-        }
-        cartas.add(cartas.get(0));	// copia a primeira carta para o fim da lista 
-        cartas.remove(0);		// remove a primeira carta para a lista
-    }
-
+  
+   
     // verifica qual material o jogador vai recolher
     private void coletarMaterial(Jogador j) {
 
@@ -1195,10 +1110,13 @@ public class GameBoard extends javax.swing.JFrame {
         // verifica se o jogador não caiu numa casa de não reciclável ou na casa Início
         if (casas.get(j.getNumeroCasa()).getMaterial() != TipodeMateriais.NENHUM
                 && casas.get(j.getNumeroCasa()).getMaterial() != TipodeMateriais.NAORECICLAVEL) {
-
+                
             // Sorteia o objetivo
-            sortear(j);
-
+            if(j.isPodeSortear()){
+            TelaSorteaCartas sco = new TelaSorteaCartas(this, true,j); 
+            sco.setVisible(true);
+            }
+            
             // chama a janela que trata a casa em que o jogador caiu
             ColetarMaterialCasa cmc = new ColetarMaterialCasa(this, true, j, casas.get(j.getNumeroCasa()));
             cmc.setVisible(true);
@@ -1324,12 +1242,7 @@ public class GameBoard extends javax.swing.JFrame {
     private final int numeroCasasTabuleiro = 24;
     private List<JLayeredPane> jLPanels;
 
-    private Objetivo carta;
-    // cria uma nova lista para armazenar as cartas sendo embaralhadas
-    private List<Objetivo> cartas = new ArrayList<Objetivo>();
-
-    //Cria uma lista temporaria para realizar a troca das cartas
-    private List<Objetivo> cartasTmp = new ArrayList<Objetivo>();
+    
 
     private List<Casa> casas;
 }
