@@ -29,6 +29,7 @@ public class GameBoard extends javax.swing.JFrame {
 
     /**
      * Creates new form GameBoard
+     *
      * @param j determina a lista de jogadores que vai jogar
      */
     public GameBoard(Jogador[] j) {
@@ -57,37 +58,37 @@ public class GameBoard extends javax.swing.JFrame {
         // ajusta o tamanho dos labels com as imagens dos jogadores
         int altura = jLP1.getHeight();
         int largura = jLP1.getWidth();
-        jLAmarelo.setSize(largura,altura);
-        jLAzul.setSize(largura,altura);
-        jLBranco.setSize(largura,altura);
-        jLPreto.setSize(largura,altura);
+        jLAmarelo.setSize(largura, altura);
+        jLAzul.setSize(largura, altura);
+        jLBranco.setSize(largura, altura);
+        jLPreto.setSize(largura, altura);
         // ajusta o tamanho dos labels de cada uma das casas;
-        jLFundoCasa1.setSize(largura,altura);
-        jLFundoCasa2.setSize(largura,altura);
-        jLFundoCasa3.setSize(largura,altura);
-        jLFundoCasa4.setSize(largura,altura);
-        jLFundoCasa5.setSize(largura,altura);
-        jLFundoCasa6.setSize(largura,altura);
-        jLFundoCasa7.setSize(largura,altura);
-        jLFundoCasa8.setSize(largura,altura);
-        jLFundoCasa9.setSize(largura,altura);
-        jLFundoCasa10.setSize(largura,altura);
+        jLFundoCasa1.setSize(largura, altura);
+        jLFundoCasa2.setSize(largura, altura);
+        jLFundoCasa3.setSize(largura, altura);
+        jLFundoCasa4.setSize(largura, altura);
+        jLFundoCasa5.setSize(largura, altura);
+        jLFundoCasa6.setSize(largura, altura);
+        jLFundoCasa7.setSize(largura, altura);
+        jLFundoCasa8.setSize(largura, altura);
+        jLFundoCasa9.setSize(largura, altura);
+        jLFundoCasa10.setSize(largura, altura);
 
-        jLFundoCasa11.setSize(largura,altura);
-        jLFundoCasa12.setSize(largura,altura);
-        jLFundoCasa13.setSize(largura,altura);
-        jLFundoCasa14.setSize(largura,altura);
-        jLFundoCasa15.setSize(largura,altura);
-        jLFundoCasa16.setSize(largura,altura);
-        jLFundoCasa17.setSize(largura,altura);
-        jLFundoCasa18.setSize(largura,altura);
-        jLFundoCasa19.setSize(largura,altura);
-        jLFundoCasa20.setSize(largura,altura);
+        jLFundoCasa11.setSize(largura, altura);
+        jLFundoCasa12.setSize(largura, altura);
+        jLFundoCasa13.setSize(largura, altura);
+        jLFundoCasa14.setSize(largura, altura);
+        jLFundoCasa15.setSize(largura, altura);
+        jLFundoCasa16.setSize(largura, altura);
+        jLFundoCasa17.setSize(largura, altura);
+        jLFundoCasa18.setSize(largura, altura);
+        jLFundoCasa19.setSize(largura, altura);
+        jLFundoCasa20.setSize(largura, altura);
 
-        jLFundoCasa21.setSize(largura,altura);
-        jLFundoCasa22.setSize(largura,altura);
-        jLFundoCasa23.setSize(largura,altura);
-        jLFundoCasa24.setSize(largura,altura);
+        jLFundoCasa21.setSize(largura, altura);
+        jLFundoCasa22.setSize(largura, altura);
+        jLFundoCasa23.setSize(largura, altura);
+        jLFundoCasa24.setSize(largura, altura);
 
         // associa as imagens a cada um dos labels
         jLFundoCasa1.setIcon(new ImageIcon(getClass().getResource("/imagensbir/Casa001.png")));
@@ -193,7 +194,7 @@ public class GameBoard extends javax.swing.JFrame {
         } else if (jogadores[3] != null) {
             vezJogador = CorJogador.PRETO;
         }
-        
+
         //preencher casas tabuleiro
         configuraCasasTabuleiro();
         //definir as cartas sorte e reves do jogo
@@ -201,7 +202,8 @@ public class GameBoard extends javax.swing.JFrame {
         // atualiza a tela
         mostrarQuemEstaJogando();
     }
-     private void configuraCasasTabuleiro() {
+
+    private void configuraCasasTabuleiro() {
 
         // inicia a relação de casas do tabuleiro
         casas = new ArrayList<Casa>();
@@ -210,28 +212,28 @@ public class GameBoard extends javax.swing.JFrame {
         casas.add(new Casa(true, 0, 0, 0, 0, 1, TipodeMateriais.NENHUM));
         casas.add(new Casa(true, 1000, 100, 100, 1000, 2, TipodeMateriais.METAL));
         casas.add(new Casa(true, 4000, 400, 400, 4000, 3, TipodeMateriais.PAPEL));
-        casas.add(new Casa(true, 3500, 350, 350,3500, 4,  TipodeMateriais.ORGANICO));
-        casas.add(new Casa(true, 1800, 180, 180, 1800, 5,  TipodeMateriais.PLASTICO));
-        casas.add(new Casa(true, 2000, 200, 200, 2000, 6,  TipodeMateriais.VIDRO));
-        casas.add(new Casa(true, 1000, 100, 100, 1000, 7,  TipodeMateriais.MADEIRA));
-        casas.add(new Casa(true, 1600, 160, 160, 1600, 8,  TipodeMateriais.METAL));
-        casas.add(new Casa(true, 1400, 140, 140, 1400, 9,  TipodeMateriais.PAPEL));
+        casas.add(new Casa(true, 3500, 350, 350, 3500, 4, TipodeMateriais.ORGANICO));
+        casas.add(new Casa(true, 1800, 180, 180, 1800, 5, TipodeMateriais.PLASTICO));
+        casas.add(new Casa(true, 2000, 200, 200, 2000, 6, TipodeMateriais.VIDRO));
+        casas.add(new Casa(true, 1000, 100, 100, 1000, 7, TipodeMateriais.MADEIRA));
+        casas.add(new Casa(true, 1600, 160, 160, 1600, 8, TipodeMateriais.METAL));
+        casas.add(new Casa(true, 1400, 140, 140, 1400, 9, TipodeMateriais.PAPEL));
         casas.add(new Casa(true, 1400, 140, 140, 1400, 10, TipodeMateriais.NAORECICLAVEL));
         casas.add(new Casa(true, 2600, 260, 260, 2600, 11, TipodeMateriais.ORGANICO));
-        casas.add(new Casa(true, 2200, 220, 220, 2200, 12,  TipodeMateriais.PLASTICO));
-        casas.add(new Casa(true, 2400, 240, 240, 2400, 13,  TipodeMateriais.NAORECICLAVEL));
-        casas.add(new Casa(true, 600, 60, 60, 600, 14,  TipodeMateriais.VIDRO));
-        casas.add(new Casa(true, 750, 75, 75, 750, 15,  TipodeMateriais.MADEIRA));
+        casas.add(new Casa(true, 2200, 220, 220, 2200, 12, TipodeMateriais.PLASTICO));
+        casas.add(new Casa(true, 2400, 240, 240, 2400, 13, TipodeMateriais.NAORECICLAVEL));
+        casas.add(new Casa(true, 600, 60, 60, 600, 14, TipodeMateriais.VIDRO));
+        casas.add(new Casa(true, 750, 75, 75, 750, 15, TipodeMateriais.MADEIRA));
         casas.add(new Casa(true, 1000, 100, 100, 1000, 16, TipodeMateriais.METAL));
         casas.add(new Casa(true, 2600, 260, 260, 2600, 17, TipodeMateriais.PAPEL));
         casas.add(new Casa(true, 2600, 260, 260, 2600, 18, TipodeMateriais.ORGANICO));
         casas.add(new Casa(true, 3000, 300, 300, 3000, 19, TipodeMateriais.PLASTICO));
         casas.add(new Casa(true, 3000, 300, 300, 3000, 20, TipodeMateriais.NAORECICLAVEL));
-        casas.add(new Casa(true, 2600, 260, 260, 2600, 21,  TipodeMateriais.VIDRO));
-        casas.add(new Casa(true, 2600, 260, 260, 2600, 22,  TipodeMateriais.NAORECICLAVEL));
-        casas.add(new Casa(true, 3000, 300, 300, 3000, 23,  TipodeMateriais.MADEIRA));
-        casas.add(new Casa(true, 3000, 300, 300, 3000, 24,  TipodeMateriais.METAL));
-        
+        casas.add(new Casa(true, 2600, 260, 260, 2600, 21, TipodeMateriais.VIDRO));
+        casas.add(new Casa(true, 2600, 260, 260, 2600, 22, TipodeMateriais.NAORECICLAVEL));
+        casas.add(new Casa(true, 3000, 300, 300, 3000, 23, TipodeMateriais.MADEIRA));
+        casas.add(new Casa(true, 3000, 300, 300, 3000, 24, TipodeMateriais.METAL));
+
         // código para efeitos de log
         System.out.println("Foram configuradas " + casas.size() + " casas");
 
@@ -333,7 +335,7 @@ public class GameBoard extends javax.swing.JFrame {
 
     // Este método informa quem é o jogador que está jogando, pare evitar redundâncias
     // nos demais métodos
-    private Jogador dizQuemEstaJogando(){
+    private Jogador dizQuemEstaJogando() {
         switch (vezJogador) {
             case AMARELO:
                 return jogadores[0];
@@ -346,7 +348,7 @@ public class GameBoard extends javax.swing.JFrame {
         }
         return null;
     }
-    
+
     private void movimentarJogador(int numeroCasasAndar, Jogador j) {
         // verifica qual é a casa atual do jogador
         int nroCasa = j.getNumeroCasa();
@@ -417,13 +419,13 @@ public class GameBoard extends javax.swing.JFrame {
         cartas.add(new Objetivo("Mesa Vidro", 10, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1));
         cartas.add(new Objetivo("Cadeira Madeira", 10, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 2));
         cartas.add(new Objetivo("Mesa Madeira", 10, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 3));
-        cartas.add(new Objetivo("Mesa Ferro",10, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 4));
+        cartas.add(new Objetivo("Mesa Ferro", 10, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 4));
         cartas.add(new Objetivo("Mesa a", 10, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 5));
-        cartas.add(new Objetivo("Mesa b ",10, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 6));
-        cartas.add(new Objetivo("Mesa c",10, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 7));
-        cartas.add(new Objetivo("Mesa d",10, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 8));
+        cartas.add(new Objetivo("Mesa b ", 10, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 6));
+        cartas.add(new Objetivo("Mesa c", 10, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 7));
+        cartas.add(new Objetivo("Mesa d", 10, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 8));
         cartas.add(new Objetivo("Mesa e", 10, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 9));
-        cartas.add(new Objetivo("Mesa f",10, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 10));
+        cartas.add(new Objetivo("Mesa f", 10, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 10));
 
         // embaralha as cartas, enquanto a lista original não estiver vazia
         while (!cartas.isEmpty()) {
@@ -463,92 +465,91 @@ public class GameBoard extends javax.swing.JFrame {
             double valorCarta = cartas.get(0).getValor();
 
             System.out.println("Descrição: " + cartas.get(0).getDescr()
-               + "\n"
-               + "Vidro: " + cartas.get(0).getQtdeVidro()
-               + "\n"
-               + "Papel: " + cartas.get(0).getQtdePapel()
-               + "\n"
-               + "Organico: " + cartas.get(0).getQtdeOrganico()
-               + "\n"
-               + "Metal: " + cartas.get(0).getQtdeMetal()
-               + "\n"
-               + "Ferro: " + cartas.get(0).getQtdeFerro()
-               + "\n"
-               + "Aluminio: " + cartas.get(0).getQtdeAluminio()
-               + "\n"
-               + "Oleo: " + cartas.get(0).getQtdeOleo()
-               + "\n"
-               + "Madeira: " + cartas.get(0).getQtdeMadeira()
-               + "\n"
-               + "Plastico: " + cartas.get(0).getQtdePlastico()
-               + "\n"
-               + "Valor: " + cartas.get(0).getValor());
-            
+                    + "\n"
+                    + "Vidro: " + cartas.get(0).getQtdeVidro()
+                    + "\n"
+                    + "Papel: " + cartas.get(0).getQtdePapel()
+                    + "\n"
+                    + "Organico: " + cartas.get(0).getQtdeOrganico()
+                    + "\n"
+                    + "Metal: " + cartas.get(0).getQtdeMetal()
+                    + "\n"
+                    + "Ferro: " + cartas.get(0).getQtdeFerro()
+                    + "\n"
+                    + "Aluminio: " + cartas.get(0).getQtdeAluminio()
+                    + "\n"
+                    + "Oleo: " + cartas.get(0).getQtdeOleo()
+                    + "\n"
+                    + "Madeira: " + cartas.get(0).getQtdeMadeira()
+                    + "\n"
+                    + "Plastico: " + cartas.get(0).getQtdePlastico()
+                    + "\n"
+                    + "Valor: " + cartas.get(0).getValor());
+
             //copia o objetivo para cada jogador
             j.setObjetivo(cartas.get(0));
             j.setPodeSortear(false);
-                          
+
         }
         cartas.add(cartas.get(0));	// copia a primeira carta para o fim da lista 
         cartas.remove(0);		// remove a primeira carta para a lista
     }
-    
+
     // verifica qual material o jogador vai recolher
-    private void coletarMaterial(Jogador j){
-              
+    private void coletarMaterial(Jogador j) {
+
         // lê o número da casa em que o jogador se encontra
         int numeroCasa = j.getNumeroCasa();
-        
-        System.out.println("Numero casa: "+ numeroCasa+
-        "\n"+        
-        "Material: "+ casas.get(numeroCasa).getMaterial());
 
-         // verifica o material da casa que o jogador se encontra
+        System.out.println("Numero casa: " + numeroCasa
+                + "\n"
+                + "Material: " + casas.get(numeroCasa).getMaterial());
+
+        // verifica o material da casa que o jogador se encontra
         switch (casas.get(numeroCasa).getMaterial()) {
 
-        case NENHUM:
-            System.out.println("Nada a recolher!");
-            break;
-        case METAL:
-            System.out.println("jogador " + j.getNome() + " quantidade metal: " + j.getMaterialColetado().getQtdeMetal());
-            j.setMaterialColetado(1, TipodeMateriais.METAL);
-            System.out.println("jogador " + j.getNome() + " quantidade metal atual: " + j.getMaterialColetado().getQtdeMetal());
-            break;
-        case PAPEL:
-            System.out.println("jogador " + j.getNome() + " quantidade papel: " + j.getMaterialColetado().getQtdePapel());
-            j.setMaterialColetado(1, TipodeMateriais.PAPEL);
-            System.out.println("jogador " + j.getNome() + " quantidade papel atual: " + j.getMaterialColetado().getQtdePapel());
-            break;
-        case ORGANICO:
-            System.out.println("jogador " + j.getNome() + " quantidade organico: " + j.getMaterialColetado().getQtdeOrganico());
-            j.setMaterialColetado(1, TipodeMateriais.ORGANICO);
-            System.out.println("jogador " + j.getNome() + " quantidade organico atual: " + j.getMaterialColetado().getQtdeOrganico());
-            break;
-        case PLASTICO:
-            System.out.println("jogador " + j.getNome() + " quantidade plastico: " + j.getMaterialColetado().getQtdePlastico());
-            j.setMaterialColetado(1, TipodeMateriais.PLASTICO);
-            System.out.println("jogador " + j.getNome() + " quantidade plastico atual: " + j.getMaterialColetado().getQtdePlastico());
-            break;
-        case VIDRO:
-            System.out.println("jogador " + j.getNome() + " quantidade vidro: " + j.getMaterialColetado().getQtdeVidro());
-            j.setMaterialColetado(1, TipodeMateriais.VIDRO);
-            System.out.println("jogador " + j.getNome() + " quantidade vidro atual: " + j.getMaterialColetado().getQtdeVidro());
-            break;
-        case MADEIRA:
-            System.out.println("jogador " + j.getNome() + " quantidade madeira: " + j.getMaterialColetado().getQtdeMadeira());
-            j.setMaterialColetado(1, TipodeMateriais.MADEIRA);
-            System.out.println("jogador " + j.getNome() + " quantidade madeira atual: " + j.getMaterialColetado().getQtdeMadeira());
-            break;
-        case NAORECICLAVEL:
-            System.out.println("jogador " + j.getNome() + " quantidade naoreciclavel: " + j.getMaterialColetado().getQtdeNaoReciclavel());
-            j.setMaterialColetado(1, TipodeMateriais.NAORECICLAVEL);
-            System.out.println("jogador " + j.getNome() + " quantidade naoreciclavel atual: " + j.getMaterialColetado().getQtdeNaoReciclavel());
-            break;
+            case NENHUM:
+                System.out.println("Nada a recolher!");
+                break;
+            case METAL:
+                System.out.println("jogador " + j.getNome() + " quantidade metal: " + j.getMaterialColetado().getQtdeMetal());
+                j.setMaterialColetado(1, TipodeMateriais.METAL);
+                System.out.println("jogador " + j.getNome() + " quantidade metal atual: " + j.getMaterialColetado().getQtdeMetal());
+                break;
+            case PAPEL:
+                System.out.println("jogador " + j.getNome() + " quantidade papel: " + j.getMaterialColetado().getQtdePapel());
+                j.setMaterialColetado(1, TipodeMateriais.PAPEL);
+                System.out.println("jogador " + j.getNome() + " quantidade papel atual: " + j.getMaterialColetado().getQtdePapel());
+                break;
+            case ORGANICO:
+                System.out.println("jogador " + j.getNome() + " quantidade organico: " + j.getMaterialColetado().getQtdeOrganico());
+                j.setMaterialColetado(1, TipodeMateriais.ORGANICO);
+                System.out.println("jogador " + j.getNome() + " quantidade organico atual: " + j.getMaterialColetado().getQtdeOrganico());
+                break;
+            case PLASTICO:
+                System.out.println("jogador " + j.getNome() + " quantidade plastico: " + j.getMaterialColetado().getQtdePlastico());
+                j.setMaterialColetado(1, TipodeMateriais.PLASTICO);
+                System.out.println("jogador " + j.getNome() + " quantidade plastico atual: " + j.getMaterialColetado().getQtdePlastico());
+                break;
+            case VIDRO:
+                System.out.println("jogador " + j.getNome() + " quantidade vidro: " + j.getMaterialColetado().getQtdeVidro());
+                j.setMaterialColetado(1, TipodeMateriais.VIDRO);
+                System.out.println("jogador " + j.getNome() + " quantidade vidro atual: " + j.getMaterialColetado().getQtdeVidro());
+                break;
+            case MADEIRA:
+                System.out.println("jogador " + j.getNome() + " quantidade madeira: " + j.getMaterialColetado().getQtdeMadeira());
+                j.setMaterialColetado(1, TipodeMateriais.MADEIRA);
+                System.out.println("jogador " + j.getNome() + " quantidade madeira atual: " + j.getMaterialColetado().getQtdeMadeira());
+                break;
+            case NAORECICLAVEL:
+                System.out.println("jogador " + j.getNome() + " quantidade naoreciclavel: " + j.getMaterialColetado().getQtdeNaoReciclavel());
+                j.setMaterialColetado(1, TipodeMateriais.NAORECICLAVEL);
+                System.out.println("jogador " + j.getNome() + " quantidade naoreciclavel atual: " + j.getMaterialColetado().getQtdeNaoReciclavel());
+                break;
         }
-   
+
     }
-    
-   
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -1191,15 +1192,20 @@ public class GameBoard extends javax.swing.JFrame {
         movimentarJogador(d.getNumFace(), j);
         setCursor(Cursor.getDefaultCursor());
 
-        // Sorteia o objetivo
-        sortear (j);
+        // verifica se o jogador não caiu numa casa de não reciclável ou na casa Início
+        if (casas.get(j.getNumeroCasa()).getMaterial() != TipodeMateriais.NENHUM
+                && casas.get(j.getNumeroCasa()).getMaterial() != TipodeMateriais.NAORECICLAVEL) {
 
-        // chama a janela que trata a casa em que o jogador caiu
-        ColetarMaterialCasa cmc = new ColetarMaterialCasa(this, true, j, casas.get(j.getNumeroCasa()));
-        cmc.setVisible(true);
+            // Sorteia o objetivo
+            sortear(j);
 
-        // Atualiza o saldo do jogador
-        jLSaldo.setText(String.valueOf(j.getSaldo()));
+            // chama a janela que trata a casa em que o jogador caiu
+            ColetarMaterialCasa cmc = new ColetarMaterialCasa(this, true, j, casas.get(j.getNumeroCasa()));
+            cmc.setVisible(true);
+
+            // Atualiza o saldo do jogador
+            jLSaldo.setText(String.valueOf(j.getSaldo()));
+        }
 
         // verifica quem é o próximo jogador
         determinaProximoJogador(j);
@@ -1324,6 +1330,6 @@ public class GameBoard extends javax.swing.JFrame {
 
     //Cria uma lista temporaria para realizar a troca das cartas
     private List<Objetivo> cartasTmp = new ArrayList<Objetivo>();
-    
+
     private List<Casa> casas;
 }
