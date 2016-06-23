@@ -370,7 +370,7 @@ public class GameBoard extends javax.swing.JFrame {
             j.setNumeroCasa(nroCasa);
             // força pausa de 0,01 segundos
             try {
-                Thread.sleep(850);
+                Thread.sleep(300);
             } catch (InterruptedException ie) {
                 System.out.println("[LOG] movimentarJogador() InterruptedException: " + ie.getMessage());
             }
