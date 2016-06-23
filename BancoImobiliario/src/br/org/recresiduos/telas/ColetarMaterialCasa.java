@@ -30,23 +30,11 @@ public class ColetarMaterialCasa extends javax.swing.JDialog {
         this.casa = casa;
         // define o nome do jogador
         jLNomeJogador.setText(this.jogador.getNome());
-        // preenche as quantidades que ele coletou, através de uma variável temporária
-        String tmp = String.valueOf(this.jogador.getMaterialColetado().getQtdeMetal());
-        jLQtdeMetal.setText(tmp);
-        tmp = String.valueOf(this.jogador.getMaterialColetado().getQtdePapel());
-        jLQtdePapel.setText(tmp);
-        tmp = String.valueOf(this.jogador.getMaterialColetado().getQtdePlastico());
-        jLQtdePlastico.setText(tmp);
-        tmp = String.valueOf(this.jogador.getMaterialColetado().getQtdeMadeira());
-        jLQtdeMadeira.setText(tmp);
-        tmp = String.valueOf(this.jogador.getMaterialColetado().getQtdeVidro());
-        jLQtdeVidro.setText(tmp);
-        tmp = String.valueOf(this.jogador.getMaterialColetado().getQtdeOrganico());
-        jLQtdeOrganicos.setText(tmp);
+        // atualiza os labels de quantidade de material
+        atualizaLabelsMaterialColetado();
 
         // preenche as informações da casa em que o jogador está
-        tmp = this.casa.getMaterial().toString();
-        jLTipoMaterial.setText(tmp);
+        jLTipoMaterial.setText(this.casa.getMaterial().toString());
 
         // verifica o tipo de material, para configurar os labels associados ao que precisa
         // ser coletado, de acordo com a cor do label que o jogador tá tem coletado
@@ -78,12 +66,10 @@ public class ColetarMaterialCasa extends javax.swing.JDialog {
         }
 
         // cria uma quantidade entre 1 e 4
-        tmp = String.valueOf((new Random().nextInt(4)) + 1);
-        jLQtdeMaterial.setText(tmp);
+        jLQtdeMaterial.setText(String.valueOf((new Random().nextInt(10)) + 1));
 
         // verifica os check boxes que podem ser habilitados
         habilitaDesabilitaCheckBoxReciclagem();
-
     }
 
     // efetua a coleta do material pelo jogador
@@ -153,6 +139,44 @@ public class ColetarMaterialCasa extends javax.swing.JDialog {
         habilitaDesabilitaCheckBoxReciclagem();
     }
     
+    private void atualizaLabelsMaterialColetado(){
+        // preenche as quantidades que ele coletou, através de uma variável temporária
+        String tmp = String.valueOf(this.jogador.getMaterialColetado().getQtdeMetal());
+        jLQtdeMetal.setText(tmp);
+        tmp = String.valueOf(this.jogador.getMaterialColetado().getQtdePapel());
+        jLQtdePapel.setText(tmp);
+        tmp = String.valueOf(this.jogador.getMaterialColetado().getQtdePlastico());
+        jLQtdePlastico.setText(tmp);
+        tmp = String.valueOf(this.jogador.getMaterialColetado().getQtdeMadeira());
+        jLQtdeMadeira.setText(tmp);
+        tmp = String.valueOf(this.jogador.getMaterialColetado().getQtdeVidro());
+        jLQtdeVidro.setText(tmp);
+        tmp = String.valueOf(this.jogador.getMaterialColetado().getQtdeOrganico());
+        jLQtdeOrganicos.setText(tmp);
+
+        // define a propriedade isSelected dos CheckBoxes como false
+        jCBReciclaMetal.setSelected(false);
+        jCBReciclaPapel.setSelected(false);
+        jCBReciclaPlastico.setSelected(false);
+        jCBReciclaMadeira.setSelected(false);
+        jCBReciclaVidro.setSelected(false);
+        jCBReciclaOrganico.setSelected(false);
+
+        // se os valores coletados estiverem como zero, desabilita os botões
+        if(this.jogador.getMaterialColetado().getQtdeMetal()<1)
+            jCBReciclaMetal.setEnabled(false);
+        if(this.jogador.getMaterialColetado().getQtdePapel()<1)
+            jCBReciclaPapel.setEnabled(false);
+        if(this.jogador.getMaterialColetado().getQtdePlastico()<1)
+            jCBReciclaPlastico.setEnabled(false);
+        if(this.jogador.getMaterialColetado().getQtdeMadeira()<1)
+            jCBReciclaMadeira.setEnabled(false);
+        if(this.jogador.getMaterialColetado().getQtdeVidro()<1)
+            jCBReciclaVidro.setEnabled(false);
+        if(this.jogador.getMaterialColetado().getQtdeOrganico()<1)
+            jCBReciclaOrganico.setEnabled(false);
+    }
+    
     private void subMaterialColetado(){
         
         // subtrai o material coletado do objetivo
@@ -177,19 +201,8 @@ public class ColetarMaterialCasa extends javax.swing.JDialog {
         jogador.setAtualizarMaterial(plastico, TipodeMateriais.PLASTICO);
         jogador.setAtualizarMaterial(vidro, TipodeMateriais.VIDRO);
         
-        // preenche as quantidades que ele coletou, através de uma variável temporária
-        String tmp = String.valueOf(this.jogador.getMaterialColetado().getQtdeMetal());
-        jLQtdeMetal.setText(tmp);
-        tmp = String.valueOf(this.jogador.getMaterialColetado().getQtdePapel());
-        jLQtdePapel.setText(tmp);
-        tmp = String.valueOf(this.jogador.getMaterialColetado().getQtdePlastico());
-        jLQtdePlastico.setText(tmp);
-        tmp = String.valueOf(this.jogador.getMaterialColetado().getQtdeMadeira());
-        jLQtdeMadeira.setText(tmp);
-        tmp = String.valueOf(this.jogador.getMaterialColetado().getQtdeVidro());
-        jLQtdeVidro.setText(tmp);
-        tmp = String.valueOf(this.jogador.getMaterialColetado().getQtdeOrganico());
-        jLQtdeOrganicos.setText(tmp);
+        // atualiza os labels de quantidade
+        atualizaLabelsMaterialColetado();
     }
 	
     // verifica quais os check box de reciclagem que podem ser habilitados 
@@ -957,6 +970,9 @@ public class ColetarMaterialCasa extends javax.swing.JDialog {
         
         JOptionPane.showMessageDialog(null, "Você lucrou " + ganhoReciclagem + " reciclando seus materiais!");
 
+        // atualiza os labels de quantidade de material
+        atualizaLabelsMaterialColetado();
+        
         // atualiza o saldo do jogador
         this.jogador.setSaldo(this.jogador.getSaldo() + ganhoReciclagem);
         
