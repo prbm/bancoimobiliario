@@ -414,60 +414,60 @@ public class GameBoard extends javax.swing.JFrame {
        go.setVisible(true);
     }
    
-    // verifica qual material o jogador vai recolher
-    private void coletarMaterial(Jogador j) {
-
-        // lê o número da casa em que o jogador se encontra
-        int numeroCasa = j.getNumeroCasa();
-
-        System.out.println("Numero casa: " + numeroCasa
-                + "\n"
-                + "Material: " + casas.get(numeroCasa).getMaterial());
-
-        // verifica o material da casa que o jogador se encontra
-        switch (casas.get(numeroCasa).getMaterial()) {
-
-            case NENHUM:
-                System.out.println("Nada a recolher!");
-                break;
-            case METAL:
-                System.out.println("jogador " + j.getNome() + " quantidade metal: " + j.getMaterialColetado().getQtdeMetal());
-                j.setMaterialColetado(1, TipodeMateriais.METAL);
-                System.out.println("jogador " + j.getNome() + " quantidade metal atual: " + j.getMaterialColetado().getQtdeMetal());
-                break;
-            case PAPEL:
-                System.out.println("jogador " + j.getNome() + " quantidade papel: " + j.getMaterialColetado().getQtdePapel());
-                j.setMaterialColetado(1, TipodeMateriais.PAPEL);
-                System.out.println("jogador " + j.getNome() + " quantidade papel atual: " + j.getMaterialColetado().getQtdePapel());
-                break;
-            case ORGANICO:
-                System.out.println("jogador " + j.getNome() + " quantidade organico: " + j.getMaterialColetado().getQtdeOrganico());
-                j.setMaterialColetado(1, TipodeMateriais.ORGANICO);
-                System.out.println("jogador " + j.getNome() + " quantidade organico atual: " + j.getMaterialColetado().getQtdeOrganico());
-                break;
-            case PLASTICO:
-                System.out.println("jogador " + j.getNome() + " quantidade plastico: " + j.getMaterialColetado().getQtdePlastico());
-                j.setMaterialColetado(1, TipodeMateriais.PLASTICO);
-                System.out.println("jogador " + j.getNome() + " quantidade plastico atual: " + j.getMaterialColetado().getQtdePlastico());
-                break;
-            case VIDRO:
-                System.out.println("jogador " + j.getNome() + " quantidade vidro: " + j.getMaterialColetado().getQtdeVidro());
-                j.setMaterialColetado(1, TipodeMateriais.VIDRO);
-                System.out.println("jogador " + j.getNome() + " quantidade vidro atual: " + j.getMaterialColetado().getQtdeVidro());
-                break;
-            case MADEIRA:
-                System.out.println("jogador " + j.getNome() + " quantidade madeira: " + j.getMaterialColetado().getQtdeMadeira());
-                j.setMaterialColetado(1, TipodeMateriais.MADEIRA);
-                System.out.println("jogador " + j.getNome() + " quantidade madeira atual: " + j.getMaterialColetado().getQtdeMadeira());
-                break;
-            case NAORECICLAVEL:
-                System.out.println("jogador " + j.getNome() + " quantidade naoreciclavel: " + j.getMaterialColetado().getQtdeNaoReciclavel());
-                j.setMaterialColetado(1, TipodeMateriais.NAORECICLAVEL);
-                System.out.println("jogador " + j.getNome() + " quantidade naoreciclavel atual: " + j.getMaterialColetado().getQtdeNaoReciclavel());
-                break;
-        }
-
-    }
+//    // verifica qual material o jogador vai recolher
+//    private void coletarMaterial(Jogador j) {
+//
+//        // lê o número da casa em que o jogador se encontra
+//        int numeroCasa = j.getNumeroCasa();
+//
+//        System.out.println("Numero casa: " + numeroCasa
+//                + "\n"
+//                + "Material: " + casas.get(numeroCasa).getMaterial());
+//
+//        // verifica o material da casa que o jogador se encontra
+//        switch (casas.get(numeroCasa).getMaterial()) {
+//
+//            case NENHUM:
+//                System.out.println("Nada a recolher!");
+//                break;
+//            case METAL:
+//                System.out.println("jogador " + j.getNome() + " quantidade metal: " + j.getMaterialColetado().getQtdeMetal());
+//                j.setMaterialColetado(1, TipodeMateriais.METAL);
+//                System.out.println("jogador " + j.getNome() + " quantidade metal atual: " + j.getMaterialColetado().getQtdeMetal());
+//                break;
+//            case PAPEL:
+//                System.out.println("jogador " + j.getNome() + " quantidade papel: " + j.getMaterialColetado().getQtdePapel());
+//                j.setMaterialColetado(1, TipodeMateriais.PAPEL);
+//                System.out.println("jogador " + j.getNome() + " quantidade papel atual: " + j.getMaterialColetado().getQtdePapel());
+//                break;
+//            case ORGANICO:
+//                System.out.println("jogador " + j.getNome() + " quantidade organico: " + j.getMaterialColetado().getQtdeOrganico());
+//                j.setMaterialColetado(1, TipodeMateriais.ORGANICO);
+//                System.out.println("jogador " + j.getNome() + " quantidade organico atual: " + j.getMaterialColetado().getQtdeOrganico());
+//                break;
+//            case PLASTICO:
+//                System.out.println("jogador " + j.getNome() + " quantidade plastico: " + j.getMaterialColetado().getQtdePlastico());
+//                j.setMaterialColetado(1, TipodeMateriais.PLASTICO);
+//                System.out.println("jogador " + j.getNome() + " quantidade plastico atual: " + j.getMaterialColetado().getQtdePlastico());
+//                break;
+//            case VIDRO:
+//                System.out.println("jogador " + j.getNome() + " quantidade vidro: " + j.getMaterialColetado().getQtdeVidro());
+//                j.setMaterialColetado(1, TipodeMateriais.VIDRO);
+//                System.out.println("jogador " + j.getNome() + " quantidade vidro atual: " + j.getMaterialColetado().getQtdeVidro());
+//                break;
+//            case MADEIRA:
+//                System.out.println("jogador " + j.getNome() + " quantidade madeira: " + j.getMaterialColetado().getQtdeMadeira());
+//                j.setMaterialColetado(1, TipodeMateriais.MADEIRA);
+//                System.out.println("jogador " + j.getNome() + " quantidade madeira atual: " + j.getMaterialColetado().getQtdeMadeira());
+//                break;
+//            case NAORECICLAVEL:
+//                System.out.println("jogador " + j.getNome() + " quantidade naoreciclavel: " + j.getMaterialColetado().getQtdeNaoReciclavel());
+//                j.setMaterialColetado(1, TipodeMateriais.NAORECICLAVEL);
+//                System.out.println("jogador " + j.getNome() + " quantidade naoreciclavel atual: " + j.getMaterialColetado().getQtdeNaoReciclavel());
+//                break;
+//        }
+//
+//    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -509,7 +509,7 @@ public class GameBoard extends javax.swing.JFrame {
         jLNomeJogador = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLSaldo = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        jBJogar = new javax.swing.JButton();
 
         jLabel3.setText("jLabel3");
 
@@ -923,10 +923,11 @@ public class GameBoard extends javax.swing.JFrame {
 
         jLSaldo.setText("0");
 
-        jButton1.setText("jButton1");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jBJogar.setMnemonic('j');
+        jBJogar.setText("Jogar");
+        jBJogar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jBJogarActionPerformed(evt);
             }
         });
 
@@ -976,7 +977,7 @@ public class GameBoard extends javax.swing.JFrame {
                                             .addGroup(jPFundoTelaLayout.createSequentialGroup()
                                                 .addGap(10, 10, 10)
                                                 .addComponent(jLSaldo, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                    .addComponent(jButton1))))
+                                    .addComponent(jBJogar))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPFundoTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLP11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1043,7 +1044,7 @@ public class GameBoard extends javax.swing.JFrame {
                             .addComponent(jLabel1)
                             .addComponent(jLSaldo))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton1)
+                        .addComponent(jBJogar)
                         .addGap(48, 48, 48)))
                 .addGroup(jPFundoTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLP13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1093,7 +1094,7 @@ public class GameBoard extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_formWindowClosing
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jBJogarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBJogarActionPerformed
         // verifica quem está jogando
         Jogador j = dizQuemEstaJogando();
         // cria um objeto do dado, para saber o número tirado
@@ -1137,7 +1138,7 @@ public class GameBoard extends javax.swing.JFrame {
         else{
             gameOver();
         }
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_jBJogarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1176,7 +1177,7 @@ public class GameBoard extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jBJogar;
     private javax.swing.JLabel jLCorJogador;
     private javax.swing.JLabel jLJogador;
     private javax.swing.JLabel jLNomeJogador;
