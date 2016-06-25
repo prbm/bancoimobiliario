@@ -361,6 +361,7 @@ public class GameBoard extends javax.swing.JFrame {
             if (nroCasa > numeroCasasTabuleiro) // corrige o contador para voltar à primeira casa
             {
                 nroCasa = 1;
+                j.setRodada(j.getRodada()+1);
             }
 
             // posiciona o ícone na próxima casa
@@ -408,7 +409,10 @@ public class GameBoard extends javax.swing.JFrame {
         jLPTmp.paintComponents(jLPTmp.getGraphics());
     }
 
-  
+    private void gameOver(){
+       GameOver go = new GameOver(this, true, jogadores); 
+       go.setVisible(true);
+    }
    
     // verifica qual material o jogador vai recolher
     private void coletarMaterial(Jogador j) {
@@ -1107,27 +1111,32 @@ public class GameBoard extends javax.swing.JFrame {
         movimentarJogador(d.getNumFace(), j);
         setCursor(Cursor.getDefaultCursor());
 
-        // verifica se o jogador não caiu numa casa de não reciclável ou na casa Início
-        if (casas.get(j.getNumeroCasa()).getMaterial() != TipodeMateriais.NENHUM
-                && casas.get(j.getNumeroCasa()).getMaterial() != TipodeMateriais.NAORECICLAVEL) {
-                
-            // Sorteia o objetivo
-            if(j.isPodeSortear()){
-            TelaSorteaCartas sco = new TelaSorteaCartas(this, true,j); 
-            sco.setVisible(true);
+        // verifica as rodadas do jogo
+        if (j.getRodada()<0){
+            // verifica se o jogador não caiu numa casa de não reciclável ou na casa Início
+            if (casas.get(j.getNumeroCasa()).getMaterial() != TipodeMateriais.NENHUM
+                    && casas.get(j.getNumeroCasa()).getMaterial() != TipodeMateriais.NAORECICLAVEL) {
+
+                // Sorteia o objetivo
+                if(j.isPodeSortear()){
+                TelaSorteaCartas sco = new TelaSorteaCartas(this, true,j); 
+                sco.setVisible(true);
+                }
+
+                // chama a janela que trata a casa em que o jogador caiu
+                ColetarMaterialCasa cmc = new ColetarMaterialCasa(this, true, j, casas.get(j.getNumeroCasa()));
+                cmc.setVisible(true);
+
+                // Atualiza o saldo do jogador
+                jLSaldo.setText(String.valueOf(j.getSaldo()));
             }
-            
-            // chama a janela que trata a casa em que o jogador caiu
-            ColetarMaterialCasa cmc = new ColetarMaterialCasa(this, true, j, casas.get(j.getNumeroCasa()));
-            cmc.setVisible(true);
-
-            // Atualiza o saldo do jogador
-            jLSaldo.setText(String.valueOf(j.getSaldo()));
+        
+            // verifica quem é o próximo jogador
+            determinaProximoJogador(j);
         }
-
-        // verifica quem é o próximo jogador
-        determinaProximoJogador(j);
-
+        else{
+            gameOver();
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

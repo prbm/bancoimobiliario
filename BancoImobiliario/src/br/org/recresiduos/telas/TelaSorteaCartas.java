@@ -25,7 +25,7 @@ public class TelaSorteaCartas extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         
-        // copia os dados do jogador e da casa, para uso nesta tela
+        // copia os dados do jogador para uso nesta tela
         this.j = j;
         
         definirCartas();
@@ -33,7 +33,7 @@ public class TelaSorteaCartas extends javax.swing.JDialog {
     }
 
     private TelaSorteaCartas(JFrame jFrame, boolean b) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
       // configuração das cartas objetivo
     private void definirCartas() {

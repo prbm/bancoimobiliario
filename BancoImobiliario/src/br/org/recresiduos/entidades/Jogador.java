@@ -20,6 +20,7 @@ public class Jogador {
     private Objetivo objetivo;
     private MaterialColetado materialColetado;
     private boolean jogando;
+    private int rodada;
        
     public Jogador() {
         configuracaoInicial();
@@ -36,6 +37,7 @@ public class Jogador {
         numeroCasa = 1;
         saldo = 0; // saldo do jogador no jogo
         podeSortear = true;
+        rodada = 0;
         // cria os materiais coletados
         this.materialColetado = new MaterialColetado();
         // determina que o jogador está sem objetivo no jogo
@@ -218,6 +220,14 @@ public class Jogador {
 
     public void setJogando(boolean jogando) {
         this.jogando = jogando;
+    }
+
+    public int getRodada() {
+        return rodada;
+    }
+
+    public void setRodada(int rodada) {
+        this.rodada = rodada;
     }
     
     public void atualizarSaldo(double valor, String tipoAtualizacao) {
