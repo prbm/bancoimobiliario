@@ -145,6 +145,7 @@ public class GameOver extends javax.swing.JDialog {
         jLJogadorTer = new javax.swing.JLabel();
         jLSaldoTer = new javax.swing.JLabel();
         jBContinuarJogando = new javax.swing.JButton();
+        jBEncerrar = new javax.swing.JButton();
 
         jLabel17.setFont(new java.awt.Font("Traditional Arabic", 1, 14)); // NOI18N
         jLabel17.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -310,6 +311,14 @@ public class GameOver extends javax.swing.JDialog {
             }
         });
 
+        jBEncerrar.setMnemonic('j');
+        jBEncerrar.setText("Encerrar");
+        jBEncerrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBEncerrarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -331,7 +340,10 @@ public class GameOver extends javax.swing.JDialog {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jPSegundo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jPQuarto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(10, 10, 10))))
+                        .addGap(10, 10, 10))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jBEncerrar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap())))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -346,9 +358,11 @@ public class GameOver extends javax.swing.JDialog {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPTerceiro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPQuarto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jBContinuarJogando)
-                .addContainerGap(12, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jBEncerrar)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -359,9 +373,7 @@ public class GameOver extends javax.swing.JDialog {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         getAccessibleContext().setAccessibleName("gameOver");
@@ -373,7 +385,14 @@ public class GameOver extends javax.swing.JDialog {
     private void jBContinuarJogandoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBContinuarJogandoActionPerformed
         // TODO add your handling code here:
         this.dispose();
+        CriaJogadores cJ = new CriaJogadores();
+        //removerBarraTituloTela(cJ);
+        cJ.setVisible(true);
     }//GEN-LAST:event_jBContinuarJogandoActionPerformed
+
+    private void jBEncerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBEncerrarActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_jBEncerrarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -419,6 +438,7 @@ public class GameOver extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBContinuarJogando;
+    private javax.swing.JButton jBEncerrar;
     private javax.swing.JLabel jLJogadorGanhador;
     private javax.swing.JLabel jLJogadorQua;
     private javax.swing.JLabel jLJogadorSeg;

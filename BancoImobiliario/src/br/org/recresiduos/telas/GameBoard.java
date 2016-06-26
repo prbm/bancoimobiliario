@@ -1137,6 +1137,7 @@ public class GameBoard extends javax.swing.JFrame {
         }
         else{
             gameOver();
+            this.dispose();
         }
     }//GEN-LAST:event_jBJogarActionPerformed
 
