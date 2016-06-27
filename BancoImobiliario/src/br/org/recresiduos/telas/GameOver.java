@@ -48,7 +48,7 @@ public class GameOver extends javax.swing.JDialog {
         for (int i = 0; i < 4; i++) {
             if (jogadores[i] == null) {
                 jog[i] = new Jogador("",null,null);
-                jog[i].setSaldo(0);
+                jog[i].setSaldo(-10);
             } else {
                 jog[i] = jogadores[i];
             }
@@ -76,20 +76,20 @@ public class GameOver extends javax.swing.JDialog {
 
         if(!jog[1].getNome().trim().isEmpty()){
             jPTerceiro.setBackground(jLFimJogo.getBackground());
-            jLJogadorTer.setText("Jogador: " + jog[0].getNome());
-            jLSaldoTer.setText(String.valueOf(jog[0].getSaldo()));
+            jLJogadorTer.setText("Jogador: " + jog[1].getNome());
+            jLSaldoTer.setText(String.valueOf(jog[1].getSaldo()));
         }
 
         if(!jog[2].getNome().trim().isEmpty()){
             jPSegundo.setBackground(jLFimJogo.getBackground());
-            jLJogadorSeg.setText("Jogador: " + jog[0].getNome());
-            jLSaldoSeg.setText(String.valueOf(jog[0].getSaldo()));
+            jLJogadorSeg.setText("Jogador: " + jog[2].getNome());
+            jLSaldoSeg.setText(String.valueOf(jog[2].getSaldo()));
         }
 
         if(!jog[3].getNome().trim().isEmpty()){
             jPGanhador.setBackground(jLFimJogo.getBackground());
-            jLJogadorGanhador.setText("Jogador: " + jog[0].getNome());
-            jLSaldoGanhador.setText(String.valueOf(jog[0].getSaldo()));
+            jLJogadorGanhador.setText("Jogador: " + jog[3].getNome());
+            jLSaldoGanhador.setText(String.valueOf(jog[3].getSaldo()));
         }
 //        
 //        if (jog[3] != null) {
@@ -422,12 +422,12 @@ public class GameOver extends javax.swing.JDialog {
                 .addComponent(jLFimJogo, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPGanhador, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPGanhador, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPSegundo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPQuarto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPTerceiro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jPTerceiro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jBNovoJogo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)

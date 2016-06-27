@@ -195,9 +195,17 @@ public class GameBoard extends javax.swing.JFrame {
             vezJogador = CorJogador.PRETO;
         }
 
+        // determina quem é o última na rodada
+        for (int i = 3; i >= 0; i--) {
+            if (jogadores[i] != null) {
+                jogadores[i].setUltimoNaRodada(true);
+                break;
+            }
+        }
+
         //preencher casas tabuleiro
         configuraCasasTabuleiro();
-               
+
         // atualiza a tela
         mostrarQuemEstaJogando();
     }
@@ -361,7 +369,7 @@ public class GameBoard extends javax.swing.JFrame {
             if (nroCasa > numeroCasasTabuleiro) // corrige o contador para voltar à primeira casa
             {
                 nroCasa = 1;
-                j.setRodada(j.getRodada()+1);
+                j.setRodada(j.getRodada() + 1);
             }
 
             // posiciona o ícone na próxima casa
@@ -409,11 +417,11 @@ public class GameBoard extends javax.swing.JFrame {
         jLPTmp.paintComponents(jLPTmp.getGraphics());
     }
 
-    private void gameOver(){
-       GameOver go = new GameOver(this, true, jogadores); 
-       go.setVisible(true);
+    private void gameOver() {
+        GameOver go = new GameOver(this, true, jogadores);
+        go.setVisible(true);
     }
-   
+
 //    // verifica qual material o jogador vai recolher
 //    private void coletarMaterial(Jogador j) {
 //
@@ -468,7 +476,6 @@ public class GameBoard extends javax.swing.JFrame {
 //        }
 //
 //    }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -1112,33 +1119,36 @@ public class GameBoard extends javax.swing.JFrame {
         movimentarJogador(d.getNumFace(), j);
         setCursor(Cursor.getDefaultCursor());
 
-        // verifica as rodadas do jogo
-        if (j.getRodada()<0){
-            // verifica se o jogador não caiu numa casa de não reciclável ou na casa Início
-            if (casas.get(j.getNumeroCasa()).getMaterial() != TipodeMateriais.NENHUM
-                    && casas.get(j.getNumeroCasa()).getMaterial() != TipodeMateriais.NAORECICLAVEL) {
+        // verifica se o jogador não caiu numa casa de não reciclável ou na casa Início
+        if (casas.get(j.getNumeroCasa()).getMaterial() != TipodeMateriais.NENHUM
+                && casas.get(j.getNumeroCasa()).getMaterial() != TipodeMateriais.NAORECICLAVEL) {
 
-                // Sorteia o objetivo
-                if(j.isPodeSortear()){
-                TelaSorteaCartas sco = new TelaSorteaCartas(this, true,j); 
+            // Sorteia o objetivo
+            if (j.isPodeSortear()) {
+                TelaSorteaCartas sco = new TelaSorteaCartas(this, true, j);
                 sco.setVisible(true);
-                }
-
-                // chama a janela que trata a casa em que o jogador caiu
-                ColetarMaterialCasa cmc = new ColetarMaterialCasa(this, true, j, casas.get(j.getNumeroCasa()));
-                cmc.setVisible(true);
-
-                // Atualiza o saldo do jogador
-                jLSaldo.setText(String.valueOf(j.getSaldo()));
             }
+
+            // chama a janela que trata a casa em que o jogador caiu
+            ColetarMaterialCasa cmc = new ColetarMaterialCasa(this, true, j, casas.get(j.getNumeroCasa()));
+            cmc.setVisible(true);
+
+            // Atualiza o saldo do jogador
+            jLSaldo.setText(String.valueOf(j.getSaldo()));
+        }
+
+        // atualiza a rodada em que o jogador se encontra
+        j.setRodada(j.getRodada() + 1);
         
-            // verifica quem é o próximo jogador
-            determinaProximoJogador(j);
-        }
-        else{
+        // se for a última rodada, encerra o jogo
+        // verifica as rodadas do jogo
+        if(j.isUltimoNaRodada() && j.getRodada()>1){
             gameOver();
-            this.dispose();
+            this.dispose();            
         }
+        
+        // verifica quem é o próximo jogador
+        determinaProximoJogador(j);
     }//GEN-LAST:event_jBJogarActionPerformed
 
     /**
@@ -1252,8 +1262,6 @@ public class GameBoard extends javax.swing.JFrame {
     private final Jogador[] jogadores;
     private final int numeroCasasTabuleiro = 24;
     private List<JLayeredPane> jLPanels;
-
-    
 
     private List<Casa> casas;
 }
