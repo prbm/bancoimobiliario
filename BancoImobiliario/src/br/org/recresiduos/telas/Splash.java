@@ -41,11 +41,11 @@ public class Splash extends JWindow {
         setBounds(x, y, largura, altura);
 
         // Monta a splash screen
-        JLabel imagem = new JLabel(new ImageIcon(getClass().getResource("/imagens/splash.gif")));
-        JLabel copyrt = new JLabel("Copyright 2016, Uninove", JLabel.CENTER);
-        copyrt.setFont(new Font("Sans-Serif", Font.BOLD, 12));
+        JLabel imagem = new JLabel(new ImageIcon(getClass().getResource("/imagensbir/SplashScreen.png")));
+        //JLabel copyrt = new JLabel("Copyright 2016, Uninove", JLabel.CENTER);
+        //copyrt.setFont(new Font("Sans-Serif", Font.BOLD, 12));
         painelSplashScreen.add(imagem, BorderLayout.CENTER);
-        painelSplashScreen.add(copyrt, BorderLayout.SOUTH);
+        //painelSplashScreen.add(copyrt, BorderLayout.SOUTH);
         Color contorno = new Color(0,0,125,255);
         painelSplashScreen.setBorder(BorderFactory.createLineBorder(contorno, 10));
 
@@ -74,7 +74,7 @@ public class Splash extends JWindow {
 
     public static void main(String[] args) {
         // declara a tela de splash
-        Splash splash = new Splash(10000);
+        Splash splash = new Splash(5000);
         // apresenta a tela e encerra o aplicativo
         splash.mostrarESair();
     }    

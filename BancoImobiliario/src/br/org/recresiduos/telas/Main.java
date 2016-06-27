@@ -10,6 +10,11 @@ import javax.swing.JOptionPane;
 public class Main {
     
     public static void main(String args[]){
+
+        // exibe a tela de Splash
+        Splash splash = new Splash(7500);
+        splash.mostrar();
+        splash.dispose();
         
         CriaJogadores cJ = new CriaJogadores();
         //removerBarraTituloTela(cJ);
