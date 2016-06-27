@@ -21,6 +21,7 @@ public class Jogador {
     private MaterialColetado materialColetado;
     private boolean jogando;
     private int rodada;
+    private boolean ultimoNaRodada;
        
     public Jogador() {
         configuracaoInicial();
@@ -44,6 +45,9 @@ public class Jogador {
         this.objetivo = null;
         // determina se o jogador deu a saída
         this.jogando = false;
+        this.rodada = 1;
+        // determina se ele é o última a jogar
+        this.ultimoNaRodada = false;
     }
     
     public String getNome() {
@@ -228,6 +232,14 @@ public class Jogador {
 
     public void setRodada(int rodada) {
         this.rodada = rodada;
+    }
+
+    public boolean isUltimoNaRodada() {
+        return ultimoNaRodada;
+    }
+
+    public void setUltimoNaRodada(boolean ultimoNaRodada) {
+        this.ultimoNaRodada = ultimoNaRodada;
     }
     
     public void atualizarSaldo(double valor, String tipoAtualizacao) {
