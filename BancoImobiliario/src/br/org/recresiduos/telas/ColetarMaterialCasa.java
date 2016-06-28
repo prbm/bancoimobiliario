@@ -856,6 +856,7 @@ public class ColetarMaterialCasa extends javax.swing.JDialog {
                                           jogador.setPodeSortear(true);
                                           
                                           JOptionPane.showMessageDialog(null, "Você cumpriu o objetivo objetivo! ");
+                                          jogador.setNumeroObjetivosConcluidos(jogador.getNumeroObjetivosConcluidos()+1);
                                         }
                                         else JOptionPane.showMessageDialog(null, "Ainda falta alguns materiais! ");
                                     }

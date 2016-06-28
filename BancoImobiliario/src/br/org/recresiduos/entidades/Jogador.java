@@ -23,6 +23,7 @@ public class Jogador {
     private boolean jogando;
     private int rodada;
     private boolean ultimoNaRodada;
+    private int numeroObjetivosConcluidos;
        
     public Jogador() {
         configuracaoInicial();
@@ -49,6 +50,7 @@ public class Jogador {
         this.rodada = 1;
         // determina se ele é o última a jogar
         this.ultimoNaRodada = false;
+        this.numeroObjetivosConcluidos = 0;
     }
     
     public String getNome() {
@@ -242,6 +244,14 @@ public class Jogador {
 
     public void setUltimoNaRodada(boolean ultimoNaRodada) {
         this.ultimoNaRodada = ultimoNaRodada;
+    }
+
+    public int getNumeroObjetivosConcluidos() {
+        return numeroObjetivosConcluidos;
+    }
+
+    public void setNumeroObjetivosConcluidos(int numeroObjetivosConcluidos) {
+        this.numeroObjetivosConcluidos = numeroObjetivosConcluidos;
     }
     
     public void atualizarSaldo(double valor, String tipoAtualizacao) {
