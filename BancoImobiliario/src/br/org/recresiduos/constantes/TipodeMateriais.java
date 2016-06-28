@@ -13,15 +13,15 @@ public enum TipodeMateriais {
     // declaracao dos dados do material
     // NOME (valor)
     NENHUM  (0.0),
-    METAL   (1.5),
-    MADEIRA (3.4),
-    PAPEL   (2.6),
-    OLEO    (0.8),
-    ORGANICO(0.3),
-    VIDRO   (0.75),
-    ALUMINIO(2.4),
-    FERRO   (1.75),
-    PLASTICO(0.95),
+    METAL   (1.51111),
+    MADEIRA (3.42222),
+    PAPEL   (2.63333),
+    OLEO    (0.84444),
+    ORGANICO(0.35555),
+    VIDRO   (0.75666),
+    ALUMINIO(2.47777),
+    FERRO   (1.75888),
+    PLASTICO(0.95999),
     NAORECICLAVEL(0.0);
     
     // atributo que determina o valor do material

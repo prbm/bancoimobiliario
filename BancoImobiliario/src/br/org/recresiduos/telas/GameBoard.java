@@ -10,12 +10,10 @@ import br.org.recresiduos.constantes.CorJogador;
 import br.org.recresiduos.constantes.TipodeMateriais;
 import br.org.recresiduos.entidades.Casa;
 import br.org.recresiduos.entidades.Jogador;
-import br.org.recresiduos.entidades.Objetivo;
 import java.awt.Component;
 import java.awt.Cursor;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
@@ -161,22 +159,34 @@ public class GameBoard extends javax.swing.JFrame {
                     case AMARELO:
                         jogadores[i].setPeaoJogador(jLAmarelo);
                         tmp.setIcon(new ImageIcon(getClass().getResource("/imagensbir/jogadorAmarelo.png")));
+                        jLNomeAmarelo.setText(jogadores[i].getNome());
+                        jLIconeAmarelo.setEnabled(true);
                         jLP1.add(jLAmarelo, 0);
+                        atualizaInformacaoJogador(jogadores[i]);
                         break;
                     case AZUL:
                         jogadores[i].setPeaoJogador(jLAzul);
                         tmp.setIcon(new ImageIcon(getClass().getResource("/imagensbir/jogadorAzul.png")));
+                        jLNomeAzul.setText(jogadores[i].getNome());
+                        jLIconeAzul.setEnabled(true);
                         jLP1.add(jLAzul, 0);
+                        atualizaInformacaoJogador(jogadores[i]);
                         break;
                     case BRANCO:
                         jogadores[i].setPeaoJogador(jLBranco);
                         tmp.setIcon(new ImageIcon(getClass().getResource("/imagensbir/jogadorBranco.png")));
+                        jLNomeBranco.setText(jogadores[i].getNome());
+                        jLIconeBranco.setEnabled(true);
                         jLP1.add(jLBranco, 0);
+                        atualizaInformacaoJogador(jogadores[i]);
                         break;
                     case PRETO:
                         jogadores[i].setPeaoJogador(jLPreto);
                         tmp.setIcon(new ImageIcon(getClass().getResource("/imagensbir/jogadorPreto.png")));
+                        jLNomePreto.setText(jogadores[i].getNome());
+                        jLIconePreto.setEnabled(true);
                         jLP1.add(jLPreto, 0);
+                        atualizaInformacaoJogador(jogadores[i]);
                         break;
                 }
                 // atribui o ícone do jogador
@@ -208,7 +218,7 @@ public class GameBoard extends javax.swing.JFrame {
 
         // atualiza a tela
         mostrarQuemEstaJogando();
-        
+
         habilitarBotoesJogar();
     }
 
@@ -424,7 +434,7 @@ public class GameBoard extends javax.swing.JFrame {
         go.setVisible(true);
     }
 
-    private void jogar(){
+    private void jogar() {
         // verifica quem está jogando
         Jogador j = dizQuemEstaJogando();
         // cria um objeto do dado, para saber o número tirado
@@ -458,34 +468,35 @@ public class GameBoard extends javax.swing.JFrame {
 
             // Atualiza o saldo do jogador
 //            jLSaldo.setText(String.valueOf(j.getSaldo()));
+            atualizaInformacaoJogador(j);
         }
 
         // atualiza a rodada em que o jogador se encontra
         j.setRodada(j.getRodada() + 1);
-        
+
         // se for a última rodada, encerra o jogo
         // verifica as rodadas do jogo
-        if(j.isUltimoNaRodada() && j.getRodada()>1){
+        if (j.isUltimoNaRodada() && j.getRodada() > 1) {
             gameOver();
-            this.dispose();            
+            this.dispose();
         }
-        
+
         // verifica quem é o próximo jogador
         determinaProximoJogador(j);
 
         // habilita os botões de acordo com a vez do jogador
         habilitarBotoesJogar();
     }
-    
-    private void habilitarBotoesJogar(){
+
+    private void habilitarBotoesJogar() {
         // desabilita os botões
         jBJogarAmarelo.setEnabled(false);
         jBJogarAzul.setEnabled(false);
         jBJogarBranco.setEnabled(false);
         jBJogarPreto.setEnabled(false);
-        
+
         // habilita o botão de acordo com a vez de quem está jogando
-        switch(vezJogador){
+        switch (vezJogador) {
             case AMARELO:
                 jBJogarAmarelo.setEnabled(true);
                 break;
@@ -500,9 +511,9 @@ public class GameBoard extends javax.swing.JFrame {
                 break;
         }
     }
-    
-    private void sair(){
-        
+
+    private void sair() {
+
         int res = JOptionPane.showConfirmDialog(this, "Isso fará o jogo terminar, você realmente quer fazer isso?", "Vai Sair?", JOptionPane.YES_NO_OPTION);
 
         switch (res) {
@@ -513,7 +524,28 @@ public class GameBoard extends javax.swing.JFrame {
                 return;
         }
     }
-    
+
+    private void atualizaInformacaoJogador(Jogador j) {
+        switch (j.getCor()) {
+            case AMARELO:
+                jLValorSaldoAmarelo.setText(String.valueOf(j.getSaldo()));
+                jLQtdeObjetivoAmarelo.setText("");
+                break;
+            case AZUL:
+                jLValorSaldoAzul.setText(String.valueOf(j.getSaldo()));
+                jLQtdeObjetivoAzul.setText("");
+                break;
+            case BRANCO:
+                jLValorSaldoBranco.setText(String.valueOf(j.getSaldo()));
+                jLQtdeObjetivoBranco.setText("");
+                break;
+            case PRETO:
+                jLValorSaldoPreto.setText(String.valueOf(j.getSaldo()));
+                jLQtdeObjetivoPreto.setText("");
+                break;
+        }
+    }
+
 //    // verifica qual material o jogador vai recolher
 //    private void coletarMaterial(Jogador j) {
 //
@@ -612,7 +644,7 @@ public class GameBoard extends javax.swing.JFrame {
         jLValorSaldoAmarelo = new javax.swing.JLabel();
         jBJogarAmarelo = new javax.swing.JButton();
         jPanelJogadorAzul = new javax.swing.JPanel();
-        jLIconeAmarelo1 = new javax.swing.JLabel();
+        jLIconeAzul = new javax.swing.JLabel();
         jLNomeAzul = new javax.swing.JLabel();
         jLObjetivoAzul = new javax.swing.JLabel();
         jLQtdeObjetivoAzul = new javax.swing.JLabel();
@@ -1044,10 +1076,14 @@ public class GameBoard extends javax.swing.JFrame {
         jPanelJogadorAmarelo.setPreferredSize(new java.awt.Dimension(156, 246));
 
         jLIconeAmarelo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagensbir/jogadorAmarelo.png"))); // NOI18N
+        jLIconeAmarelo.setEnabled(false);
 
         jLNomeAmarelo.setBackground(new java.awt.Color(26, 64, 35));
         jLNomeAmarelo.setFont(new java.awt.Font("Traditional Arabic", 0, 14)); // NOI18N
-        jLNomeAmarelo.setText("jLabel1");
+        jLNomeAmarelo.setText("SEM JOGADOR");
+        jLNomeAmarelo.setMaximumSize(new java.awt.Dimension(100, 30));
+        jLNomeAmarelo.setMinimumSize(new java.awt.Dimension(100, 30));
+        jLNomeAmarelo.setPreferredSize(new java.awt.Dimension(100, 30));
 
         jLObjetivoAmarelo.setBackground(new java.awt.Color(26, 64, 35));
         jLObjetivoAmarelo.setFont(new java.awt.Font("Traditional Arabic", 0, 14)); // NOI18N
@@ -1091,11 +1127,11 @@ public class GameBoard extends javax.swing.JFrame {
             .addGroup(jPanelJogadorAmareloLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanelJogadorAmareloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLObjetivoAmarelo, javax.swing.GroupLayout.DEFAULT_SIZE, 136, Short.MAX_VALUE)
+                    .addComponent(jLObjetivoAmarelo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanelJogadorAmareloLayout.createSequentialGroup()
                         .addComponent(jLIconeAmarelo)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLNomeAmarelo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jLNomeAmarelo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLQtdeObjetivoAmarelo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLSaldoAmarelo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLValorSaldoAmarelo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -1107,8 +1143,8 @@ public class GameBoard extends javax.swing.JFrame {
             .addGroup(jPanelJogadorAmareloLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanelJogadorAmareloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLNomeAmarelo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLIconeAmarelo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jLIconeAmarelo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLNomeAmarelo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLObjetivoAmarelo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1127,11 +1163,15 @@ public class GameBoard extends javax.swing.JFrame {
         jPanelJogadorAzul.setMinimumSize(new java.awt.Dimension(156, 246));
         jPanelJogadorAzul.setPreferredSize(new java.awt.Dimension(156, 246));
 
-        jLIconeAmarelo1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagensbir/jogadorAzul.png"))); // NOI18N
+        jLIconeAzul.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagensbir/jogadorAzul.png"))); // NOI18N
+        jLIconeAzul.setEnabled(false);
 
         jLNomeAzul.setBackground(new java.awt.Color(26, 64, 35));
         jLNomeAzul.setFont(new java.awt.Font("Traditional Arabic", 0, 14)); // NOI18N
-        jLNomeAzul.setText("jLabel1");
+        jLNomeAzul.setText("SEM JOGADOR");
+        jLNomeAzul.setMaximumSize(new java.awt.Dimension(100, 30));
+        jLNomeAzul.setMinimumSize(new java.awt.Dimension(100, 30));
+        jLNomeAzul.setPreferredSize(new java.awt.Dimension(100, 30));
 
         jLObjetivoAzul.setBackground(new java.awt.Color(26, 64, 35));
         jLObjetivoAzul.setFont(new java.awt.Font("Traditional Arabic", 0, 14)); // NOI18N
@@ -1175,11 +1215,11 @@ public class GameBoard extends javax.swing.JFrame {
             .addGroup(jPanelJogadorAzulLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanelJogadorAzulLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLObjetivoAzul, javax.swing.GroupLayout.DEFAULT_SIZE, 136, Short.MAX_VALUE)
+                    .addComponent(jLObjetivoAzul, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanelJogadorAzulLayout.createSequentialGroup()
-                        .addComponent(jLIconeAmarelo1)
+                        .addComponent(jLIconeAzul)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLNomeAzul, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jLNomeAzul, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLQtdeObjetivoAzul, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLSaldoAzul, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLValorSaldoAzul, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -1191,8 +1231,8 @@ public class GameBoard extends javax.swing.JFrame {
             .addGroup(jPanelJogadorAzulLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanelJogadorAzulLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLNomeAzul, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLIconeAmarelo1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jLNomeAzul, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLIconeAzul, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLObjetivoAzul, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1212,10 +1252,14 @@ public class GameBoard extends javax.swing.JFrame {
         jPanelJogadorAzul1.setPreferredSize(new java.awt.Dimension(156, 246));
 
         jLIconeBranco.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagensbir/jogadorBranco.png"))); // NOI18N
+        jLIconeBranco.setEnabled(false);
 
         jLNomeBranco.setBackground(new java.awt.Color(26, 64, 35));
         jLNomeBranco.setFont(new java.awt.Font("Traditional Arabic", 0, 14)); // NOI18N
-        jLNomeBranco.setText("jLabel1");
+        jLNomeBranco.setText("SEM JOGADOR");
+        jLNomeBranco.setMaximumSize(new java.awt.Dimension(100, 30));
+        jLNomeBranco.setMinimumSize(new java.awt.Dimension(100, 30));
+        jLNomeBranco.setPreferredSize(new java.awt.Dimension(100, 30));
 
         jLObjetivoBranco.setBackground(new java.awt.Color(26, 64, 35));
         jLObjetivoBranco.setFont(new java.awt.Font("Traditional Arabic", 0, 14)); // NOI18N
@@ -1259,11 +1303,11 @@ public class GameBoard extends javax.swing.JFrame {
             .addGroup(jPanelJogadorAzul1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanelJogadorAzul1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLObjetivoBranco, javax.swing.GroupLayout.DEFAULT_SIZE, 136, Short.MAX_VALUE)
+                    .addComponent(jLObjetivoBranco, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanelJogadorAzul1Layout.createSequentialGroup()
                         .addComponent(jLIconeBranco)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLNomeBranco, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jLNomeBranco, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLQtdeObjetivoBranco, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLSaldoBranco, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLValorSaldoBranco, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -1275,7 +1319,7 @@ public class GameBoard extends javax.swing.JFrame {
             .addGroup(jPanelJogadorAzul1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanelJogadorAzul1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLNomeBranco, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLNomeBranco, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLIconeBranco, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLObjetivoBranco, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1296,10 +1340,14 @@ public class GameBoard extends javax.swing.JFrame {
         jPanelJogadorAzul2.setPreferredSize(new java.awt.Dimension(156, 246));
 
         jLIconePreto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagensbir/jogadorPreto.png"))); // NOI18N
+        jLIconePreto.setEnabled(false);
 
         jLNomePreto.setBackground(new java.awt.Color(26, 64, 35));
         jLNomePreto.setFont(new java.awt.Font("Traditional Arabic", 0, 14)); // NOI18N
-        jLNomePreto.setText("jLabel1");
+        jLNomePreto.setText("SEM JOGADOR");
+        jLNomePreto.setMaximumSize(new java.awt.Dimension(100, 30));
+        jLNomePreto.setMinimumSize(new java.awt.Dimension(100, 30));
+        jLNomePreto.setPreferredSize(new java.awt.Dimension(100, 30));
 
         jLObjetivoPreto.setBackground(new java.awt.Color(26, 64, 35));
         jLObjetivoPreto.setFont(new java.awt.Font("Traditional Arabic", 0, 14)); // NOI18N
@@ -1343,11 +1391,11 @@ public class GameBoard extends javax.swing.JFrame {
             .addGroup(jPanelJogadorAzul2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanelJogadorAzul2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLObjetivoPreto, javax.swing.GroupLayout.DEFAULT_SIZE, 136, Short.MAX_VALUE)
+                    .addComponent(jLObjetivoPreto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanelJogadorAzul2Layout.createSequentialGroup()
                         .addComponent(jLIconePreto)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLNomePreto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jLNomePreto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLQtdeObjetivoPreto, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLSaldoPreto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLValorSaldoPreto, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -1359,7 +1407,7 @@ public class GameBoard extends javax.swing.JFrame {
             .addGroup(jPanelJogadorAzul2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanelJogadorAzul2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLNomePreto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLNomePreto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLIconePreto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLObjetivoPreto, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1563,12 +1611,12 @@ public class GameBoard extends javax.swing.JFrame {
     }//GEN-LAST:event_jBJogarPretoActionPerformed
 
     private void jBNovoJogoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBNovoJogoActionPerformed
-        
+
         int res = JOptionPane.showConfirmDialog(this, "Para iniciar um novo jogo, este será encerrado sem vencedor, você realmente quer fazer isso?", "Recomeçar?", JOptionPane.YES_NO_OPTION);
 
         switch (res) {
             case JOptionPane.OK_OPTION:
-                this.dispose();                
+                this.dispose();
                 CriaJogadores cj = new CriaJogadores();
                 cj.setVisible(true);
                 break;
@@ -1625,7 +1673,7 @@ public class GameBoard extends javax.swing.JFrame {
     private javax.swing.JButton jBNovoJogo;
     private javax.swing.JButton jBSair;
     private javax.swing.JLabel jLIconeAmarelo;
-    private javax.swing.JLabel jLIconeAmarelo1;
+    private javax.swing.JLabel jLIconeAzul;
     private javax.swing.JLabel jLIconeBranco;
     private javax.swing.JLabel jLIconePreto;
     private javax.swing.JLabel jLNomeAmarelo;

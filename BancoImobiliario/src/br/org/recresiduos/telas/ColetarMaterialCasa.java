@@ -8,7 +8,7 @@ package br.org.recresiduos.telas;
 import br.org.recresiduos.constantes.TipodeMateriais;
 import br.org.recresiduos.entidades.Casa;
 import br.org.recresiduos.entidades.Jogador;
-import java.awt.Color;
+import br.org.recresiduos.uteis.Arredonda;
 import java.util.Random;
 import javax.swing.JOptionPane;
 
@@ -968,6 +968,7 @@ public class ColetarMaterialCasa extends javax.swing.JDialog {
             this.jogador.getMaterialColetado().setQtdeOrganico(0);
         }
         
+        ganhoReciclagem = new Arredonda(ganhoReciclagem).valorArredondado();
         JOptionPane.showMessageDialog(null, "Você lucrou " + ganhoReciclagem + " reciclando seus materiais!");
 
         // atualiza os labels de quantidade de material

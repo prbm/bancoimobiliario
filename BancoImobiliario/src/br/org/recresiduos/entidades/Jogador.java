@@ -2,6 +2,7 @@ package br.org.recresiduos.entidades;
 
 import br.org.recresiduos.constantes.CorJogador;
 import br.org.recresiduos.constantes.TipodeMateriais;
+import br.org.recresiduos.uteis.Arredonda;
 import javax.swing.JLabel;
 
 /**
@@ -75,6 +76,7 @@ public class Jogador {
     }
 
     public double getSaldo() {
+        //saldo = new Arredonda(saldo).valorArredondado();
         return saldo;
     }
 
