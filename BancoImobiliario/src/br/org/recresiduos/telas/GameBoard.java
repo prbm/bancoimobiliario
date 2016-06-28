@@ -382,7 +382,7 @@ public class GameBoard extends javax.swing.JFrame {
             if (nroCasa > numeroCasasTabuleiro) // corrige o contador para voltar à primeira casa
             {
                 nroCasa = 1;
-                j.setRodada(j.getRodada() + 1);
+               // j.setRodada(j.getRodada() + 1);
             }
 
             // posiciona o ícone na próxima casa
