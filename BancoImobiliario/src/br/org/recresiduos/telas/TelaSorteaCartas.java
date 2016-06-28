@@ -146,10 +146,8 @@ public class TelaSorteaCartas extends javax.swing.JDialog {
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(275, 410));
         setMinimumSize(new java.awt.Dimension(275, 410));
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(275, 410));
 
         jPanel1.setBackground(new java.awt.Color(26, 64, 35));
         jPanel1.setBorder(javax.swing.BorderFactory.createMatteBorder(3, 3, 3, 3, new java.awt.Color(255, 255, 255)));
@@ -164,8 +162,7 @@ public class TelaSorteaCartas extends javax.swing.JDialog {
         jLabel1.setOpaque(true);
 
         jLCartaObjetivo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLCartaObjetivo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagensbir/CartaObjetivoFrente.png"))); // NOI18N
-        jLCartaObjetivo.setText("CartaObjetivo");
+        jLCartaObjetivo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagensbir/CartaObjetivoCostas.png"))); // NOI18N
         jLCartaObjetivo.setMaximumSize(new java.awt.Dimension(145, 250));
         jLCartaObjetivo.setMinimumSize(new java.awt.Dimension(145, 250));
         jLCartaObjetivo.setPreferredSize(new java.awt.Dimension(145, 250));
