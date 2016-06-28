@@ -67,6 +67,8 @@ public class ColetarMaterialCasa extends javax.swing.JDialog {
 
         // cria uma quantidade entre 1 e 4
         jLQtdeMaterial.setText(String.valueOf((new Random().nextInt(10)) + 1));
+        // mostra a carta sorteada 
+        jLCartaObjetivo.setIcon(this.jogador.getObjetivo().getImagem());
 
         // verifica os check boxes que podem ser habilitados
         habilitaDesabilitaCheckBoxReciclagem();

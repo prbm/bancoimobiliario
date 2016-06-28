@@ -10,6 +10,7 @@ import br.org.recresiduos.entidades.Objetivo;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 
 /**
@@ -21,13 +22,12 @@ public class TelaSorteaCartas extends javax.swing.JDialog {
     /**
      * Creates new form TelaSorteaCartas
      */
-    public TelaSorteaCartas(java.awt.Frame parent, boolean modal,Jogador j ) {
+    public TelaSorteaCartas(java.awt.Frame parent, boolean modal,Jogador j) {
         super(parent, modal);
         initComponents();
         
         // copia os dados do jogador para uso nesta tela
         this.j = j;
-        
         definirCartas();
                 
     }
@@ -42,16 +42,69 @@ public class TelaSorteaCartas extends javax.swing.JDialog {
         cartas = new ArrayList<Objetivo>();
 
         // até aqui, tudo bem
-        cartas.add(new Objetivo("Mesa Vidro", 10, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1));
-        cartas.add(new Objetivo("Cadeira Madeira", 10, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 2));
-        cartas.add(new Objetivo("Mesa Madeira", 10, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 3));
-        cartas.add(new Objetivo("Mesa Ferro", 10, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 4));
-        cartas.add(new Objetivo("Mesa a", 10, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 5));
-        cartas.add(new Objetivo("Mesa b ", 10, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 6));
-        cartas.add(new Objetivo("Mesa c", 10, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 7));
-        cartas.add(new Objetivo("Mesa d", 10, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 8));
-        cartas.add(new Objetivo("Mesa e", 10, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 9));
-        cartas.add(new Objetivo("Mesa f", 10, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 10));
+        ImageIcon img;
+        Objetivo obj;
+        // Carta 001
+        img = new ImageIcon(getClass().getResource("/imagensbir/CartaObjetivoFrente001.png"));
+        obj = new Objetivo("Cadeira de Tecido e Madeira", 450, img);
+        obj.setQtdeMadeira(4);
+        obj.setQtdeOrganico(6);
+        cartas.add(obj);
+        // Carta 002
+        img = new ImageIcon(getClass().getResource("/imagensbir/CartaObjetivoFrente002.png"));
+        obj = new Objetivo("Cadeira de Metal e Madeira", 350, img);
+        obj.setQtdeMetal(6);
+        obj.setQtdeMadeira(6);
+        cartas.add(obj);
+        // Carta 003
+        img = new ImageIcon(getClass().getResource("/imagensbir/CartaObjetivoFrente003.png"));
+        obj = new Objetivo("Cadeira de Couro e Metal", 650, img);
+        obj.setQtdePlastico(4);
+        obj.setQtdeOrganico(8);
+        obj.setQtdeMetal(6);
+        cartas.add(obj);
+        // Carta 004
+        img = new ImageIcon(getClass().getResource("/imagensbir/CartaObjetivoFrente004.png"));
+        obj = new Objetivo("Mesa de Metal e Madeira", 450, img);
+        obj.setQtdeMadeira(8);
+        obj.setQtdeMetal(1);
+        cartas.add(obj);
+        // Carta 005
+        img = new ImageIcon(getClass().getResource("/imagensbir/CartaObjetivoFrente005.png"));
+        obj = new Objetivo("Mesa de Metal e Plástico", 650, img);
+        obj.setQtdePlastico(10);
+        obj.setQtdeMetal(6);
+        cartas.add(obj);
+        // Carta 006
+        img = new ImageIcon(getClass().getResource("/imagensbir/CartaObjetivoFrente006.png"));
+        obj = new Objetivo("Canetas de Plástico", 50, img);
+        obj.setQtdePlastico(2);
+        cartas.add(obj);
+        // Carta 007
+        img = new ImageIcon(getClass().getResource("/imagensbir/CartaObjetivoFrente007.png"));
+        obj = new Objetivo("Canetas Tinteiro", 50, img);
+        obj.setQtdePlastico(1);
+        obj.setQtdeMetal(2);
+        cartas.add(obj);
+        // Carta 008
+        img = new ImageIcon(getClass().getResource("/imagensbir/CartaObjetivoFrente008.png"));
+        obj = new Objetivo("Pilha de Papel", 50, img);
+        obj.setQtdePapel(4);
+        cartas.add(obj);
+        // Carta 009
+        img = new ImageIcon(getClass().getResource("/imagensbir/CartaObjetivoFrente009.png"));
+        obj = new Objetivo("Livro", 50, img);
+        obj.setQtdePapel(3);
+        obj.setQtdeOrganico(1);
+        cartas.add(obj);
+        // Carta 010
+        img = new ImageIcon(getClass().getResource("/imagensbir/CartaObjetivoFrente010.png"));
+        obj = new Objetivo("Avião", 4000, img);
+        obj.setQtdePlastico(20);
+        obj.setQtdeMetal(30);
+        obj.setQtdeOrganico(30);
+        obj.setQtdeVidro(20);
+        cartas.add(obj);
 
         // embaralha as cartas, enquanto a lista original não estiver vazia
         while (!cartas.isEmpty()) {
@@ -86,48 +139,63 @@ public class TelaSorteaCartas extends javax.swing.JDialog {
 
     private void sortear(Jogador j) {
 
+        // cria um gerador de números aleatórios;
+        Random rnd = new Random();
+        // verifica o número da carta, baseado no número total de cartas
+        int numeroCarta = rnd.nextInt(cartas.size());
+        
+        
         while (j.isPodeSortear()) {
             //trás a primeira carta da pilha
-            double valorCarta = cartas.get(0).getValor();
+            double valorCarta = cartas.get(numeroCarta).getValor();
 
-            System.out.println("Descrição: " + cartas.get(0).getDescr()
+            System.out.println("Descrição: " + cartas.get(numeroCarta).getDescr()
                     + "\n"
-                    + "Vidro: " + cartas.get(0).getQtdeVidro()
+                    + "Vidro: " + cartas.get(numeroCarta).getQtdeVidro()
                     + "\n"
-                    + "Papel: " + cartas.get(0).getQtdePapel()
+                    + "Papel: " + cartas.get(numeroCarta).getQtdePapel()
                     + "\n"
-                    + "Organico: " + cartas.get(0).getQtdeOrganico()
+                    + "Organico: " + cartas.get(numeroCarta).getQtdeOrganico()
                     + "\n"
-                    + "Metal: " + cartas.get(0).getQtdeMetal()
+                    + "Metal: " + cartas.get(numeroCarta).getQtdeMetal()
                     + "\n"
-                    + "Ferro: " + cartas.get(0).getQtdeFerro()
+                    + "Ferro: " + cartas.get(numeroCarta).getQtdeFerro()
                     + "\n"
-                    + "Aluminio: " + cartas.get(0).getQtdeAluminio()
+                    + "Aluminio: " + cartas.get(numeroCarta).getQtdeAluminio()
                     + "\n"
-                    + "Oleo: " + cartas.get(0).getQtdeOleo()
+                    + "Oleo: " + cartas.get(numeroCarta).getQtdeOleo()
                     + "\n"
-                    + "Madeira: " + cartas.get(0).getQtdeMadeira()
+                    + "Madeira: " + cartas.get(numeroCarta).getQtdeMadeira()
                     + "\n"
-                    + "Plastico: " + cartas.get(0).getQtdePlastico()
+                    + "Plastico: " + cartas.get(numeroCarta).getQtdePlastico()
                     + "\n"
-                    + "Valor: " + cartas.get(0).getValor());
+                    + "Valor: " + cartas.get(numeroCarta).getValor());
 
             //copia o objetivo para cada jogador
-            j.setObjetivo(cartas.get(0));
+            j.setObjetivo(cartas.get(numeroCarta));
             j.setPodeSortear(false);
 
         }
-        cartas.add(cartas.get(0));	// copia a primeira carta para o fim da lista 
-        cartas.remove(0);		// remove a primeira carta para a lista
-        
-        // pausa a tela por 1,5 segundos, para mostrar o número sorteado
-        try {
-            Thread.sleep(1500);
-        } catch (InterruptedException ie) {
-            System.out.println(ie.getMessage());
+
+        // anima o sorteio da carta
+        for(int i = 0; i < 25; i++){
+            jLCartaObjetivo.setIcon(cartas.get(rnd.nextInt(cartas.size())).getImagem());
+            jLCartaObjetivo.update(jLCartaObjetivo.getGraphics());                
+            try {
+                Thread.sleep(100);
+            } catch (InterruptedException ie) {
+                System.out.println("Animando carta objetivo ie: " + ie.getMessage());
+            }
         }
-        
-        this.dispose();  
+
+        // prepara a exibição da carta sortada
+        this.carta = cartas.get(numeroCarta);
+//        cartas.remove(numeroCarta);		// remove a primeira carta para a lista
+//        cartas.add(this.carta);                          // copia a primeira carta para o fim da lista 
+        jLCartaObjetivo.setIcon(this.carta.getImagem());
+        jLCartaObjetivo.update(jLCartaObjetivo.getGraphics());
+        // determina a carta que o jogador vai usar
+        this.j.setObjetivo(this.carta);
     }
     
    
@@ -141,25 +209,31 @@ public class TelaSorteaCartas extends javax.swing.JDialog {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        jLObjetivo = new javax.swing.JLabel();
         jLCartaObjetivo = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        jButtonSortear = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(275, 410));
         setMinimumSize(new java.awt.Dimension(275, 410));
         setUndecorated(true);
+        setPreferredSize(new java.awt.Dimension(275, 410));
 
         jPanel1.setBackground(new java.awt.Color(26, 64, 35));
         jPanel1.setBorder(javax.swing.BorderFactory.createMatteBorder(3, 3, 3, 3, new java.awt.Color(255, 255, 255)));
         jPanel1.setMaximumSize(new java.awt.Dimension(275, 410));
         jPanel1.setMinimumSize(new java.awt.Dimension(275, 410));
+        jPanel1.setPreferredSize(new java.awt.Dimension(275, 410));
 
-        jLabel1.setBackground(new java.awt.Color(161, 165, 108));
-        jLabel1.setFont(new java.awt.Font("Traditional Arabic", 1, 22)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(26, 64, 35));
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Próximo Objetivo");
-        jLabel1.setOpaque(true);
+        jLObjetivo.setBackground(new java.awt.Color(161, 165, 108));
+        jLObjetivo.setFont(new java.awt.Font("Traditional Arabic", 1, 22)); // NOI18N
+        jLObjetivo.setForeground(new java.awt.Color(26, 64, 35));
+        jLObjetivo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLObjetivo.setText("Próximo Objetivo");
+        jLObjetivo.setMaximumSize(new java.awt.Dimension(246, 42));
+        jLObjetivo.setMinimumSize(new java.awt.Dimension(246, 42));
+        jLObjetivo.setOpaque(true);
+        jLObjetivo.setPreferredSize(new java.awt.Dimension(246, 42));
 
         jLCartaObjetivo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLCartaObjetivo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagensbir/CartaObjetivoCostas.png"))); // NOI18N
@@ -167,12 +241,15 @@ public class TelaSorteaCartas extends javax.swing.JDialog {
         jLCartaObjetivo.setMinimumSize(new java.awt.Dimension(145, 250));
         jLCartaObjetivo.setPreferredSize(new java.awt.Dimension(145, 250));
 
-        jButton1.setFont(new java.awt.Font("Traditional Arabic", 1, 18)); // NOI18N
-        jButton1.setMnemonic('c');
-        jButton1.setText("Clique para ver seu objetivo");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jButtonSortear.setFont(new java.awt.Font("Traditional Arabic", 1, 18)); // NOI18N
+        jButtonSortear.setMnemonic('s');
+        jButtonSortear.setLabel("Selecionar Objetivo");
+        jButtonSortear.setMaximumSize(new java.awt.Dimension(246, 42));
+        jButtonSortear.setMinimumSize(new java.awt.Dimension(246, 42));
+        jButtonSortear.setPreferredSize(new java.awt.Dimension(246, 42));
+        jButtonSortear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jButtonSortearActionPerformed(evt);
             }
         });
 
@@ -181,25 +258,26 @@ public class TelaSorteaCartas extends javax.swing.JDialog {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(61, 61, 61)
-                .addComponent(jLCartaObjetivo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(61, 61, 61)
+                        .addComponent(jLCartaObjetivo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jButtonSortear, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLObjetivo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(13, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addComponent(jLObjetivo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLCartaObjetivo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
+                .addComponent(jButtonSortear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -207,22 +285,27 @@ public class TelaSorteaCartas extends javax.swing.JDialog {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(0, 0, 0)
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        sortear(j);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void jButtonSortearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSortearActionPerformed
+        if(!jButtonSortear.getText().trim().toLowerCase().equals("ok")){
+            sortear(j);
+            jButtonSortear.setText("Ok");
+            jButtonSortear.setMnemonic('o');
+            jLObjetivo.setText("Seu Objetivo");
+        }else{
+            this.dispose();
+        }
+    }//GEN-LAST:event_jButtonSortearActionPerformed
 
     /**
      * @param args the command line arguments
@@ -267,9 +350,9 @@ public class TelaSorteaCartas extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButtonSortear;
     private javax.swing.JLabel jLCartaObjetivo;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLObjetivo;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 

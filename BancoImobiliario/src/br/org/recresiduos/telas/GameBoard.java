@@ -477,7 +477,7 @@ public class GameBoard extends javax.swing.JFrame {
 
         // se for a última rodada, encerra o jogo
         // verifica as rodadas do jogo
-        if (j.isUltimoNaRodada() && j.getRodada() > 5) {
+        if (j.isUltimoNaRodada() && j.getRodada() > 30) {
             gameOver();
             this.dispose();
         }
@@ -534,19 +534,19 @@ public class GameBoard extends javax.swing.JFrame {
         switch (j.getCor()) {
             case AMARELO:
                 jLValorSaldoAmarelo.setText(String.valueOf(j.getSaldo()));
-                jLQtdeObjetivoAmarelo.setText("");
+                jLQtdeObjetivoAmarelo.setText(String.valueOf(j.getNumeroObjetivosConcluidos()));
                 break;
             case AZUL:
                 jLValorSaldoAzul.setText(String.valueOf(j.getSaldo()));
-                jLQtdeObjetivoAzul.setText("");
+                jLQtdeObjetivoAzul.setText(String.valueOf(j.getNumeroObjetivosConcluidos()));
                 break;
             case BRANCO:
                 jLValorSaldoBranco.setText(String.valueOf(j.getSaldo()));
-                jLQtdeObjetivoBranco.setText("");
+                jLQtdeObjetivoBranco.setText(String.valueOf(j.getNumeroObjetivosConcluidos()));
                 break;
             case PRETO:
                 jLValorSaldoPreto.setText(String.valueOf(j.getSaldo()));
-                jLQtdeObjetivoPreto.setText("");
+                jLQtdeObjetivoPreto.setText(String.valueOf(j.getNumeroObjetivosConcluidos()));
                 break;
         }
     }
