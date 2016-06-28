@@ -48,12 +48,29 @@ public class CriaJogadores extends javax.swing.JFrame {
         jBSair = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(410, 384));
+        setMinimumSize(new java.awt.Dimension(410, 384));
+        setUndecorated(true);
+        setPreferredSize(new java.awt.Dimension(410, 384));
         setResizable(false);
 
-        jLPFundo.setBackground(new java.awt.Color(0, 153, 204));
+        jLPFundo.setBackground(new java.awt.Color(26, 64, 35));
+        jLPFundo.setBorder(javax.swing.BorderFactory.createMatteBorder(3, 3, 3, 3, new java.awt.Color(168, 165, 108)));
+        jLPFundo.setMaximumSize(new java.awt.Dimension(410, 384));
+        jLPFundo.setMinimumSize(new java.awt.Dimension(410, 384));
+        jLPFundo.setOpaque(true);
+        jLPFundo.setPreferredSize(new java.awt.Dimension(410, 384));
 
+        jLabel1.setBackground(new java.awt.Color(168, 165, 108));
+        jLabel1.setFont(new java.awt.Font("Traditional Arabic", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(26, 64, 35));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Escreva seu nome ao lado da cor que quer usar");
+        jLabel1.setText("Escreva seu nome ao lado \nda cor que quer usar");
+        jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jLabel1.setMaximumSize(new java.awt.Dimension(366, 66));
+        jLabel1.setMinimumSize(new java.awt.Dimension(366, 66));
+        jLabel1.setOpaque(true);
+        jLabel1.setPreferredSize(new java.awt.Dimension(366, 66));
 
         jLAmarelo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLAmarelo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagensbir/jogadorAmarelo.png"))); // NOI18N
@@ -160,41 +177,40 @@ public class CriaJogadores extends javax.swing.JFrame {
         jLPFundoLayout.setHorizontalGroup(
             jLPFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jLPFundoLayout.createSequentialGroup()
-                .addGroup(jLPFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jLPFundoLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jLPFundoLayout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addGroup(jLPFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(jLPFundoLayout.createSequentialGroup()
-                                .addComponent(jLAzul, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jTFNomeJogador2))
-                            .addGroup(jLPFundoLayout.createSequentialGroup()
-                                .addComponent(jLBranco, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jTFNomeJogador3))
-                            .addGroup(jLPFundoLayout.createSequentialGroup()
-                                .addComponent(jLAmarelo, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jTFNomeJogador1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jLPFundoLayout.createSequentialGroup()
-                                .addComponent(jLPreto, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jTFNomeJogador4))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jLPFundoLayout.createSequentialGroup()
-                                .addComponent(jBContinuar)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jBSair, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 42, Short.MAX_VALUE)))
+                .addContainerGap()
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 384, Short.MAX_VALUE)
                 .addContainerGap())
+            .addGroup(jLPFundoLayout.createSequentialGroup()
+                .addGap(67, 67, 67)
+                .addGroup(jLPFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jLPFundoLayout.createSequentialGroup()
+                        .addComponent(jLAzul, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jTFNomeJogador2))
+                    .addGroup(jLPFundoLayout.createSequentialGroup()
+                        .addComponent(jLBranco, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jTFNomeJogador3))
+                    .addGroup(jLPFundoLayout.createSequentialGroup()
+                        .addComponent(jLAmarelo, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jTFNomeJogador1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jLPFundoLayout.createSequentialGroup()
+                        .addComponent(jLPreto, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jTFNomeJogador4))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jLPFundoLayout.createSequentialGroup()
+                        .addComponent(jBContinuar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jBSair, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jLPFundoLayout.setVerticalGroup(
             jLPFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jLPFundoLayout.createSequentialGroup()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29)
+                .addContainerGap()
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(jLPFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLAmarelo, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jLPFundoLayout.createSequentialGroup()
@@ -219,10 +235,10 @@ public class CriaJogadores extends javax.swing.JFrame {
                         .addGap(13, 13, 13)
                         .addComponent(jTFNomeJogador4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
-                .addGroup(jLPFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jLPFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jBContinuar)
                     .addComponent(jBSair))
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addGap(24, 24, 24))
         );
 
         jTFNomeJogador1.getAccessibleContext().setAccessibleName("jTFNomeJogador1");
@@ -239,11 +255,13 @@ public class CriaJogadores extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLPFundo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jLPFundo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLPFundo)
+            .addComponent(jLPFundo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         getAccessibleContext().setAccessibleName("FormCriaJogadores");
