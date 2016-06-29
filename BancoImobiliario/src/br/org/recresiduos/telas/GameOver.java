@@ -7,6 +7,7 @@ package br.org.recresiduos.telas;
 
 import br.org.recresiduos.entidades.Jogador;
 import br.org.recresiduos.uteis.Arredonda;
+import br.org.recresiduos.uteis.MascaraValor;
 
 /**
  *
@@ -71,25 +72,25 @@ public class GameOver extends javax.swing.JDialog {
         if(!jog[0].getNome().trim().isEmpty()){
             jPQuarto.setBackground(jLFimJogo.getBackground());
             jLJogadorQua.setText("Jogador: " + jog[0].getNome());
-            jLSaldoQua.setText(String.valueOf(jog[0].getSaldo()));
+            jLSaldoQua.setText(new MascaraValor(jog[0].getSaldo()).numeroFormatado());
         }
 
         if(!jog[1].getNome().trim().isEmpty()){
             jPTerceiro.setBackground(jLFimJogo.getBackground());
             jLJogadorTer.setText("Jogador: " + jog[1].getNome());
-            jLSaldoTer.setText(String.valueOf(jog[1].getSaldo()));
+            jLSaldoTer.setText(new MascaraValor(jog[1].getSaldo()).numeroFormatado());
         }
 
         if(!jog[2].getNome().trim().isEmpty()){
             jPSegundo.setBackground(jLFimJogo.getBackground());
             jLJogadorSeg.setText("Jogador: " + jog[2].getNome());
-            jLSaldoSeg.setText(String.valueOf(jog[2].getSaldo()));
+            jLSaldoSeg.setText(new MascaraValor(jog[2].getSaldo()).numeroFormatado());
         }
 
         if(!jog[3].getNome().trim().isEmpty()){
             jPGanhador.setBackground(jLFimJogo.getBackground());
             jLJogadorGanhador.setText("Jogador: " + jog[3].getNome());
-            jLSaldoGanhador.setText(String.valueOf(jog[3].getSaldo()));
+            jLSaldoGanhador.setText(new MascaraValor(jog[3].getSaldo()).numeroFormatado());
         }
 //        
 //        if (jog[3] != null) {

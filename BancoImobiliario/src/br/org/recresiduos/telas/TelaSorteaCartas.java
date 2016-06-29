@@ -99,11 +99,11 @@ public class TelaSorteaCartas extends javax.swing.JDialog {
         cartas.add(obj);
         // Carta 010
         img = new ImageIcon(getClass().getResource("/imagensbir/CartaObjetivoFrente010.png"));
-        obj = new Objetivo("Avião", 4000, img);
+        obj = new Objetivo("Avião", 2000, img);
         obj.setQtdePlastico(20);
-        obj.setQtdeMetal(30);
-        obj.setQtdeOrganico(30);
-        obj.setQtdeVidro(20);
+        obj.setQtdeMetal(25);
+        obj.setQtdeOrganico(15);
+        obj.setQtdeVidro(15);
         cartas.add(obj);
 
         // embaralha as cartas, enquanto a lista original não estiver vazia
