@@ -109,7 +109,7 @@ public class GameBoard extends javax.swing.JFrame {
         jLFundoCasa17.setIcon(new ImageIcon(getClass().getResource("/imagensbir/FundoPapel.png")));
         jLFundoCasa18.setIcon(new ImageIcon(getClass().getResource("/imagensbir/FundoOrganico.png")));
         jLFundoCasa19.setIcon(new ImageIcon(getClass().getResource("/imagensbir/FundoPlastico.png")));
-        jLFundoCasa20.setIcon(new ImageIcon(getClass().getResource("/imagensbir/FundoNaoReciclavel.png")));
+        jLFundoCasa20.setIcon(new ImageIcon(getClass().getResource("/imagensbir/FundoMadeira.png")));
 
         jLFundoCasa21.setIcon(new ImageIcon(getClass().getResource("/imagensbir/FundoVidro.png")));
         jLFundoCasa22.setIcon(new ImageIcon(getClass().getResource("/imagensbir/FundoNaoReciclavel.png")));
@@ -248,7 +248,7 @@ public class GameBoard extends javax.swing.JFrame {
         casas.add(new Casa(true, 2600, 260, 260, 2600, 17, TipodeMateriais.PAPEL));
         casas.add(new Casa(true, 2600, 260, 260, 2600, 18, TipodeMateriais.ORGANICO));
         casas.add(new Casa(true, 3000, 300, 300, 3000, 19, TipodeMateriais.PLASTICO));
-        casas.add(new Casa(true, 3000, 300, 300, 3000, 20, TipodeMateriais.NAORECICLAVEL));
+        casas.add(new Casa(true, 3000, 300, 300, 3000, 20, TipodeMateriais.MADEIRA));
         casas.add(new Casa(true, 2600, 260, 260, 2600, 21, TipodeMateriais.VIDRO));
         casas.add(new Casa(true, 2600, 260, 260, 2600, 22, TipodeMateriais.NAORECICLAVEL));
         casas.add(new Casa(true, 3000, 300, 300, 3000, 23, TipodeMateriais.MADEIRA));
@@ -477,7 +477,7 @@ public class GameBoard extends javax.swing.JFrame {
 
         // se for a última rodada, encerra o jogo
         // verifica as rodadas do jogo
-        if (j.isUltimoNaRodada() && j.getRodada() > 30) {
+        if (j.isUltimoNaRodada() && j.getRodada() > jogadasMaximo) {
             gameOver();
             this.dispose();
         }
@@ -1756,4 +1756,6 @@ public class GameBoard extends javax.swing.JFrame {
 
     private List<Casa> casas;
     private int nroRodada = 1;
+    
+    private final int jogadasMaximo = 5;
 }

@@ -5,10 +5,8 @@
  */
 package br.org.recresiduos.telas;
 
-import br.org.recresiduos.constantes.CorJogador;
 import br.org.recresiduos.entidades.Jogador;
-import java.awt.Color;
-import javax.swing.JFrame;
+import br.org.recresiduos.uteis.Arredonda;
 
 /**
  *
@@ -51,6 +49,8 @@ public class GameOver extends javax.swing.JDialog {
                 jog[i].setSaldo(-10);
             } else {
                 jog[i] = jogadores[i];
+                double saldo = jog[i].getSaldo();
+                jog[i].setSaldo(new Arredonda(saldo).valorArredondado());
             }
         }
 
