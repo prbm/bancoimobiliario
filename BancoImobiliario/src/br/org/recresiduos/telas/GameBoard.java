@@ -219,7 +219,7 @@ public class GameBoard extends javax.swing.JFrame {
         // atualiza a tela
         mostrarQuemEstaJogando();
         habilitarBotoesJogar();
-        
+
         jLNroRodada.setText(jLNroRodada.getText().concat(" " + nroRodada));
     }
 
@@ -1395,7 +1395,7 @@ public class GameBoard extends javax.swing.JFrame {
         jLNroRodada.setFont(new java.awt.Font("Traditional Arabic", 1, 18)); // NOI18N
         jLNroRodada.setForeground(new java.awt.Color(26, 64, 35));
         jLNroRodada.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLNroRodada.setText("Rodada: ");
+        jLNroRodada.setText("Jogada: ");
         jLNroRodada.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jLNroRodada.setMaximumSize(new java.awt.Dimension(318, 34));
         jLNroRodada.setMinimumSize(new java.awt.Dimension(318, 34));
