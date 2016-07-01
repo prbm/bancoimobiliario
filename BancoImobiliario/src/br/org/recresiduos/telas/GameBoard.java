@@ -501,7 +501,7 @@ public class GameBoard extends javax.swing.JFrame {
         // atualiza o número da rodada
         if(j.isUltimoNaRodada()){
             nroRodada++;
-            jLNroRodada.setText("Rodada: " + nroRodada);
+            jLNroRodada.setText("Jogada: " + nroRodada);
         }
     }
 
